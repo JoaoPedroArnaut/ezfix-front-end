@@ -1,5 +1,7 @@
 function Home(){
-    return <div>hello word</div>
+    return (
+    <div className="container flex content-around justify-center max-w-full text-indigo">hello world</div>
+    )
 }
 
 export default Home
