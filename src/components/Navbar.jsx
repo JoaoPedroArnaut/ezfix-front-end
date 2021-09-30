@@ -14,7 +14,7 @@ const Navbar = (props) => {
     
     return (
         <div className="bg-blue h-24 flex justify-around items-center">
-            <Image src={logo} width="100%" height="100%" alt="logo ezfix" />
+            <Image src={logo} width="150px" height="150px" alt="logo ezfix" />
             <div className="w-2/5 flex justify-around">
                 {mostra}  
             </div>
