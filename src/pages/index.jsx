@@ -1,12 +1,12 @@
-function Home(){
-    return (
-    <>
-    <div className="container flex content-around justify-center max-w-full text-indigo-dark">hello world</div>
+import Navbar from "../components/Navbar"
 
-    <div className="teste">
-        <p>Paragrafo aqui</p>
-    </div>
-    </>
+function Home() {
+    return (
+        <>
+            <Navbar botoes={["Solução","Diferenciais","Sobre","Contato"]} login="login/cadastro" />
+            <div className = "container flex content-around justify-center max-w-full text-blue-dark" > 
+            </div>
+        </>
     )
 }
 
