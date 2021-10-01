@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.alturaSemNavbar{
+  height: calc(100vh - 6rem);
+}
