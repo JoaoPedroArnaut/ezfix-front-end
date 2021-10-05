@@ -2,29 +2,19 @@ module.exports = {
   purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-
-      width: {
-
-        '1/7': 'calc(6rem - 100vh)',
-
-        '2/7': '28.5714286%',
-
-        '3/7': '42.8571429%',
-
-        '4/7': '57.1428571%',
-
-        '5/7': '71.4285714%',
-
-        '6/7': '85.7142857%',
-
-      }
+    extend: {       
+    spacing: {
+      '96': '400px',
+    },
+      backgroundImage: {
+        'banner': "url('/broken-screen-smartphone-6137698_1920 (2) 1.png')",
+       }
      },
     colors: {
       blue: {
-        light: '#47ABEE',
+        light: '#C2E1F6',
         DEFAULT: '#008BEA',
-        dark: '#235475',
+        dark: '#15374E',
       },
       white: {
         DEFAULT: '#ffffff'
