@@ -21,3 +21,7 @@ a {
 .alturaSemNavbar{
   height: calc(100vh - 6rem);
 }
+
+.h-fit{
+  height: fit-content;
+}
