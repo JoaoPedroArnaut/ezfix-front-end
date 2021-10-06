@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       spacing: {
         '96': '400px',
+        '15':'17%',
       },
       backgroundImage: {
         'banner': "url('/broken-screen-smartphone-6137698_1920 (2) 1.png')",
