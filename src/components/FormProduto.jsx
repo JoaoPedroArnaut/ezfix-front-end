@@ -6,9 +6,9 @@ import Botao from "../components/Botao"
 
 const FormProduto = () => {
     return (
-        <div className="bg-blue-light w-full sm:w-96 p-8 h-fit  sm:rounded-2xl filter drop-shadow-lg">
+        <div className="bg-blue-light w-full sm:w-96 p-8 h-fit sm:rounded-2xl ">
             <h1 className="text-xl text-center font-medium">O que está <br /> precisando ser reparado?</h1>
-            <hr className="opacity-25 my-2 " />
+            <hr className="text-black text-opacity-25 my-2" />
             <ComboBox label="Produto" opicao={["--Selecione--", "Celular"]} />
             <Input label="Marca" placeholder="Ex: Samsung, Positivo ..." />
             <Input label="Modelo" placeholder="Digite o modelo." />
