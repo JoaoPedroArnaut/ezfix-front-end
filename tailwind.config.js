@@ -38,6 +38,9 @@ module.exports = {
       },
       gray:{
         DEFAULT: '#CCCCCC'
+      },
+      amarelo:{
+        DEFAULT: '#ffd700'
       }
     }
   },
