@@ -1,27 +1,27 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import CardAssistencia from '../components/CardAssistencia'
+import ComboBox from '../components/ComboBox'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import Pagination from '../components/Pagination'
+import Recomendadas from '../components/Recomendadas'
 
 const assistencias = () => {
     return (
         <>
             <Navbar login={["Login", "Criar conta"]} />
-            <div className="pt-24 flex justify-around">
-                <div className="alturaSemNavbar w-4/5 flex flex-col items-center mt-16">
-                    <div className="w-4/6">
-                        <p className="text-xl flex justify-around font-bold">Selecionamos as melhores assistências para você</p>
-                        <hr className="text-black text-opacity-25 my-2" />
-                    </div>
-                    <div className="w-full h-full grid grid-cols-3 grid-rows-2 gap-8">
-                        <div className="w-full bg-blue-light h-28 flex rounded-lg p-4">
-                            <div className="w-2/5 flex justify-around items-center">
-                                <img src="/download.png" alt="" className="rounded-full h-20" />
-                            </div>
-                            <div className="w-4/5"></div>
-                        </div>
-                    </div>
+            <Recomendadas />
+            <div className="flex justify-around w-full mt-8">
+                <div className="">
+                    <input type="text" className="bg-blue-dark h-8 text-white rounded-l-md p-2" placeholder="pesquisar" />
+                    <button className="text-white bg-blue-dark p-1 rounded-r-md h-8"><FontAwesomeIcon icon={faSearch}/></button>
                 </div>
+                <ComboBox escuro='true' label="Filtro" opicao={["filtro"]}/>
             </div>
+            <hr/>
+            <Pagination />
             <Footer />
         </>
     )
