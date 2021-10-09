@@ -5,6 +5,9 @@ module.exports = {
     container: {
       center: true,
     },
+    maxHeight: {
+      'screen/2':'150vh'
+     },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
