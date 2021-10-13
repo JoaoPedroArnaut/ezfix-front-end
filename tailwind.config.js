@@ -37,11 +37,17 @@ module.exports = {
         DEFAULT: '#000000'
       },
       gray:{
-        DEFAULT: '#CCCCCC'
+        DEFAULT: '#CCCCCC',
+        light: '#F1F6F9',
+        dark: '#7C7878'
       },
       amarelo:{
         DEFAULT: '#ffd700'
-      }
+      },
+      green:{
+        DEFAULT: '#14CA3C'
+      },
+      red: '#C62424'
     }
   },
   variants: {
