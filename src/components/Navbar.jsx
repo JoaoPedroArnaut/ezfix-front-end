@@ -2,24 +2,6 @@ import React from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
 
-// function AlterarNavBar(props){
-//     if (props.logado) {
-//         return(
-//             <div className="flex items-center">
-//                 <span className="text-white text-xl mr-4 font-semibold">{props.login[1]}</span>
-//                 <Image src="/PerfilUsuario.jpeg" className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
-//             </div>
-//         )
-//     }
-//     else if(props.login){
-//         return(
-//             <div>
-//                 <span className="text-white mr-4">{props.login[1]="Criar Conta"}</span>
-//                         <Botao text={props.login[0]="Entrar"} />
-//             </div>
-//         )
-//     }
-// }
 
 const Navbar = (props) => {
     const listaBotoes = props.botoes;
@@ -35,7 +17,7 @@ const Navbar = (props) => {
                         </div>
                         : <div>
                             <span className="text-white mr-4">{props.login[1]}</span>
-                            <Botao text={props.login[0]} />
+                            <Botao estilo={3} text={props.login[0]} />
                         </div>
                     }
             </div>

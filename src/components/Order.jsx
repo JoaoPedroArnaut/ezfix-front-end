@@ -29,10 +29,10 @@ const Order = ({ assistencia, imagem }) => {
 
                     </div>
                     <div className="w-full h-24 bg-blue-dark rounded-b-2xl flex justify-between items-center px-8">
-                        <Botao text="Detalhes" icone={faSearchPlus}  />
+                        <Botao estilo={2} text="Detalhes" icone={faSearchPlus}  />
                         <div className="flex justify-between w-2/6">
-                            <Botao text="Conversa" icone={faCommentDots}/>
-                            <Botao text="Conversa" icone={faBullhorn}/>
+                            <Botao estilo={2} text="Conversa" icone={faCommentDots}/>
+                            <Botao estilo={2} text="Conversa" icone={faBullhorn}/>
 
 
                         </div>

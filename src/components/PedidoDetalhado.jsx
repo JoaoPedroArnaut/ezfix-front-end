@@ -1,9 +1,10 @@
 import React from 'react'
+import Botao from './Botao'
 
 const PedidoDetalhado = () => {
     return (
         <>
-            <div className="w-full h-screen flex justify-around">
+            <div className="w-full mb-10 flex justify-around">
                 <div className="sm:w-4/5 flex flex-col mt-8">
                     <div className="w-full bg-gray-light rounded-2xl p-10 font-semibold">
                         <div className="flex justify-between w-full pb-9 ">
@@ -70,9 +71,9 @@ const PedidoDetalhado = () => {
                                     <p> Aguardando sua resposta</p>
                                 </div>
 
-                                <div className="flex w-3/12 justify-between">
-                                <button className="bg-red w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75">Recusar</button>
-                                <button className="bg-blue-dark w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75">Confirmar</button>
+                                <div className="flex w-1/5 justify-between">
+                                <Botao estilo={5} text="Recusar"/>
+                                <Botao estilo={6} text="Confirmar"/>
                                 </div>
                             </div>
 
