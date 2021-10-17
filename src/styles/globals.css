@@ -25,3 +25,8 @@ a {
 .h-fit{
   height: fit-content;
 }
+
+.tamanhoMinimo{
+  min-height: calc(100vh - 6rem);
+  max-height: fit-content;
+}
