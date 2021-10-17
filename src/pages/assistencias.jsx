@@ -19,7 +19,7 @@ const assistencias = () => {
                         <input type="text" className="bg-blue-dark h-8 text-white rounded-l-md p-2" placeholder="pesquisar" />
                         <button className="text-white bg-blue-dark p-1 rounded-r-md h-8"><FontAwesomeIcon icon={faSearch} /></button>
                     </div>
-                    <ComboBox escuro='true' label="Filtro" opicao={["filtro"]} />
+                    <ComboBox estilo={1} label="Filtro" opicao={["filtro"]} />
 
                 </div>
                 <hr className="text-black w-full lg:w-4/5 text-opacity-25" />
