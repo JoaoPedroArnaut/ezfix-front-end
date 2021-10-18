@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
 const Botao = (props) => {
     if(props.claro){
         return (
