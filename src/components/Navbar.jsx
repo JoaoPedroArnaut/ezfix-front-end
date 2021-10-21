@@ -31,7 +31,9 @@ const Navbar = (props) => {
                 <Image src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
                     {props.logado ?
                         <div className="flex items-center">
+                            <Link href={props.page} >
                             < span className="text-white text-xl mr-4 font-semibold">{props.usuario}</span>
+                            </Link>
                             <Image src={props.imgPerfil} className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
                         </div>
                         : <div>
