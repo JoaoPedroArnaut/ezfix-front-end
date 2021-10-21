@@ -10,7 +10,7 @@ const FormsUsuario = ({ pgForm, trocaPg, etapa, tituloForm}) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        // router.push('/')
+        router.push('/')
     }
 
     return (

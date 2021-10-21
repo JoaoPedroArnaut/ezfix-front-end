@@ -1,6 +1,7 @@
 import React from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // function AlterarNavBar(props){
 //     if (props.logado) {
@@ -34,7 +35,9 @@ const Navbar = (props) => {
                             <Image src={props.imgPerfil} className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
                         </div>
                         : <div>
+                            <Link href="/cadastro">
                             <span className="text-white mr-4">{props.login[1]}</span>
+                            </Link>
                             <Botao text={props.login[0]} />
                         </div>
                     }
