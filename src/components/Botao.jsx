@@ -20,7 +20,7 @@ const Botao = ({ estilo, icone, text }) => {
 
         //Botão do componente HeaderOrder
         case 4: return (
-            <button className="rounded-3xl px-5 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-2xl font-bold flex justify-around items-center">
+            <button className="rounded-3xl px-5 py-2 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-2xl font-bold flex justify-around items-center">
                 <FontAwesomeIcon icon={icone} />{text}</button>
         )
 
