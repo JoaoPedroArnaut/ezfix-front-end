@@ -5,6 +5,9 @@ module.exports = {
     container: {
       center: true,
     },
+    maxHeight: {
+      'screen/2':'150vh'
+     },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -19,6 +22,7 @@ module.exports = {
       spacing: {
         '96': '400px',
         '15':'17%',
+        '45': '48%',
       },
       backgroundImage: {
         'banner': "url('/broken-screen-smartphone-6137698_1920 (2) 1.png')",
@@ -37,8 +41,17 @@ module.exports = {
         DEFAULT: '#000000'
       },
       gray:{
-        DEFAULT: '#CCCCCC'
-      }
+        DEFAULT: '#CCCCCC',
+        light: '#F1F6F9',
+        dark: '#7C7878'
+      },
+      amarelo:{
+        DEFAULT: '#ffd700'
+      },
+      green:{
+        DEFAULT: '#14CA3C'
+      },
+      red: '#C62424'
     }
   },
   variants: {
