@@ -9,7 +9,12 @@ import LoginCliente from '../components/LoginCliente/LoginCliente';
 function PageLoginCliente() {
     return (
         <>
+<<<<<<< HEAD
             <NavUnfixed login={["Login", "Criar conta"]} />
+=======
+            <Navbar login={["Login", "Criar conta"]} />
+            <div className="h-24"></div>
+>>>>>>> main
                <LoginCliente />
             <Footer />
         </>
