@@ -29,8 +29,8 @@ export class cadastro extends Component {
         return (
             <>
                 <Navbar login={["Login", "Criar conta"]} />
-                <div className="alturaSemNavbar pt-24 flex justify-around items-center">
-                    <div className="w-9/12 filter shadow-xl rounded-xl flex flex-col items-center py-16">
+                <div className="my-16 flex justify-around items-center">
+                    <div className="w-9/12 border-2 border-solid border-opacity-10 border-black filter shadow-xl rounded-xl flex flex-col items-center py-16">
                         <FormsUsuario trocaPg={this.setEtapas} pgForm={this.state.pgForm} etapa={this.state.etapas} tituloForm={this.state.tituloForm} />
                     </div>
                 </div>

@@ -8,7 +8,7 @@ import Footer from "../components/Footer"
 function Home() {
     return (
         <>
-            <Navbar login={["Login", "Criar conta"]} />
+            <Navbar fixed={true} login={["Login", "Criar conta"]} />
             <Banner />
             <Section2 />
             <Section3/>

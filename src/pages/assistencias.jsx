@@ -11,7 +11,7 @@ import Recomendadas from '../components/Recomendadas'
 const assistencias = () => {
     return (
         <>
-            <Navbar logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="/myorders" />
+            <Navbar fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="/myorders" />
             {/* <Recomendadas /> */}
             <div className="flex flex-col items-center">
                 <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full my-8">
