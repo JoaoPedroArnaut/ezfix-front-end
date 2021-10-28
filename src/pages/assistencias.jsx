@@ -12,14 +12,14 @@ const assistencias = () => {
     return (
         <>
             <Navbar login={["Login", "Criar conta"]} />
-            <Recomendadas />
+            {/* <Recomendadas /> */}
             <div className="flex flex-col items-center">
                 <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full my-8">
                     <div className="">
                         <input type="text" className="bg-blue-dark h-8 text-white rounded-l-md p-2" placeholder="pesquisar" />
                         <button className="text-white bg-blue-dark p-1 rounded-r-md h-8"><FontAwesomeIcon icon={faSearch} /></button>
                     </div>
-                    <ComboBox escuro='true' label="Filtro" opicao={["filtro"]} />
+                    <ComboBox estilo={1} label="Filtro" opicao={["filtro"]} />
 
                 </div>
                 <hr className="text-black w-full lg:w-4/5 text-opacity-25" />
