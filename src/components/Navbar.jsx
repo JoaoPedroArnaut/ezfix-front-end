@@ -35,20 +35,20 @@ const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
     return (
         <div className={estilo}>
             <div className="flex justify-between items-center container w-11/12 sm:w-4/5">
-                <Link href="/">
-                    <Image src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
+                <Link href="/" >
+                    <Image className="cursor-pointer" src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
                 </Link>
                 {logado ?
                     <div className="flex items-center">
                         <Link href={page} >
-                            < span className="text-white text-xl mr-4 font-semibold">{usuario}</span>
+                            < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{usuario}</span>
                         </Link>
 
                         <Image src={imgPerfil} className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
                     </div>
                     : <div>
                         <Link href="/cadastro">
-                            <span className="text-white mr-4">{login[1]}</span>
+                            <span className="text-white mr-4 cursor-pointer">{login[1]}</span>
                         </Link>
                         <Botao text={login[0]} page="/PageLoginCliente" />
                     </div>
