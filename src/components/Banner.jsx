@@ -4,7 +4,7 @@ import Botao from './Botao'
 const Banner = () => {
     return (
         <div className="sm:bg-banner bg-cover pt-24">
-            <div className="alturaSemNavbar w-full bg-black sm:bg-opacity-50 flex justify-around">
+            <div className="alturaSemNavbar w-full bg-black sm:bg-opacity-0 flex justify-around">
                 <div className="container h-full flex items-center sm:w-4/5 justify-around lg:justify-start">
                     <div className="p-4 lg:w-3/4 w-full min-w-min rounded-xl">
                         <h1 className="sm:text-4xl lg:text-4xl xl:text-5xl text-xl text-white font-bold mb-4">Está com dificuldade para encontrar uma assistência técnica ideal?</h1>
