@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 import Botao from './Botao'
 
 const Banner = () => {
+    const router = useRouter();
+
     return (
         <div className="sm:bg-banner bg-cover pt-24">
             <div className="alturaSemNavbar w-full bg-black sm:bg-opacity-0 flex justify-around">
@@ -12,7 +15,7 @@ const Banner = () => {
                         <p className="text-white lg:text-2xl sm:text-xl xl:text-4xl text-xl  w-full sm:w-3/4 my-4">Nós a EZFix vamos te proporcionar uma busca simples e em poucos passos. Vamos lá?</p>
                         <hr className="text-white sm:w-1/2 text-opacity-25 filter drop-shadow-md" />
                         <div className="sm:w-2/3 mt-4">
-                            <Botao text="Vamos!" claro="true" page="#teste"/>
+                            <Botao text="Vamos!" estilo={1} onClick={() => {router.push("#teste")}}/>
                         </div>
                     </div>
                 </div>
