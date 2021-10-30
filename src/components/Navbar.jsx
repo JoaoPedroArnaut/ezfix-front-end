@@ -2,28 +2,12 @@ import React from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
 import Link from 'next/link'
-
-// function AlterarNavBar(props){
-//     if (props.logado) {
-//         return(
-//             <div className="flex items-center">
-//                 <span className="text-white text-xl mr-4 font-semibold">{props.login[1]}</span>
-//                 <Image src="/PerfilUsuario.jpeg" className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
-//             </div>
-//         )
-//     }
-//     else if(props.login){
-//         return(
-//             <div>
-//                 <span className="text-white mr-4">{props.login[1]="Criar Conta"}</span>
-//                         <Botao text={props.login[0]="Entrar"} />
-//             </div>
-//         )
-//     }
-// }
+import { useRouter } from 'next/router';
 
 const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
     const listaBotoes = botoes;
+    const router = useRouter();
+
     
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
     
@@ -50,7 +34,7 @@ const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
                         <Link href="/cadastro">
                             <span className="text-white mr-4 cursor-pointer">{login[1]}</span>
                         </Link>
-                        <Botao text={login[0]} page="/PageLoginCliente" />
+                        <Botao text={login[0]} onClick={() =>  { router.push("/PageLoginCliente")}} />
                     </div>
                 }
             </div>
