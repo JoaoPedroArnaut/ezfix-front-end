@@ -7,8 +7,8 @@ import PedidoDetalhado from '../components/PedidoDetalhado'
 const confirmacaoPedido = () => {
     return (
         <div>
-            <Navbar logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
-            <HeaderOrder tituloPagina="Seu Pedido"/>
+            <Navbar fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="#"/>
+            <HeaderOrder tituloPagina="Seu Pedido" page="/myorders" />
             <PedidoDetalhado/>
             <Footer/>
         </div>
