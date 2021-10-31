@@ -8,9 +8,9 @@ const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
     const listaBotoes = botoes;
     const router = useRouter();
 
-    
+
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
-    
+
     if(fixed){
         console.log("teste");
         estilo +=  " fixed z-50";
@@ -34,7 +34,7 @@ const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
                         <Link href="/cadastro">
                             <span className="text-white mr-4 cursor-pointer">{login[1]}</span>
                         </Link>
-                        <Botao text={login[0]} onClick={() =>  { router.push("/PageLoginCliente")}} />
+                        <Botao estilo={2} text={login[0]} onClick={() =>  { router.push("/PageLoginCliente")}} />
                     </div>
                 }
             </div>
