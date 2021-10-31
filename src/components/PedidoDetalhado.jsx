@@ -1,9 +1,10 @@
 import React from 'react'
 
-const PedidoDetalhado = () => {
+const PedidoDetalhado = ({ mudaTitulo }) => {
+
     return (
         <>
-             <div className="w-full mb-10 flex justify-around">
+            <div className="w-full mb-10 flex justify-around">
                 <div className="sm:w-4/5 flex flex-col mt-8">
                     <div className="w-full bg-gray-light rounded-2xl p-10 font-semibold pb-96">
                         <div className="flex justify-between w-full pb-9 ">
@@ -46,12 +47,12 @@ const PedidoDetalhado = () => {
                             </div>
                         </div>
                         <hr />
-        
-                        </div>
 
                     </div>
 
                 </div>
+
+            </div>
         </>
     )
 }

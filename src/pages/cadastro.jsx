@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 
 
 
-export class cadastro extends Component {
+class cadastro extends Component {
 
     constructor(props) {
         super(props)
