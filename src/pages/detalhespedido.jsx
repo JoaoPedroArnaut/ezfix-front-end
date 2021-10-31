@@ -4,10 +4,10 @@ import HeaderOrder from "../components/HeaderOrder"
 import Footer from '../components/Footer'
 import DetalhesAlternado from '../components/DetalhesAlternado'
 
-const confirmacaoPedido = () => {
+const detalhespedido = () => {
     return (
         <>
-            <Navbar logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
+            <Navbar fixed={true} page="/" logado={true} usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
             <HeaderOrder tituloPagina="Seu Pedido"/>
             <DetalhesAlternado estagio={1}/>
             <Footer/>
@@ -15,4 +15,4 @@ const confirmacaoPedido = () => {
     )
 }
 
-export default confirmacaoPedido
+export default detalhespedido
