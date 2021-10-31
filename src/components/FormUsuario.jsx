@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BotaoForm from './BotaoForm'
 import Input from './Input'
 
-const FormUsuario = ({trocaPg}) => {
+const FormUsuario = ({trocaPg,enviar}) => {
+
+    const [email,setEmail] = useState("");
+    const [senha,setSenha] = useState("");
+    const [confirmSenha,setConfirmSenha] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
+        enviar({email,senha,confirmSenha})
         trocaPg("Dados Pessoais")
-        console.log("cccccccc");
     }
 
     return (
         <form className="w-full flex justify-between flex-wrap" onSubmit={handleSubmit}>
-            <Input id="teste" onChange={e => { setTeste(e.target.value) }} label="Email" placeholder="seu@email.com" alternativo={true} size="w-full" />
-            <Input label="Senha" placeholder="********" alternativo={true} size="w-full" type="password" />
-            <Input label="Confirme sua senha" placeholder="********" alternativo={true} size="w-full" type="password" />
+            <Input value={email} onChange={e => { setEmail(e.target.value) }} label="Email" placeholder="seu@email.com" alternativo={true} size="w-full" />
+            <Input value={senha} onChange={e => { setSenha(e.target.value) }} label="Senha" placeholder="********" alternativo={true} size="w-full" type="password" />
+            <Input value={confirmSenha} onChange={e => { setConfirmSenha(e.target.value) }} label="Confirme sua senha" placeholder="********" alternativo={true} size="w-full" type="password" />
             <BotaoForm text="avançar" />
         </form>
     )
