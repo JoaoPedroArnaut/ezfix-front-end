@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/router';
 
 const Botao = ({ estilo, icone, text }) => {
     switch (estilo) {

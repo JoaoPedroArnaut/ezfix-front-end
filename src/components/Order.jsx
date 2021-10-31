@@ -1,9 +1,12 @@
 import React from 'react'
 import Botao from '../components/Botao'
 import { faBullhorn, faCommentDots, faSearchPlus } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/router';
 
 
 const Order = ({ assistencia, imagem }) => {
+    const router = useRouter();
+
     return (
         <>
             <div className="w-full h-screen flex justify-around">
@@ -23,7 +26,7 @@ const Order = ({ assistencia, imagem }) => {
                                 <li>Notebook Acer Nitro Aspire 5</li>
                                 <li>Xiaomi Redmi note 8</li>
                             </u>
-                            <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold">Confirmar</button>
+                            <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold" onClick={() => {router.push("/confirmacaoPedido")}}>Confirmar</button>
                         </div>
 
 
