@@ -11,10 +11,7 @@ const DetalhesAlternado = ({estagio}) => {
 
         default: return <div/>;
     }
-             
-             
-
-
+            
 }
 
 export default DetalhesAlternado

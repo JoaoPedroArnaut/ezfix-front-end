@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 import Botao from './Botao'
 
 const Banner = () => {
+    const router = useRouter();
+
     return (
         <div className="sm:bg-banner bg-cover pt-24">
             <div className="alturaSemNavbar w-full bg-black sm:bg-opacity-0 flex justify-around">
