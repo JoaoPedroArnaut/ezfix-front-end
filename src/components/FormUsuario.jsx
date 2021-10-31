@@ -10,7 +10,7 @@ const FormUsuario = ({trocaPg,enviar}) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        enviar({email,senha,confirmSenha})
+        enviar({email,senha})
         trocaPg("Dados Pessoais")
     }
 
