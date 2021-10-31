@@ -15,7 +15,7 @@ const Banner = () => {
                         <p className="text-white lg:text-2xl sm:text-xl xl:text-4xl text-xl  w-full sm:w-3/4 my-4">Nós a EZFix vamos te proporcionar uma busca simples e em poucos passos. Vamos lá?</p>
                         <hr className="text-white sm:w-1/2 text-opacity-25 filter drop-shadow-md" />
                         <div className="sm:w-2/3 mt-4">
-                            <Botao text="Vamos!" estilo={0} />
+                            <Botao text="Vamos!" estilo={0} onClick={() => {router.push("#teste")}}/>
                         </div>
                     </div>
                 </div>
