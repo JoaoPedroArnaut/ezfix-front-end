@@ -25,7 +25,7 @@ module.exports = {
         '45': '48%',
       },
       backgroundImage: {
-        'banner': "url('/broken-screen-smartphone-6137698_1920 (2) 1.png')",
+        'banner': "url('/Component 49.png')",
       }
     },
     colors: {

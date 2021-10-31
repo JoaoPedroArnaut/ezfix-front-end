@@ -7,9 +7,9 @@ import DetalhesAlternado from '../components/DetalhesAlternado'
 const confirmacaoPedido = () => {
     return (
         <>
-            <Navbar logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
-            <HeaderOrder tituloPagina="Seu Pedido"/>
-            <DetalhesAlternado estagio={2}/>
+            <Navbar fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="#"/>
+            <HeaderOrder tituloPagina="Seu Pedido" page="/myorders" />
+            <PedidoDetalhado/>
             <Footer/>
         </>
     )

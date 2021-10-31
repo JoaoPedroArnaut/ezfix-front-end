@@ -1,9 +1,12 @@
 import React from 'react'
 import Botao from '../components/Botao'
 import { faBullhorn, faCommentDots, faSearchPlus } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/router';
 
 
 const Order = ({ assistencia, imagem }) => {
+    const router = useRouter();
+
     return (
         <>
             <div className="w-full h-screen flex justify-around">
@@ -23,25 +26,17 @@ const Order = ({ assistencia, imagem }) => {
                                 <li>Notebook Acer Nitro Aspire 5</li>
                                 <li>Xiaomi Redmi note 8</li>
                             </u>
-                            <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold">Confirmar</button>
+                            <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold" onClick={() => {router.push("/confirmacaoPedido")}}>Confirmar</button>
                         </div>
 
 
                     </div>
                     <div className="w-full h-24 bg-blue-dark rounded-b-2xl flex justify-between items-center px-8">
-<<<<<<< HEAD
+
                         <Botao estilo={2} text="Detalhes" icone={faSearchPlus}  />
                         <div className="flex justify-between w-2/6">
-                            <Botao estilo={2} text="Conversa" icone={faCommentDots}/>
+                            <Botao estilo={2}  text="Conversa" icone={faCommentDots}/>
                             <Botao estilo={2} text="Conversa" icone={faBullhorn}/>
-=======
-                        <Botao text="Detalhes" icone={faSearchPlus}  />
-                        <div className="flex justify-between w-2/6">
-                            <Botao text="Conversa" icone={faCommentDots}/>
-                            <Botao text="Conversa" icone={faBullhorn}/>
->>>>>>> origin/main
-
-
                         </div>
                     </div>
 

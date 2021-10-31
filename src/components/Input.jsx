@@ -16,7 +16,7 @@ const Input = ({ label, placeholder, alternativo, size, type, id}) => {
         return (
             <div className="pt-2">
                 <Label value={label + ":"} />
-                <input type={type} className="w-full rounded-sm bg-white px-1" placeholder={placeholder} />
+                <input id={id} type={type} className="w-full rounded-sm bg-white px-1" placeholder={placeholder} />
             </div>
         )
     }

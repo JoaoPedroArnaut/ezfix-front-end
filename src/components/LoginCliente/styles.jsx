@@ -22,6 +22,7 @@ export const LoginArea = styled.div`
         height: 615px;
         border-radius: 10px;
         padding: 0 20px;
+        width: 50%;
         svg {
             margin-bottom: 20px;
         }
