@@ -1,41 +1,32 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import CamposUsuario from './CamposUsuario'
 import Etapas from '../components/Etapas'
 
 
-class FormsUsuario extends Component {
+const FormsUsuario = () => {
 
+    const [etapas, setEtapas] = useState([true]);
+    const [pgForm, setPgForm] = useState(0);
+    const [tituloForm, setTituloForm] = useState('Dados Do Usuario');
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            etapas: [true],
-            pgForm: 0,
-            tituloForm: 'Cadastro'
-        };
+    function trocaPg(novoTitulo) {
+        let tmpEtapa = etapas;
+        tmpEtapa.push(true)
+        setEtapas(tmpEtapa)
+        setPgForm(pgForm + 1)
+        setTituloForm(novoTitulo)
     }
 
-    setEtapas = (etapas, pgForm, tituloForm) => {
-        pgForm++
-        this.setState({
-            etapas: [...this.state.etapas,true],
-            pgForm: pgForm,
-            tituloForm: tituloForm
-        })
-    }
+    return (
+        <>
+            <h1 className="text-4xl">{tituloForm}</h1>
+            <Etapas etapa={etapas} />
+            <div className="w-4/5">
+                <CamposUsuario trocaPg={trocaPg} pgForm={pgForm} />
+            </div>
+        </>
+    )
 
-    
-    render() {
-        return (
-            <>
-                <h1 className="text-4xl">{this.state.tituloForm}</h1>
-                <Etapas etapa={this.state.etapas} />
-                <div className="w-4/5">
-                    <CamposUsuario trocaPg={this.setEtapas.bind(this)} pgForm={this.state.pgForm} />
-                </div>
-            </>
-        )
-    }
 
 }
 

@@ -12,7 +12,6 @@ const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
     
     if(fixed){
-        console.log("teste");
         estilo +=  " fixed z-50";
     }
 
