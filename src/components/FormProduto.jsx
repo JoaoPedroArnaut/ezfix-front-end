@@ -18,7 +18,7 @@ const FormProduto = () => {
             <ComboBox label="Problema" opicao={["--Seleciona--"]} />
             <TextArea label="Observações" placeholder="Ex: Tela quebrada, não liga, lentidão, peças soltando.." />
             <div className="w-full flex justify-around mt-2">
-                <Botao text="Confirmar" onClick={() => {router.push("/assistencias")}}/>
+                <Botao estilo={2} text="Confirmar" onClick={()=>{router.push('/assistencias')}} />
             </div>
         </div>
     )
