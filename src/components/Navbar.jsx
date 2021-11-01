@@ -33,7 +33,7 @@ const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
                         <Link href="/cadastro">
                             <span className="text-white mr-4 cursor-pointer">{login[1]}</span>
                         </Link>
-                        <Botao estilo={2} text={login[0]} onClick={() =>  { router.push("/PageLoginCliente")}} />
+                        <Botao estilo={2} text={login[0]} onClick={() =>  { router.push("/login")}} />
                     </div>
                 }
             </div>

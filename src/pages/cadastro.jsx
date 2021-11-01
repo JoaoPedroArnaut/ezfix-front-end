@@ -48,7 +48,7 @@ const cadastro = () => {
                 "telefoneSecundario": form.telSecundario
                 }).then(res => {
                     if(res.status = 201){
-                        router.push('/')
+                        router.push('/login')
                     }
                 },err => {
                     console.log("é isso mesmo");
