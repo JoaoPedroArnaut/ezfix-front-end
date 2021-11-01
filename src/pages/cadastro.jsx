@@ -49,9 +49,9 @@ const cadastro = () => {
                 }).then(res => {
                     if(res.status = 201){
                         router.push('/')
-                    }else{
-                        console.log();
                     }
+                },err => {
+                    console.log("é isso mesmo");
                 })
         }
     },[formPronto])
