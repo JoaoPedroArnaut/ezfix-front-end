@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
 import Link from 'next/link'
+import { parseCookies } from 'nookies'
 import { useRouter } from 'next/router';
 
-const Navbar = ({botoes,fixed,logado,page,usuario,imgPerfil,login}) => {
+const Navbar = ({botoes,fixed,page,usuario,imgPerfil,login}) => {
     const listaBotoes = botoes;
     const router = useRouter();
 
-    
+    const cookies = parseCookies()
+   
+    let logado = false
+    if (cookies.token != ""){
+        logado = true
+    }
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
 
     if(fixed){

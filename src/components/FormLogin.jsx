@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import Botao from './Botao'
 import Input from './Input'
 import axios from 'axios';
+import { useRouter } from 'next/router';
+import { setCookie } from 'nookies';
 
 const FormLogin = () => {
-
+    const router = useRouter()
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -14,7 +16,11 @@ const FormLogin = () => {
             "email": email,
             "senha": senha
         }).then(res => {
-            console.log(res);
+            setCookie(null, 'token', res.data.token, {
+                maxAge: 3600,
+                path: '/',
+            });
+            router.push('/assistencias')
         },err => {
             console.log("é isso mesmo");
         })
