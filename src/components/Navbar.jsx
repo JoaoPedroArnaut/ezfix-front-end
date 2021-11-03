@@ -12,9 +12,10 @@ const Navbar = ({botoes,fixed,page,usuario,imgPerfil,login}) => {
     const cookies = parseCookies()
    
     let logado = false
-    if (cookies.token != ""){
+    if (cookies.token != undefined){
         logado = true
     }
+    
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
 
     if(fixed){
@@ -29,11 +30,11 @@ const Navbar = ({botoes,fixed,page,usuario,imgPerfil,login}) => {
                 </Link>
                 {logado ?
                     <div className="flex items-center">
-                        <Link href={page} >
+                        <Link href="/myorders" >
                             < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{usuario}</span>
                         </Link>
 
-                        <Image src={imgPerfil} className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
+                        <Image src="/PerfilUsuario.jpeg" className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
                     </div>
                     : <div>
                         <Link href="/cadastro">

@@ -52,7 +52,8 @@ module.exports = {
       green:{
         DEFAULT: '#14CA3C'
       },
-      red: '#C62424'
+      red: '#C62424',
+      error:'#FF9494'
     }
   },
   variants: {

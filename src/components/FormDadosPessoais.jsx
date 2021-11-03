@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { CadastroContext } from '../contexts/Cadastro'
 import BotaoForm from './BotaoForm'
 import Input from './Input'
 
-const FormDadosPessoais = ({trocaPg,enviar}) => {
+const FormDadosPessoais = () => {
     
     const [nome, setNome] = useState('')
     const [cpf, setCPF] = useState('')
     const [dataNasc, setDataNasc] = useState('')
     const [telPrimario, setTelPrimario] = useState('')
     const [telSecundario, setTelSecundario] = useState('')
+
+    const {enviar,trocaPg} = useContext(CadastroContext)
 
     function handleSubmit(e) {
         e.preventDefault();
