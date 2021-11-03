@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PedidoDetalhado = ({ mudaTitulo }) => {
+const PedidoDetalhado = () => {
 
     return (
         <>

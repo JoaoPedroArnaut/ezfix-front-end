@@ -72,7 +72,7 @@ const PedidoDetalhadoConfirmar = () => {
                                 </div>
 
                                 <div className="flex w-1/5 justify-between">
-                                <Botao estilo={5} text="Recusar"/>
+                                <Botao estilo={4} text="Recusar"/>
                                 <Botao estilo={6} text="Confirmar"/>
                                 </div>
                             </div>
