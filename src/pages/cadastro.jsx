@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Footer from '../components/Footer'
-import FormsUsuario from '../components/FormsUsuario'
 import Navbar from '../components/Navbar'
+import BodyCadastro from '../components/BodyCadastro'
+import { CadastroProvider } from '../contexts/Cadastro'
 
 
-class cadastro extends Component {
+const cadastro = () => {
 
-    
-    render() {
-        return (
-            <>
-                <Navbar login={["Login", "Criar conta"]} />
-                <div className="my-16 flex justify-around items-center">
-                    <div className="w-9/12 border-2 border-solid border-opacity-10 border-black filter shadow-xl rounded-xl flex flex-col items-center py-16">
-                        <FormsUsuario />
-                    </div>
-                </div>
-                <Footer />
-            </>
-        )
-    }
+    return (
+        <>
+            <Navbar login={["Login", "Criar conta"]} page="/" />
+            <CadastroProvider>
+                <BodyCadastro />
+            </CadastroProvider>
+            <Footer />
+        </>
+    )
+
 }
 
 export default cadastro

@@ -23,6 +23,7 @@ module.exports = {
         '96': '400px',
         '15':'17%',
         '45': '48%',
+        '12': '12%',
       },
       backgroundImage: {
         'banner': "url('/Component 49.png')",
@@ -51,7 +52,11 @@ module.exports = {
       green:{
         DEFAULT: '#14CA3C'
       },
-      red: '#C62424'
+      red: '#C62424',
+      error:{
+        DEFAULT: '#FFA3A3',
+        dark: '#F38484',
+      },
     }
   },
   variants: {

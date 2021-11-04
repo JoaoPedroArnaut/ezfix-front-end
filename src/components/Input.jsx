@@ -1,7 +1,7 @@
 import React from 'react'
 import Label from './Label'
 
-const Input = ({ label, placeholder, alternativo, size, type, id}) => {
+const Input = ({ label, placeholder, alternativo, size, type, id, onChange,value,onBlur,maxLength}) => {
 
     if (alternativo) {
 
@@ -9,7 +9,7 @@ const Input = ({ label, placeholder, alternativo, size, type, id}) => {
         return (
             <div className={estilo}>
                 <Label value={label + ":"} />
-                <input id={id} type={type} className="w-full rounded-lg bg-blue-light p-4 h-10 filter drop-shadow-md" placeholder={placeholder} />
+                <input maxLength={maxLength} id={id} value={value} onBlur={onBlur} type={type} onChange={onChange} className="w-full rounded-lg bg-blue-light p-4 h-10 filter drop-shadow-md" placeholder={placeholder} />
             </div>
         )
     } else {
