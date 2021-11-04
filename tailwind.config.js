@@ -53,7 +53,10 @@ module.exports = {
         DEFAULT: '#14CA3C'
       },
       red: '#C62424',
-      error:'#FF9494'
+      error:{
+        DEFAULT: '#FFA3A3',
+        dark: '#F38484',
+      },
     }
   },
   variants: {

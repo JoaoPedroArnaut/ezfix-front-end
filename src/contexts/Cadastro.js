@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios';
+import { ValidacoesContext } from "./Validacoes";
 
 export const CadastroContext = createContext({});
 
@@ -21,6 +22,16 @@ export const CadastroProvider = ({children}) => {
         setTituloForm(novoTitulo)
     }
 
+    function voltar(novoTitulo){
+        let tmpEtapa = stage;
+        tmpEtapa.pop()
+        setStages(tmpEtapa)
+        setPgForm(pgForm - 1)
+        setFormPronto(formPronto - 1)
+        setTituloForm(novoTitulo)
+    }
+
+    
     function enviar(dados) {
         setForm({ ...form, ...dados })
         setFormPronto(formPronto + 1)
@@ -30,14 +41,19 @@ export const CadastroProvider = ({children}) => {
         console.log(form);
     }, [form])
 
+    function limpaFormatacao(v){
+        v = v.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gi, '')
+        return v;
+    }
+
     useEffect(() => {
         if (formPronto == 3) {
             axios.post("http://localhost:8080/auth/novoSolicitante/", {
                 "bairro": form.bairro,
-                "cep": form.cep,
+                "cep": limpaFormatacao(form.cep),
                 "cidade": form.cidade,
                 "complemento": form.complemento,
-                "cpf": form.cpf,
+                "cpf": limpaFormatacao(form.cpf),
                 "dataNascimento": form.dataNasc,
                 "email": form.email,
                 "estado": form.estado,
@@ -45,8 +61,8 @@ export const CadastroProvider = ({children}) => {
                 "nome": form.nome,
                 "numero": form.numero,
                 "senha": form.senha,
-                "telefonePrimario": form.telPrimario,
-                "telefoneSecundario": form.telSecundario
+                "telefonePrimario": limpaFormatacao(form.telPrimario),
+                "telefoneSecundario": limpaFormatacao(form.telSecundario)
             }).then(res => {
                 if (res.status = 201) {
                     router.push('/login')
@@ -57,5 +73,5 @@ export const CadastroProvider = ({children}) => {
         }
     }, [formPronto])
 
-    return (<CadastroContext.Provider value={{enviar, trocaPg, tituloForm, stage, pgForm}}>{children}</CadastroContext.Provider>)
+    return (<CadastroContext.Provider value={{enviar, trocaPg, voltar, tituloForm, stage, pgForm}}>{children}</CadastroContext.Provider>)
 }

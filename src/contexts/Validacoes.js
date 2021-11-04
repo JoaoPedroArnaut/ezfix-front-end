@@ -1,9 +1,51 @@
 import { createContext, useState } from "react";
+import { validate } from 'gerador-validador-cpf'
 
 export const ValidacoesContext = createContext({});
 
 export const ValidacoesProvider = ({ children }) => {
     const [erros, setErros] = useState([])
+
+
+    function validaEndereco(form){
+        let tmpErros = [...isBlank(form)]
+        setErros(tmpErros)
+        if (tmpErros.length == 0){}
+        setErros(tmpErros)
+        if (tmpErros.length == 0){
+            return true
+        } else {
+            return false
+        }
+    }
+
+    function validaDadosPessoais(form){
+        let tmpErros = [...isBlank(form)]
+        setErros(tmpErros)
+        let tmpTelPrimario = limpaFormatacao(form.telPrimario)
+        let tmpTelSecundario = limpaFormatacao(form.telSecundario)
+        console.log(tmpTelPrimario);
+        console.log(tmpTelSecundario);
+        if (tmpErros.length == 0){
+            if(!validate(limpaFormatacao(form.cpf))){
+                tmpErros.push("cpf invalido")
+            }
+            if(tmpTelPrimario.length < 10){
+                tmpErros.push("telefone primario deve ter ao menos 10 digitos")
+            }
+
+            if( tmpTelSecundario != "" && tmpTelSecundario.length < 10){
+                tmpErros.push("telefone secundario deve ter ao menos 10 digitos")
+            }
+        }
+
+        setErros(tmpErros)
+        if (tmpErros.length == 0){
+            return true
+        } else {
+            return false
+        }
+    }
 
     function validaUsuario(form) {
         let tmpErros = [...isBlank(form)]
@@ -33,14 +75,27 @@ export const ValidacoesProvider = ({ children }) => {
         }
     }
 
+    function limpaFormatacao(v){
+        v = v.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gi, '')
+        return v;
+    }
+
     function isBlank(form) {
         let erros = []
         for (let i in form) {
             if (form[i] == "") {
-                if (i != "confirmSenha"){
-                    erros.push(`${i} não pode estar em branco`)
-                }else {
+                if (i == "confirmSenha"){
                     erros.push(`confirmação de senha não pode estar em branco`)
+                }else if(i == "telPrimario"){
+                    erros.push(`telefone principal não pode estar em branco`)
+                }else if(i == "telSecundario"){
+                    
+                }else if(i == "complemento"){
+                    
+                }else if(i == "dataNasc"){
+                    erros.push(`data de nascimento não pode estar em branco`)
+                }else{
+                    erros.push(`${i} não pode estar em branco`)
                 }
             }
         }
@@ -52,6 +107,6 @@ export const ValidacoesProvider = ({ children }) => {
         return re.test(email);
       }
 
-    return (<ValidacoesContext.Provider value={{ erros,validaUsuario }}>{children}</ValidacoesContext.Provider>)
+    return (<ValidacoesContext.Provider value={{erros, validaUsuario, validaDadosPessoais, validaEndereco, setErros}}>{children}</ValidacoesContext.Provider>)
 }
 

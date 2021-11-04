@@ -1,10 +1,10 @@
 import React from 'react'
 
-const BotaoForm = ({ onClick, text }) => {
+const BotaoForm = ({ onClick, text, type,size}) => {
 
     return (
-        <div className="w-full flex justify-around pt-8">
-            <button type="submit" className="filter shadow-lg bg-blue-dark w-24 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>
+        <div className={` w-${size} flex justify-around pt-8`} >
+            <button type={type} className="filter shadow-lg bg-blue-dark w-24 min-w-min py-3 px-8 rounded-3xl text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>
         </div>
     )
 
