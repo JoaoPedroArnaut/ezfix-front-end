@@ -7,9 +7,9 @@ const Botao = ({ estilo, icone, text, onClick }) => {
         <button className="bg-blue w-full xl:w-60 xl:h-14 lg:w-56 lg:h-12 xl:text-lg sm:w-48 font-medium min-w-min p-2 sm:rounded-md hover:text-blue hover:bg-blue-light duration-75">{text}</button>,
 
         //Botão usado no componente Order
-        <button className="rounded-3xl px-6 py-2  bg-blue w-52 text-white text-xl flex justify-around items-center hover:text-blue hover:bg-blue-light duration-75">
-            <FontAwesomeIcon icon={icone} />{text}</button>,
-
+            <button onClick={onClick} className="rounded-3xl px-6 py-2  bg-blue w-52 text-white text-xl flex justify-around items-center hover:text-blue hover:bg-blue-light duration-75">
+                <FontAwesomeIcon icon={icone} />{text}</button>,
+        
         //Botão usado no FormProduto e NavBar
         <button onClick={onClick} className="bg-blue-dark w-24 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75">{text}</button>,
 
@@ -24,7 +24,8 @@ const Botao = ({ estilo, icone, text, onClick }) => {
             <FontAwesomeIcon icon={icone} />{text}</button>,
         
         <button className="bg-blue-dark w-24 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>,
-        <button className="bg-blue-dark py-3 px-5 rounded-3xl text-white">{text}</button>
+        <button className="bg-blue-dark py-3 px-5 rounded-3xl text-white">{text}</button>,
+                <button className="bg-blue-dark w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>
     ]
 
     return botao[estilo];
