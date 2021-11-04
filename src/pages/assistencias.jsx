@@ -11,8 +11,13 @@ import Recomendadas from '../components/Recomendadas'
 const assistencias = () => {
     return (
         <>
+<<<<<<< HEAD
             <Navbar fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="" />
             {/* <Recomendadas /> */}
+=======
+            <Navbar login={["Login", "Criar conta"]} fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="" />
+            <Recomendadas />
+>>>>>>> origin/main
             <div className="flex flex-col items-center">
                 <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full my-8">
                     <div className="">
