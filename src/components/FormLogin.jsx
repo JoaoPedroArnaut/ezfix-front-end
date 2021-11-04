@@ -17,7 +17,7 @@ const FormLogin = () => {
             "senha": senha
         }).then(res => {
             setCookie(null, 'token', res.data.token, {
-                maxAge: 60,
+                maxAge: 3600,
                 path: '/',
             });
             router.push('/assistencias')

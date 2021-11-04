@@ -5,6 +5,7 @@ import Input from './Input';
 import { CadastroContext } from '../contexts/Cadastro';
 import { ValidacoesContext } from '../contexts/Validacoes';
 import Erros from './Erros';
+import { useRouter } from 'next/router';
 
 const FormEndereco = () => {
 
@@ -16,8 +17,22 @@ const FormEndereco = () => {
     const [cidade, setCidade] = useState('')
     const [estado, setEstado] = useState('')
 
-    const { enviar, voltar } = useContext(CadastroContext)
-    const { validaEndereco, erros, setErros } = useContext(ValidacoesContext)
+    const router = useRouter()
+
+    const { enviar, voltar , form, formPronto, cadastra } = useContext(CadastroContext)
+    const { validaEndereco, erros, setErros} = useContext(ValidacoesContext)
+
+    useEffect(() => {
+        if(formPronto >= 3){
+            cadastra(form).then(res => {
+                if(res.status == 201){
+                    router.push("/login")
+                } else if(res.status == 203){
+                    setErros([res.data])
+                }
+            },err => {console.log(err);})
+        }
+    },[formPronto])
 
     function handleSubmit(e) {
         e.preventDefault();

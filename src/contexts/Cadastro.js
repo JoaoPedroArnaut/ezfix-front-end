@@ -46,9 +46,8 @@ export const CadastroProvider = ({children}) => {
         return v;
     }
 
-    useEffect(() => {
-        if (formPronto == 3) {
-            axios.post("http://localhost:8080/auth/novoSolicitante/", {
+    function cadastra(form){
+        return axios.post("http://localhost:8080/auth/novoSolicitante/", {
                 "bairro": form.bairro,
                 "cep": limpaFormatacao(form.cep),
                 "cidade": form.cidade,
@@ -63,15 +62,8 @@ export const CadastroProvider = ({children}) => {
                 "senha": form.senha,
                 "telefonePrimario": limpaFormatacao(form.telPrimario),
                 "telefoneSecundario": limpaFormatacao(form.telSecundario)
-            }).then(res => {
-                if (res.status = 201) {
-                    router.push('/login')
-                }
-            }, err => {
-                console.log("é isso mesmo");
             })
-        }
-    }, [formPronto])
+    }
 
-    return (<CadastroContext.Provider value={{enviar, trocaPg, voltar, tituloForm, stage, pgForm}}>{children}</CadastroContext.Provider>)
+    return (<CadastroContext.Provider value={{enviar, trocaPg, voltar, cadastra,tituloForm, stage, pgForm,form,formPronto}}>{children}</CadastroContext.Provider>)
 }
