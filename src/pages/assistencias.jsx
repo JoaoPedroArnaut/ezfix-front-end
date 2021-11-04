@@ -12,7 +12,7 @@ const assistencias = () => {
     return (
         <>
             <Navbar fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="" />
-            {/* <Recomendadas /> */}
+            <Recomendadas />
             <div className="flex flex-col items-center">
                 <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full my-8">
                     <div className="">
