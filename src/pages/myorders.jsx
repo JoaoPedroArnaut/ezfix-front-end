@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 const myorders = () => {
     return (
         <>
-            <Navbar fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="#" />
+            <Navbar login={["Login", "Criar conta"]} fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="#" />
             <HeaderOrder tituloPagina="Meus Pedidos" page="/assistencias"/>
             <Order assistencia="Th Tecnologia" imagem="/ThTecnologiaLogo.jpg" />
             <Footer/>
