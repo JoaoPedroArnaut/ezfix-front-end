@@ -8,7 +8,7 @@ const HeaderOrder = ({tituloPagina}) =>{
         <>
             <div className="pt-24 flex justify-around">
                 <div className="w-4/5">
-                    <div className="sm:w-full flex justify-between pb-3 mt-12 ">
+                    <div className="sm:w-full flex justify-between pb-3 mt-10 ">
                         <Botao estilo={3} text="Voltar" icone={faArrowLeft}/>
                         <p className="text-3xl font-bold">{tituloPagina}</p>
                     </div>
