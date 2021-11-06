@@ -7,7 +7,7 @@ const Pagamento = () => {
 
     return (
         <>
-            <div className="w-full mb-10 flex justify-around">
+            <div className="w-full mb-15 flex justify-around">
                 <div className="sm:w-4/5 flex justify-between mt-8">
                     <div className="w-7/12 bg-blue-light rounded-2xl p-10 font-semibold">
                         <div className="h-14 w-full bg-white flex justify-start items-center p-2 rounded-2xl">
