@@ -19,7 +19,7 @@ const detalhespedido = () => {
 
     return (
         <>
-            <Navbar login={["Login", "Criar conta"]} fixed={true} page="/" logado={true} usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
+            <Navbar fixed={true} />
             <HeaderOrder tituloPagina={tituloPagina}/>
             <DetalhesAlternado estagio={estagio} />
             <Footer/>
