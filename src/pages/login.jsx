@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar'
 const login = () => {
     return (
         <>
-            <Navbar login={["Login", "Criar conta"]} page="/" />
+            <Navbar />
             <div className="w-full my-16 flex justify-around items-center">
                 <div className="w-9/12 flex">
                     <div className="w-1/2 bg-blue-light border-2 border-r-0 border-solid border-opacity-10 border-black filter shadow-xl rounded-l-xl flex flex-col items-center p-8">

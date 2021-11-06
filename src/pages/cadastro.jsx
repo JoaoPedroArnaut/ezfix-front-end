@@ -9,7 +9,7 @@ const cadastro = () => {
 
     return (
         <>
-            <Navbar login={["Login", "Criar conta"]} page="/" />
+            <Navbar />
             <CadastroProvider>
                 <BodyCadastro />
             </CadastroProvider>

@@ -5,10 +5,8 @@ import Link from 'next/link'
 import { parseCookies } from 'nookies'
 import { useRouter } from 'next/router';
 
-const Navbar = ({botoes,fixed,page,usuario,imgPerfil,login}) => {
-    const listaBotoes = botoes;
+const Navbar = ({fixed}) => {
     const router = useRouter();
-
     const cookies = parseCookies()
    
     let logado = false
@@ -31,16 +29,16 @@ const Navbar = ({botoes,fixed,page,usuario,imgPerfil,login}) => {
                 {logado ?
                     <div className="flex items-center">
                         <Link href="/myorders" >
-                            < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{usuario}</span>
+                            < span className="text-white text-xl mr-4 font-semibold cursor-pointer">italo</span>
                         </Link>
 
                         <Image src="/PerfilUsuario.jpeg" className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
                     </div>
                     : <div>
                         <Link href="/cadastro">
-                            <span className="text-white mr-4 cursor-pointer">{login[1]}</span>
+                            <span className="text-white mr-4 cursor-pointer">Criar conta</span>
                         </Link>
-                        <Botao estilo={2} text={login[0]} onClick={() =>  { router.push("/login")}} />
+                        <Botao estilo={2} text="Login" onClick={() =>  { router.push("/login")}} />
                     </div>
                 }
             </div>
