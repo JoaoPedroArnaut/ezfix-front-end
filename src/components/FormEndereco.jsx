@@ -30,7 +30,7 @@ const FormEndereco = () => {
                 } else if(res.status == 203){
                     setErros([res.data])
                 }
-            },err => {console.log(err);})
+            },err => {setErros(["algo inesperado aconteceu, tente novamente mais tarde"])})
         }
     },[formPronto])
 
