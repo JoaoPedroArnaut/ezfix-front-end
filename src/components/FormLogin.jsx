@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 import { setCookie } from 'nookies';
 import Erros from './Erros';
 import { ValidacoesContext } from '../contexts/Validacoes';
-import api from '../api/api';
+import {api} from '../api/api';
+import { SessaoContext } from '../contexts/Sessao';
 
 const FormLogin = () => {
     const router = useRouter()
@@ -13,6 +14,7 @@ const FormLogin = () => {
     const [senha, setSenha] = useState("");
 
     const { erros, isBlank, setErros } = useContext(ValidacoesContext)
+    const context = useContext(SessaoContext)
 
     function validaErros(){
         let erro = [...isBlank({ email, senha })]
@@ -35,6 +37,7 @@ const FormLogin = () => {
                     maxAge: 3600,
                     path: '/',
                 });
+                context.setEmail(email)
                 router.push('/assistencias')
             }, err => {
                 setErros(["email e/ou senha invalidos"])
