@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import FormLogin from '../components/FormLogin'
 import HeaderLogin from '../components/HeaderLogin'
 import Navbar from '../components/Navbar'
+import { ValidacoesProvider } from '../contexts/Validacoes'
 
 const login = () => {
     return (
@@ -20,8 +21,10 @@ const login = () => {
                         <Botao estilo={7} text="cadastro" />
                     </div>
                     <div className="w-1/2 border-2 border-l-0 border-solid border-opacity-10 border-black filter shadow-xl rounded-r-xl flex flex-col items-center p-8 pb-20">
-                        <HeaderLogin/>
-                        <FormLogin/>
+                        <HeaderLogin />
+                        <ValidacoesProvider>
+                            <FormLogin />
+                        </ValidacoesProvider>
                     </div>
                 </div>
             </div>

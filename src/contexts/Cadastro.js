@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
-import React, { createContext, useContext, useEffect, useState } from "react";
-import axios from 'axios';
-import { ValidacoesContext } from "./Validacoes";
+import React, { createContext, useEffect, useState } from "react";
+import api from "../api/api";
 
 export const CadastroContext = createContext({});
 
@@ -47,7 +46,7 @@ export const CadastroProvider = ({children}) => {
     }
 
     function cadastra(form){
-        return axios.post("http://localhost:8080/auth/novoSolicitante/", {
+        return api.post("/auth/novoSolicitante/", {
                 "bairro": form.bairro,
                 "cep": limpaFormatacao(form.cep),
                 "cidade": form.cidade,

@@ -107,6 +107,6 @@ export const ValidacoesProvider = ({ children }) => {
         return re.test(email);
       }
 
-    return (<ValidacoesContext.Provider value={{erros, validaUsuario, validaDadosPessoais, validaEndereco, setErros}}>{children}</ValidacoesContext.Provider>)
+    return (<ValidacoesContext.Provider value={{erros, validaUsuario, validaDadosPessoais, validaEndereco, setErros,isBlank}}>{children}</ValidacoesContext.Provider>)
 }
 
