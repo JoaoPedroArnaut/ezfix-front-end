@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
 import Link from 'next/link'
 import { parseCookies } from 'nookies'
 import { useRouter } from 'next/router';
+import { SessaoContext } from '../contexts/Sessao'
 
 const Navbar = ({fixed}) => {
     const router = useRouter();
     const cookies = parseCookies()
+
+    const {user} = useContext(SessaoContext)
    
     let logado = false
+    
     if (cookies.token != undefined){
         logado = true
     }
@@ -29,7 +33,7 @@ const Navbar = ({fixed}) => {
                 {logado ?
                     <div className="flex items-center">
                         <Link href="/myorders" >
-                            < span className="text-white text-xl mr-4 font-semibold cursor-pointer">italo</span>
+                            < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{user.nome}</span>
                         </Link>
 
                         <Image src="/PerfilUsuario.jpeg" className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
