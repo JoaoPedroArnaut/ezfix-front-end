@@ -1,18 +1,23 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useContext } from 'react'
 import CardAssistencia from '../components/CardAssistencia'
 import ComboBox from '../components/ComboBox'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Pagination from '../components/Pagination'
 import Recomendadas from '../components/Recomendadas'
+import { CarrinhoContext } from '../contexts/Carrinho'
 
 const assistencias = () => {
+
+    const { pedido } = useContext(CarrinhoContext)
+    console.log(pedido);
+
     return (
         <>
-            <Navbar login={["Login", "Criar conta"]} fixed={true} logado="true" usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" page="" />
-            <Recomendadas />
+            <Navbar fixed={true} />
+            {pedido.length != 0 ? <Recomendadas /> : <div />}
             <div className="flex flex-col items-center">
                 <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full my-8">
                     <div className="">

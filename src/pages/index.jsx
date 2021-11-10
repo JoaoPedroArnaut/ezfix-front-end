@@ -9,7 +9,7 @@ import { fa500px } from "@fortawesome/free-brands-svg-icons"
 function Home() {
     return (
         <>
-            <Navbar fixed={true} login={["Login", "Criar conta"]} />
+            <Navbar fixed={true}/>
             <Banner />
             <Section2 />
             <Section3/>
