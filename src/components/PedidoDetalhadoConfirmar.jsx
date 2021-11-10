@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Botao from './Botao'
+import { useRouter } from 'next/router';
 
 const PedidoDetalhadoConfirmar = () => {
+
+    const [confirmacao, setConfirmacao] = useState(false);
+    const router = useRouter();
+    const [cancelado, setCancelado] = useState(false);
+
     return (
         <>
             <div className="w-full mb-10 flex justify-around">
@@ -72,8 +78,8 @@ const PedidoDetalhadoConfirmar = () => {
                                 </div>
 
                                 <div className="flex w-1/5 justify-between">
-                                <Botao estilo={4} text="Recusar"/>
-                                <Botao estilo={6} text="Confirmar"/>
+                                    <Botao estilo={4} text="Recusar" onClick={() => setConfirmacao(true)} />
+                                    <Botao estilo={8} text="Aceitar" />
                                 </div>
                             </div>
 
@@ -83,6 +89,33 @@ const PedidoDetalhadoConfirmar = () => {
                     </div>
 
                 </div>
+
+                {confirmacao &&
+                    <div className="bg-gray-opacity w-full h-screen z-10 top-0 left-0 right-0 bottom-0 fixed">
+                        <div className="w-full h-screen flex justify-center items-center">
+                            <div className="bg-white p-20 rounded-xl flex flex-col justify-center items-center">
+                                <img src={cancelado ? "./confirmed.png" : "./warning.png"} alt="imgConfirmed" width="100px" />
+                                {cancelado ?
+                                    <p className="mt-5 mb-16 text-2xl font-semibold">Oferta recusada.</p>
+                                    : <p className="mt-5 mb-16 text-2xl font-semibold">Tem certeza que deseja recusar a oferta?</p>
+                                }
+                                <div className="w-full flex justify-around">
+                                    {cancelado ?
+                                        <>
+                                            <Botao estilo={8} text="OK!" onClick={() => router.push("./myorders")} />
+                                        </>
+                                        : <>
+                                            <Botao estilo={4} text="Cancelar" onClick={() => setConfirmacao(false)} />
+                                            <Botao estilo={8} text="Confirmar" onClick={() => setCancelado(true)} />
+                                        </>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
             </div>
         </>
     )

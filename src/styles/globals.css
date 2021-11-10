@@ -18,6 +18,10 @@ a {
   box-sizing: border-box;
 }
 
+li{
+  cursor: pointer;
+}
+
 .alturaSemNavbar{
   height: calc(100vh - 6rem);
 }
