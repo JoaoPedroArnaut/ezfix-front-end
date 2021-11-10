@@ -44,7 +44,8 @@ module.exports = {
       gray:{
         DEFAULT: '#CCCCCC',
         light: '#F1F6F9',
-        dark: '#7C7878'
+        dark: '#7C7878',
+        opacity: "rgba(49,49,49,0.8)"
       },
       amarelo:{
         DEFAULT: '#ffd700'
