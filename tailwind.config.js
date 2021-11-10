@@ -27,6 +27,7 @@ module.exports = {
       },
       backgroundImage: {
         'banner': "url('/Component 49.png')",
+        'banner_tecnico': "url('/banner-tecnico.jpg')"
       }
     },
     colors: {
