@@ -34,17 +34,19 @@ const Navbar = ({ fixed }) => {
                 </Link>
                 {logado ?
                     <div className="flex items-center">
-                        <Link href="/myorders" >
+                        <Link href="/perfilusuario" >
                             < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{user.nome}</span>
                         </Link>
-                        <Image onClick={() => setMenuAtivo(!menuAtivo)} src="/PerfilUsuario.jpeg" className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
+                        <Link href="/perfilusuario">
+                            <Image src="/PerfilUsuario.jpeg" className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
+                        </Link>
                         <div className="ml-5 mr-10 cursor-pointer">
-                        <img onClick={() => setMenuAtivo(!menuAtivo)} src="/MenuArrow.png" width="20px" height="20px" className={menuAtivo ? "transform-gpu -rotate-180" : "transform-gpu rotate-0"}/>
+                            <img onClick={() => setMenuAtivo(!menuAtivo)} src="/MenuArrow.png" width="20px" height="20px" className={menuAtivo ? "transform-gpu -rotate-180" : "transform-gpu rotate-0"} />
                         </div>
                         <Image className="cursor-pointer" src="/notification.png" width="35px" height="35px" alt="notification" />
 
-                        {menuAtivo && <MenuOpcoes/>}
-                        
+                        {menuAtivo && <MenuOpcoes />}
+
                     </div>
                     : <div>
                         <Link href="/cadastro">

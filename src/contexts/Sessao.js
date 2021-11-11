@@ -1,4 +1,4 @@
-import { parseCookies } from "nookies";
+import { parseCookies, setCookie } from "nookies";
 import { createContext, useEffect, useState } from "react";
 import { api, setToken } from "../api/api";
 
@@ -11,13 +11,23 @@ export const SessaoProvider = ({ children }) => {
 
     const cookies = parseCookies()
 
-    useEffect(() => { console.log(user); }, [user])
+    useEffect(() => { 
+        api.get(`/solicitante/cpf/${cookies.cpf}`).then(response => {
+            if (Object.keys(user).length === 0){
+                setUser(response.data)
+            }
+        })
+    }, [user])
 
     useEffect(() => {
         setToken(cookies.token)
-        api.get(`/solicitante/${email}`)
+        api.get(`/solicitante/email/${email}`)
         .then(response => {
             setUser(response.data);
+            setCookie(null, 'cpf', response.data.cpf, {
+                maxAge: 3600,
+                path: '/',
+            });
         }, err => {
             if (err.status === 403) {
                 console.log("não logado");
