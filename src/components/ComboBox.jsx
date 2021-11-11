@@ -18,9 +18,9 @@ const ComboBox = ({ estilo, label, opicao, onChange }) => {
 
         case 2:
             return (
-                <div className="pt-4 w-2/6">
+                <div className="pt-4 w-4/5">
                     <Label value={label + ":"} />
-                    <select onChange={onChange} className="w-full rounded-lg bg-blue-light h-10 filter drop-shadow-md">
+                    <select onChange={onChange} className="w-full rounded-lg bg-blue-light h-10 filter drop-shadow-md text-center">
                         {opicao.map((item, index) =>  <option value={item} key={index}>{item}</option> )}
                     </select>
                 </div>
