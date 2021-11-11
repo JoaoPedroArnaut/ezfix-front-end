@@ -12,7 +12,6 @@ import { CarrinhoContext } from '../contexts/Carrinho'
 const assistencias = () => {
 
     const { pedido } = useContext(CarrinhoContext)
-    console.log(pedido);
 
     return (
         <>
