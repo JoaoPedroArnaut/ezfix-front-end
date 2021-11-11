@@ -27,10 +27,15 @@ const FormEndereco = () => {
             cadastra(form).then(res => {
                 if(res.status == 201){
                     router.push("/login")
-                } else if(res.status == 203){
-                    setErros([res.data])
                 }
-            },err => {setErros(["algo inesperado aconteceu, tente novamente mais tarde"])})
+            },err => {
+                console.log(err.response);
+                if(err.response.status == 409){
+                    setErros([err.response.data])
+                }else {
+                    setErros(["algo inesperado aconteceu, tente novamente mais tarde"])
+                }
+            })
         }
     },[formPronto])
 

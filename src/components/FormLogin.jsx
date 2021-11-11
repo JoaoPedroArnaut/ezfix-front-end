@@ -40,7 +40,8 @@ const FormLogin = () => {
                 context.setEmail(email)
                 router.push('/assistencias')
             }, err => {
-                if (err.status === 403){
+                console.log(err.response);
+                if (err.response.status == 403){
                     setErros(["email e/ou senha invalidos"])
                 }else {
                     setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
