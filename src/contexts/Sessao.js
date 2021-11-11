@@ -29,9 +29,7 @@ export const SessaoProvider = ({ children }) => {
                 path: '/',
             });
         }, err => {
-            if (err.status === 403) {
-                console.log("não logado");
-            }
+            
         })
     }, [email])
 

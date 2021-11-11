@@ -1,6 +1,7 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { api } from '../api/api'
 import CardAssistencia from '../components/CardAssistencia'
 import ComboBox from '../components/ComboBox'
 import Footer from '../components/Footer'
@@ -12,6 +13,20 @@ import { CarrinhoContext } from '../contexts/Carrinho'
 const assistencias = () => {
 
     const { pedido } = useContext(CarrinhoContext)
+
+    const [pagina,setPagina] = useState([])
+
+    useEffect(() => {
+        console.log(pagina);
+    },[pagina])
+
+    useEffect(() => {
+        api.get("/assistencia").then(res => {
+            setPagina(res.data.content)
+        },err => {
+            console.log(err);
+        })
+    },[])
 
     return (
         <>
@@ -28,18 +43,11 @@ const assistencias = () => {
                 </div>
                 <hr className="text-black w-full lg:w-4/5 text-opacity-25" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 grid-rows-4 gap-8 w-4/5 mt-8">
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
+                    { pagina.map( (assistencia,i) => 
+                    <CardAssistencia nome={assistencia.nomeFantasia} avaliacao="4,5" endereco={`${assistencia.enderecos[0].cidade} - ${assistencia.enderecos[0].estado}`} categorias="Celular" />
+                    ) }
+                    
+
                 </div>
             </div>
 
