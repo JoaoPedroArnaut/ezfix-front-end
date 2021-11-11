@@ -5,23 +5,25 @@ import Link from 'next/link'
 import { parseCookies } from 'nookies'
 import { useRouter } from 'next/router';
 import { SessaoContext } from '../contexts/Sessao'
+import MenuOpcoes from './MenuOpcoes'
 
-const Navbar = ({fixed}) => {
+const Navbar = ({ fixed }) => {
     const router = useRouter();
     const cookies = parseCookies()
 
-    const {user} = useContext(SessaoContext)
-   
+    const { user } = useContext(SessaoContext)
+    const [menuAtivo, setMenuAtivo] = useState(false)
+
     let logado = false
-    
-    if (cookies.token != undefined){
+
+    if (cookies.token != undefined) {
         logado = true
     }
-    
+
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
 
-    if(fixed){
-        estilo +=  " fixed z-50";
+    if (fixed) {
+        estilo += " fixed z-50";
     }
 
     return (
@@ -35,14 +37,20 @@ const Navbar = ({fixed}) => {
                         <Link href="/myorders" >
                             < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{user.nome}</span>
                         </Link>
+                        <Image onClick={() => setMenuAtivo(!menuAtivo)} src="/PerfilUsuario.jpeg" className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
+                        <div className="ml-5 mr-10 cursor-pointer">
+                        <img onClick={() => setMenuAtivo(!menuAtivo)} src="/MenuArrow.png" width="20px" height="20px" className={menuAtivo ? "transform-gpu -rotate-180" : "transform-gpu rotate-0"}/>
+                        </div>
+                        <Image className="cursor-pointer" src="/notification.png" width="35px" height="35px" alt="notification" />
 
-                        <Image src="/PerfilUsuario.jpeg" className="rounded-full" width="70px" height="70px" alt="logo ezfix" />
+                        {menuAtivo && <MenuOpcoes/>}
+                        
                     </div>
                     : <div>
                         <Link href="/cadastro">
                             <span className="text-white mr-4 cursor-pointer">Criar conta</span>
                         </Link>
-                        <Botao estilo={2} text="Login" onClick={() =>  { router.push("/login")}} />
+                        <Botao estilo={2} text="Login" onClick={() => { router.push("/login") }} />
                     </div>
                 }
             </div>

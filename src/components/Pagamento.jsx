@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Botao from './Botao'
+import { useRouter } from 'next/router';
 
 const Pagamento = () => {
 
-    const [lalamove, setSection] = useState(false)
+    const [lalamove, setSection] = useState(false);
+    const [confirmacao, setConfirmacao] = useState(false);
+    const router = useRouter();
 
     return (
         <>
@@ -11,12 +14,12 @@ const Pagamento = () => {
                 <div className="sm:w-4/5 flex justify-between mt-8">
                     <div className="w-7/12 bg-blue-light rounded-2xl p-10 font-semibold">
                         <div className="h-14 w-full bg-white flex justify-start items-center p-2 rounded-2xl">
-                            <input onClick={()=> setSection(true)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3" />
+                            <input onClick={() => setSection(true)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3" />
                             <img src="./lalamoveLogo.png" alt="lalamoveLogo" className="mr-3" />
                             <p>Entrega e recebimento com a Lalamove</p>
                         </div>
                         <div className="h-14 w-full bg-white flex justify-start items-center mt-8 p-2 rounded-2xl">
-                            <input onClick={()=>setSection(false)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3"  />
+                            <input onClick={() => setSection(false)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3" />
                             <img src="./Walking.png" alt="imgAnd" className="mr-3" />
                             <p>Levar e retirar com a assistência</p>
                         </div>
@@ -31,7 +34,7 @@ const Pagamento = () => {
                         </div>
                         <div className="mt-5 flex justify-end">
                             <div className="flex flex-col justify-center items-center">
-                                <Botao estilo={6} text="Finalizar" />
+                                <Botao estilo={8} text="Finalizar" onClick={() => setConfirmacao(true)} />
                                 <span className="text-xs mt-2 text-gray-dark">Pagamento via</span>
                                 <img src="mercado-pago-logo.png" alt="Mercado Pago" width="120px" className="mt-2" />
 
@@ -68,6 +71,21 @@ const Pagamento = () => {
                         </div>
                     </div>
                 </div>
+
+                {confirmacao &&
+                    <div className="bg-gray-opacity w-full h-screen z-10 top-0 left-0 right-0 bottom-0 fixed">
+                        <div className="w-full h-screen flex justify-center items-center">
+                            <div className="bg-white p-20 rounded-xl flex flex-col justify-center items-center">
+                                <img src="./confirmed.png" alt="imgConfirmed" width="100px" />
+                                <p className="mt-5 text-2xl font-semibold">Pagamento efetuado com sucesso!</p>
+                                <p className="mb-16">Será enviado um comprovante pelo e-mail.</p>
+                                <Botao text="OK!" estilo={8} onClick={() => router.push("./myorders")} />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
             </div>
         </>
     )

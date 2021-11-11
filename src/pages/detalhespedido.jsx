@@ -6,7 +6,7 @@ import DetalhesAlternado from '../components/DetalhesAlternado'
 
 const detalhespedido = () => {
     const [tituloPagina, setTituloPagina] = useState()
-    const [estagio, setEstagio] = useState(3)
+    const [estagio, setEstagio] = useState(2)
 
     function alternaTitulo(estagio){
         estagio == 3 ? setTituloPagina("Pagamento")
@@ -19,7 +19,7 @@ const detalhespedido = () => {
 
     return (
         <>
-            <Navbar fixed={true} />
+            <Navbar login={["Login", "Criar conta"]} fixed={true} page="/" logado={true} usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
             <HeaderOrder tituloPagina={tituloPagina}/>
             <DetalhesAlternado estagio={estagio} />
             <Footer/>

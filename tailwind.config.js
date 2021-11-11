@@ -27,6 +27,7 @@ module.exports = {
       },
       backgroundImage: {
         'banner': "url('/Component 49.png')",
+        'banner_tecnico': "url('/banner-tecnico.jpg')"
       }
     },
     colors: {
@@ -34,6 +35,7 @@ module.exports = {
         light: '#C2E1F6',
         DEFAULT: '#008BEA',
         dark: '#15374E',
+        dark_light: '#235475' 
       },
       white: {
         DEFAULT: '#ffffff'
@@ -44,7 +46,8 @@ module.exports = {
       gray:{
         DEFAULT: '#CCCCCC',
         light: '#F1F6F9',
-        dark: '#7C7878'
+        dark: '#7C7878',
+        opacity: "rgba(49,49,49,0.8)"
       },
       amarelo:{
         DEFAULT: '#ffd700'
