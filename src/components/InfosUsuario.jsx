@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SessaoContext } from '../contexts/Sessao'
 import Botao from './Botao'
 import DadosContaUsuario from './DadosContaUsuario'
 import DadosPessoaisUsuario from './DadosPessoaisUsuario'
 import EnderecosUsuario from './EnderecosUsuario'
 
 const InfosUsuario = () => {
+    const { user } = useContext(SessaoContext)
     return (
         <>
             <div className="w-full flex justify-around">
                 <div className="sm:w-4/5 mt-8 mb-20 p-10 border-2 border-solid border-opacity-10 border-black filter shadow-xl rounded-xl">
                     <div className="flex mb-10">
-                        <img src="./PerfilUsuario.jpeg" alt="img" width="160px" className="rounded-full" />
+                        <img src={`http://localhost:8080/solicitante/perfil/${user.cpf}`} alt="img" width="160px" className="rounded-full" />
                         <div className="ml-8 text-3xl font-bold flex flex-col">
                             <span>Ítalo de Souza</span>
                             <div className="text-base mt-16">

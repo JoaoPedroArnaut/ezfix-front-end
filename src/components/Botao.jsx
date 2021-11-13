@@ -23,11 +23,11 @@ const Botao = ({ estilo, icone, text, onClick }) => {
         <button className="rounded-3xl px-6 py-2  bg-blue w-52 text-white text-xl flex justify-around items-center hover:text-blue hover:bg-blue-light duration-75" onClick={onClick}>
             <FontAwesomeIcon icon={icone} />{text}</button>,
         
-        <button className="bg-blue-dark w-24 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>,
+        <button  onClick={onClick}  className="bg-blue-dark w-24 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>,
 
-        <button className="bg-blue-dark py-3 px-5 rounded-3xl text-white">{text}</button>,
+        <button  onClick={onClick}  className="bg-blue-dark py-3 px-5 rounded-3xl text-white">{text}</button>,
         
-        <button className="bg-blue-dark w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>
+        <button  onClick={onClick} className="bg-blue-dark w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>
     ]
 
     return botao[estilo];
