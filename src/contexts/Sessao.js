@@ -16,7 +16,7 @@ export const SessaoProvider = ({ children }) => {
             if (Object.keys(user).length === 0){
                 setUser(response.data)
             }
-        })
+        },err =>{})
     }, [user])
 
     useEffect(() => {
