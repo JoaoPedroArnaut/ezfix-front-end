@@ -17,10 +17,9 @@ const InfosUsuario = () => {
     }, [imagem])
 
     function handlelUplod(e) {
-        e.preventDefault()
 
         var formdata = new FormData();
-        formdata.append("img", imagem[0], imagem[0].name);
+        formdata.append("img", e[0], e[0].name);
 
         api.post(`http://localhost:8080/solicitante/perfil/${user.cpf}`,formdata)
         .then(res => {
@@ -40,11 +39,10 @@ const InfosUsuario = () => {
                         <img src={`http://localhost:8080/solicitante/perfil/${user.cpf}`} alt="img" width="160px" className="rounded-full" />
                         <div className="ml-8 text-3xl font-bold flex flex-col">
                             <span>{user.nome}</span>
-                            <form className="text-base mt-16" onSubmit={handlelUplod}>
+                            <div className="text-base mt-16">
                                 <label for="img" className="cursor-pointer bg-blue-dark py-3 px-5 rounded-3xl text-white">Mudar Imagem</label>
-                                <input onChange={e => { setImagem(e.target.files) }} id="img" type="file" className="hidden" />
-                                <Botao text="salvar" estilo={7}></Botao>
-                            </form>
+                                <input onChange={e => { handlelUplod(e.target.files) }} id="img" type="file" className="hidden" />
+                            </div>
                         </div>
                     </div>
                     <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
