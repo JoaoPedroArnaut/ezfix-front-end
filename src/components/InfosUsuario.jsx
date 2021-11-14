@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Botao from './Botao'
 import DadosContaUsuario from './DadosContaUsuario'
 import DadosPessoaisUsuario from './DadosPessoaisUsuario'
 import EnderecosUsuario from './EnderecosUsuario'
 
-const InfosUsuario = () => {
+const InfosUsuario = ({setNovoEndereco}) => {
+
+    
+
     return (
         <>
             <div className="w-full flex justify-around">
@@ -23,7 +26,7 @@ const InfosUsuario = () => {
                     <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
                     <DadosPessoaisUsuario/>
                     <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
-                    <EnderecosUsuario/>
+                    <EnderecosUsuario setNovoEndereco={setNovoEndereco}/>
                 </div>
 
             </div>
