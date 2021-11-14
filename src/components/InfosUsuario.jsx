@@ -1,4 +1,6 @@
-import React, { useContext } from 'react'
+import { useRouter } from 'next/router'
+import React, { useContext, useEffect, useState } from 'react'
+import { api } from '../api/api'
 import { SessaoContext } from '../contexts/Sessao'
 import Botao from './Botao'
 import DadosContaUsuario from './DadosContaUsuario'
@@ -7,6 +9,29 @@ import EnderecosUsuario from './EnderecosUsuario'
 
 const InfosUsuario = () => {
     const { user } = useContext(SessaoContext)
+    const router = useRouter();
+
+    const [imagem, setImagem] = useState()
+    useEffect(() => {
+        console.log(imagem);
+    }, [imagem])
+
+    function handlelUplod(e) {
+        e.preventDefault()
+
+        var formdata = new FormData();
+        formdata.append("img", imagem[0], imagem[0].name);
+
+        api.post(`http://localhost:8080/solicitante/perfil/${user.cpf}`,formdata)
+        .then(res => {
+            router.reload();
+        },err => {
+            console.log(err.response);
+        })
+
+        
+    }
+
     return (
         <>
             <div className="w-full flex justify-around">
@@ -14,18 +39,20 @@ const InfosUsuario = () => {
                     <div className="flex mb-10">
                         <img src={`http://localhost:8080/solicitante/perfil/${user.cpf}`} alt="img" width="160px" className="rounded-full" />
                         <div className="ml-8 text-3xl font-bold flex flex-col">
-                            <span>Ítalo de Souza</span>
-                            <div className="text-base mt-16">
-                            <Botao text="Mudar Imagem" estilo={7}/>
-                            </div>
+                            <span>{user.nome}</span>
+                            <form className="text-base mt-16" onSubmit={handlelUplod}>
+                                <label for="img" className="cursor-pointer bg-blue-dark py-3 px-5 rounded-3xl text-white">Mudar Imagem</label>
+                                <input onChange={e => { setImagem(e.target.files) }} id="img" type="file" className="hidden" />
+                                <Botao text="salvar" estilo={7}></Botao>
+                            </form>
                         </div>
                     </div>
-                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
-                    <DadosContaUsuario/>
-                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
-                    <DadosPessoaisUsuario/>
-                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
-                    <EnderecosUsuario/>
+                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
+                    <DadosContaUsuario />
+                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
+                    <DadosPessoaisUsuario />
+                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
+                    <EnderecosUsuario />
                 </div>
 
             </div>
