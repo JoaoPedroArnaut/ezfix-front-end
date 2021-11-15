@@ -7,7 +7,7 @@ import DadosContaUsuario from './DadosContaUsuario'
 import DadosPessoaisUsuario from './DadosPessoaisUsuario'
 import EnderecosUsuario from './EnderecosUsuario'
 
-const InfosUsuario = () => {
+const InfosUsuario = ({setNovoEndereco}) => {
     const { user } = useContext(SessaoContext)
     const router = useRouter();
 
@@ -40,12 +40,12 @@ const InfosUsuario = () => {
                             </div>
                         </div>
                     </div>
-                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
-                    <DadosContaUsuario />
-                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
-                    <DadosPessoaisUsuario />
-                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10" />
-                    <EnderecosUsuario />
+                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
+                    <DadosContaUsuario/>
+                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
+                    <DadosPessoaisUsuario/>
+                    <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
+                    <EnderecosUsuario setNovoEndereco={setNovoEndereco}/>
                 </div>
 
             </div>
