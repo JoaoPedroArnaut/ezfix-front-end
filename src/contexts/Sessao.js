@@ -8,6 +8,8 @@ export const SessaoProvider = ({ children }) => {
 
     const [email, setEmail] = useState("");
     const [user, setUser] = useState({})
+    
+    let init = true
 
     const cookies = parseCookies()
 
@@ -24,17 +26,20 @@ export const SessaoProvider = ({ children }) => {
 
     useEffect(() => {
         setToken(cookies.token)
-        api.get(`/solicitante/email/${email}`)
+        if (init){
+            api.get(`/solicitante/email/${email}`)
             .then(response => {
                 setUser(response.data);
                 setCookie(null, 'cpf', response.data.cpf, {
                     maxAge: 3600,
                     path: '/',
                 });
-
+                init = false;
             }, err => {
 
             })
+        }
+        
     }, [email])
 
     return <SessaoContext.Provider value={{ email, setEmail, user }}>{children}</SessaoContext.Provider>
