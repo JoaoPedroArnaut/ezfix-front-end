@@ -11,28 +11,30 @@ export const SessaoProvider = ({ children }) => {
 
     const cookies = parseCookies()
 
-    useEffect(() => { 
+    useEffect(() => {
         api.get(`/solicitante/cpf/${cookies.cpf}`).then(response => {
-            if (Object.keys(user).length === 0){
+            if (Object.keys(user).length === 0) {
                 setUser(response.data)
+                setEmail(response.data.usuario.email)
             }
         }, err => {
-            
+
         })
     }, [user])
 
     useEffect(() => {
         setToken(cookies.token)
         api.get(`/solicitante/email/${email}`)
-        .then(response => {
-            setUser(response.data);
-            setCookie(null, 'cpf', response.data.cpf, {
-                maxAge: 3600,
-                path: '/',
-            });
-        }, err => {
-            
-        })
+            .then(response => {
+                setUser(response.data);
+                setCookie(null, 'cpf', response.data.cpf, {
+                    maxAge: 3600,
+                    path: '/',
+                });
+
+            }, err => {
+
+            })
     }, [email])
 
     return <SessaoContext.Provider value={{ email, setEmail, user }}>{children}</SessaoContext.Provider>

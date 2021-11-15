@@ -11,11 +11,6 @@ const InfosUsuario = () => {
     const { user } = useContext(SessaoContext)
     const router = useRouter();
 
-    const [imagem, setImagem] = useState()
-    useEffect(() => {
-        console.log(imagem);
-    }, [imagem])
-
     function handlelUplod(e) {
 
         var formdata = new FormData();
