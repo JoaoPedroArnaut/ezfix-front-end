@@ -11,9 +11,10 @@ const perfilusuario = () => {
 
     return (
         <>
-            {novoEndereco && <ModalNovoEndereco setNovoEndereco={setNovoEndereco} />}
-            <Navbar />
             <ValidacoesProvider>
+                {novoEndereco && <ModalNovoEndereco setNovoEndereco={setNovoEndereco} />}
+                <Navbar />
+
                 <InfosUsuario setNovoEndereco={setNovoEndereco} />
             </ValidacoesProvider>
             <Footer />

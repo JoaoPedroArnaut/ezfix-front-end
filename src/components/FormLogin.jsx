@@ -41,10 +41,14 @@ const FormLogin = () => {
                 router.push('/assistencias')
             }, err => {
                 console.log(err.response);
-                if (err.response.status == 403){
+                try{
+                    if (err.response.status == 403){
 
-                    setErros(["email e/ou senha invalidos"])
-                }else {
+                        setErros(["email e/ou senha invalidos"])
+                    }else {
+                        setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
+                    }
+                }catch(e){
                     setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
                 }
             })
