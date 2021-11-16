@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import Botao from '../components/Botao'
 import Footer from '../components/Footer'
@@ -7,6 +8,9 @@ import Navbar from '../components/Navbar'
 import { ValidacoesProvider } from '../contexts/Validacoes'
 
 const login = () => {
+
+    const router = useRouter();
+
     return (
         <>
             <Navbar />
@@ -18,7 +22,7 @@ const login = () => {
                             <p>Ainda não tem uma conta?</p>
                             <p>Crie a sua agora!</p>
                         </div>
-                        <Botao estilo={7} text="cadastro" />
+                        <Botao estilo={7} onClick={() => {router.push("/cadastro")}} text="cadastro" />
                     </div>
                     <div className="w-1/2 border-2 border-l-0 border-solid border-opacity-10 border-black filter shadow-xl rounded-r-xl flex flex-col items-center p-8 pb-20">
                         <HeaderLogin />

@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import InfosUsuario from '../components/InfosUsuario'
 import ModalNovoEndereco from '../components/ModalNovoEndereco'
 import Navbar from '../components/Navbar'
+import { ValidacoesProvider } from '../contexts/Validacoes'
 
 const perfilusuario = () => {
 
@@ -10,9 +11,12 @@ const perfilusuario = () => {
 
     return (
         <>
-        {novoEndereco && <ModalNovoEndereco setNovoEndereco={setNovoEndereco}/>}
-            <Navbar />
-            <InfosUsuario setNovoEndereco={setNovoEndereco}/>
+            <ValidacoesProvider>
+                {novoEndereco && <ModalNovoEndereco setNovoEndereco={setNovoEndereco} />}
+                <Navbar />
+
+                <InfosUsuario setNovoEndereco={setNovoEndereco} />
+            </ValidacoesProvider>
             <Footer />
         </>
     )

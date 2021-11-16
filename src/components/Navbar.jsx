@@ -26,6 +26,11 @@ const Navbar = ({ fixed }) => {
         estilo += " fixed z-50";
     }
 
+    //TODO
+    // if(router.route){
+        
+    // }
+
     return (
         <div className={estilo}>
             <div className="flex justify-between items-center container w-11/12 sm:w-4/5">
@@ -38,7 +43,7 @@ const Navbar = ({ fixed }) => {
                             < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{user.nome}</span>
                         </Link>
                         <Link href="/perfilusuario">
-                            <Image src="/PerfilUsuario.jpeg" className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
+                            <img src={`http://localhost:8080/solicitante/perfil/${user.cpf}`} className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
                         </Link>
                         <div className="ml-5 mr-10 cursor-pointer">
                             <img onClick={() => setMenuAtivo(!menuAtivo)} src="/MenuArrow.png" width="20px" height="20px" className={menuAtivo ? "transform-gpu -rotate-180" : "transform-gpu rotate-0"} />
