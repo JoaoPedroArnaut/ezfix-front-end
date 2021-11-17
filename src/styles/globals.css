@@ -30,6 +30,10 @@ li{
   height: fit-content;
 }
 
+.w-fit{
+  width: fit-content;
+}
+
 .tamanhoMinimo{
   min-height: calc(100vh - 6rem);
   max-height: fit-content;
