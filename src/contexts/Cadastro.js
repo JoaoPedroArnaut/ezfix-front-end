@@ -21,7 +21,8 @@ export const CadastroProvider = ({children}) => {
         setTituloForm(novoTitulo)
     }
 
-    function voltar(novoTitulo){
+    function voltar(novoTitulo,dados){
+        setForm({ ...form, ...dados })
         let tmpEtapa = stage;
         tmpEtapa.pop()
         setStages(tmpEtapa)
