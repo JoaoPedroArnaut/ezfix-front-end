@@ -1,6 +1,8 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { api } from '../api/api'
+import BarraOtimiza from '../components/BarraOtimiza'
 import CardAssistencia from '../components/CardAssistencia'
 import ComboBox from '../components/ComboBox'
 import Footer from '../components/Footer'
@@ -13,12 +15,26 @@ const assistencias = () => {
 
     const { pedido } = useContext(CarrinhoContext)
 
+    const [pagina,setPagina] = useState([])
+
+    useEffect(() => {
+        console.log(pagina);
+    },[pagina])
+
+    useEffect(() => {
+        api.get("/assistencia").then(res => {
+            setPagina(res.data.content)
+        },err => {
+            console.log(err);
+        })
+    },[])
+
     return (
         <>
             <Navbar fixed={true} />
-            {pedido.length != 0 ? <Recomendadas /> : <div />}
+            {pedido.length != 0 ? <Recomendadas /> : <BarraOtimiza/>}
             <div className="flex flex-col items-center">
-                <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full my-8">
+                <div className="flex flex-col items-center sm:flex-row sm:justify-around w-full mt-16 mb-8">
                     <div className="">
                         <input type="text" className="bg-blue-dark h-8 text-white rounded-l-md p-2" placeholder="pesquisar" />
                         <button className="text-white bg-blue-dark p-1 rounded-r-md h-8"><FontAwesomeIcon icon={faSearch} /></button>
@@ -28,18 +44,11 @@ const assistencias = () => {
                 </div>
                 <hr className="text-black w-full lg:w-4/5 text-opacity-25" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 grid-rows-4 gap-8 w-4/5 mt-8">
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
-                    <CardAssistencia nome="wcl phones" avaliacao="4,5" endereco="Grajau - são paulo" categorias="Celular" />
+                    { pagina.map( (assistencia,i) => 
+                    <CardAssistencia nome={assistencia.nomeFantasia} avaliacao="4,5" endereco={`${assistencia.enderecoEspecificos[0].enderecoGeral.cidade} - ${assistencia.enderecoEspecificos[0].enderecoGeral.estado}`} categorias="Celular" />
+                    ) }
+                    
+
                 </div>
             </div>
 

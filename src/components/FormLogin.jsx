@@ -40,9 +40,15 @@ const FormLogin = () => {
                 context.setEmail(email)
                 router.push('/assistencias')
             }, err => {
-                if (err.status === 403){
-                    setErros(["email e/ou senha invalidos"])
-                }else {
+                console.log(err.response);
+                try{
+                    if (err.response.status == 403){
+
+                        setErros(["email e/ou senha invalidos"])
+                    }else {
+                        setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
+                    }
+                }catch(e){
                     setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
                 }
             })

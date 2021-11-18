@@ -11,17 +11,29 @@ const FormUsuario = () => {
     const [senha, setSenha] = useState("");
     const [confirmSenha, setConfirmSenha] = useState("");
 
-    const { enviar, trocaPg } = useContext(CadastroContext)
+    const { enviar, trocaPg, form} = useContext(CadastroContext)
     const { validaUsuario, erros } = useContext(ValidacoesContext)
 
     useEffect(() => { console.log(erros); }, [erros])
+
+    useEffect(() => {
+        for(let i in form){
+            if(i == "email"){
+                setEmail(form[i])
+            }else if(i == "senha"){
+                setSenha(form[i])
+            }else if(i == "confirmSenha"){
+                setConfirmSenha(form[i])
+            }
+        }
+    },[])
 
     function handleSubmit(e) {
         e.preventDefault();
 
         if (validaUsuario({ email, senha, confirmSenha })) {
             trocaPg("Dados Pessoais")
-            enviar({ email, senha })
+            enviar({ email, senha, confirmSenha })
         }
     }
 
