@@ -1,4 +1,5 @@
 import React from 'react'
+import Certificaçoes from '../components/Certificaçoes'
 import DetalhesAssistencia from '../components/DetalhesAssistencia'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -10,6 +11,7 @@ const perfilassistencia = () => {
             <Navbar/>
             <DetalhesAssistencia/>
             <ServicosOferecidos/>
+            <Certificaçoes/>
             <Footer/>
         </>
     )
