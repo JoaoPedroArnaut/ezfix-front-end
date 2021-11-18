@@ -20,13 +20,16 @@ const ListaPedido = () => {
 
     function handleSubimt (e){
         e.preventDefault();
-        api.post(`/orcamentos/${user.cpf}/${router.asPath.replace("/relatorioproblema?", "")}`,pedido).then(res => {
-            console.log(pedido);
-            setPedido([])
-            router.push("/")
-        },err => {
-            console.log(err.response);
-        })
+        if(pedido.length > 0){
+            api.post(`/orcamentos/${user.cpf}/${router.asPath.replace("/relatorioproblema?", "")}`,pedido).then(res => {
+                console.log(pedido);
+                setPedido([])
+                router.back();
+            },err => {
+                console.log(err.response);
+            })
+        }
+        
     }
 
     return (

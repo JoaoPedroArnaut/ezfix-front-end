@@ -21,6 +21,7 @@ const myorders = () => {
             setOrcamentos(res.data)
             setItens()
         }, err => {
+            setCarregado(false)
             console.log(err.response);
         })
     }, [user])
@@ -30,7 +31,7 @@ const myorders = () => {
             <>
                 <Navbar fixed={true} />
                 <HeaderOrder tituloPagina="Meus Pedidos" />
-                <div className="w-full h-screen flex justify-around">
+                <div className="w-full min-h-screen flex justify-around">
                     <div className="sm:w-4/5 flex flex-col mt-8">
                         {orcamentos.map((item, index) =>
                             <CardPedido itens={item.itens} status={item.statusGeral} id={item.assistencia.id} assistencia={item.assistencia.nomeFantasia} />)}
