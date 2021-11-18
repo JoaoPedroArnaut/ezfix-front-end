@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Carregamento from './Carregamento';
 
-const PedidoDetalhado = ({ id, itens }) => {
+const PedidoDetalhado = ({ id, itens,status }) => {
 
     const [carregado, setCarregado] = useState(false)
 
@@ -54,7 +54,7 @@ const PedidoDetalhado = ({ id, itens }) => {
                             </div>
                             <div className="flex">
                                 <div className="w-7 h-7 rounded-full bg-amarelo mr-3"></div>
-                                <p> Aguardando sua resposta</p>
+                                <p> {status}</p>
                             </div>
                         </div>
 

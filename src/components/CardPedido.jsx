@@ -10,7 +10,7 @@ const CardPedido = ({ id, assistencia, status, itens }) => {
 
     useEffect(() => {
 
-        if (status != "agurdando resposta tecnico") {
+        if (status == "aguardando sua resposta") {
             setConfirmar(true)
         }
         
