@@ -42,7 +42,7 @@ const InfosUsuario = ({setNovoEndereco}) => {
                     <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
                     <DadosContaUsuario/>
                     <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
-                    <DadosPessoaisUsuario/>
+                    <DadosPessoaisUsuario />
                     <hr className="w-1/2 mr-auto ml-auto mb-10 mt-10"/>
                     <EnderecosUsuario setNovoEndereco={setNovoEndereco}/>
                 </div>

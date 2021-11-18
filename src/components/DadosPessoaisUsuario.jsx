@@ -13,7 +13,6 @@ const DadosPessoaisUsuario = () => {
     const [nome, setNome] = useState("")
     const [telPrimario, setTelPrimario] = useState('')
     const [telSecundario, setTelSecundario] = useState('')
-    const [contador, setContador] = useState(0)
     const [msg, setMsg] = useState("")
     const router = useRouter();
 
@@ -21,13 +20,10 @@ const DadosPessoaisUsuario = () => {
     const { erros, setErros, validaAttDadosPessoais } = useContext(ValidacoesContext)
 
     useEffect(() => {
-        setContador(contador + 1)
-        if (contador > 1) {
             setNome(user.nome)
             setTelPrimario(mascaraTel(user.telefonePrimario))
             setTelSecundario(mascaraTel(user.telefoneSecundario))
-        }
-    }, [user])
+    }, [])
 
 
     function mascaraTel(v, set) {
