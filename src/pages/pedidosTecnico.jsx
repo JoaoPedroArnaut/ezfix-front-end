@@ -1,9 +1,19 @@
 import SidebarTecnico from "../components/SidebarTecnico";
+import React, { useState } from "react";
+
+import SidebarTecnicoRedu from "../components/SideBarTecnicoRedu";
+
 function pedidosTecnico() {
+  const [alternaSideBar, setAlternaSideBar] = useState(false);
+
   return (
     <>
       <section className="flex">
-        <SidebarTecnico />
+        {alternaSideBar ? (
+          <SidebarTecnico alternaSideBar={setAlternaSideBar} />
+        ) : (
+          <SidebarTecnicoRedu alternaSideBar={setAlternaSideBar} />
+        )}
         <div className="p-8 w-full">
           <h1 className="text-blue-dark_light text-xl font-bold">Pedidos:</h1>
           <div className="p-9 bg-blue-light w-full rounded-3xl">
@@ -66,25 +76,47 @@ function pedidosTecnico() {
             </div>
           </section>
 
-          <div className="container">
-            <table>
+          <div className="flex justify-center w-full">
+            <table className="border-gray border-solid border w-full">
               <thead>
                 <tr>
-                  <th>Código</th>
-                  <th>Descrição</th>
-                  <th>Categoria</th>
+                  <th className="border-gray border-solid border">Produto</th>
+                  <th className="border-gray border-solid border">Marca</th>
+                  <th className="border-gray border-solid border">Modelo</th>
+                  <th className="border-gray border-solid border">Categoria</th>
+                  <th className="border-gray border-solid border">
+                    Observação
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>001</td>
-                  <td>Notebook i7 8GB Branco</td>
-                  <td>Informática</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
                 </tr>
                 <tr>
-                  <td>002</td>
-                  <td>Caneta Esferográfica Azul</td>
-                  <td>Papelaria</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
+                  <td className="border-gray border-solid border">&nbsp;</td>
                 </tr>
               </tbody>
             </table>
