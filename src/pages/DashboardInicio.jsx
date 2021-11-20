@@ -11,10 +11,12 @@ const DashboardInicio = () => {
 
     return (
         <>
-            <SidebarTecnico/>
-            <div>
-                <InicioAcompanhamento />
-                <InicioUltimasAvaliacoes />
+            <div className="flex">
+                <SidebarTecnico />
+                <div>
+                    <InicioAcompanhamento />
+                    <InicioUltimasAvaliacoes />
+                </div>
             </div>
         </>
     )

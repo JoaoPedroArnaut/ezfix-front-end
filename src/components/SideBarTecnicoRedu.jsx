@@ -7,16 +7,16 @@ import Link from 'next/link'
 const SidebarTecnicoRedu = ({ alternaSideBar }) => {
     return (
         <>
+        <div className="w-3vw h-screen"> 
+            <div className="fixed flex flex-col bg-blue w-3vw h-screen px-4 items-center text-sm font-bold">
 
-            <div className="flex flex-col bg-blue w-32 h-screen px-4 items-center text-sm font-bold fixed">
-
-                <div onClick={() => alternaSideBar(true)} className="flex px-2 py-2 mt-5 rounded-2xl cursor-pointer hover:bg-blue-dark hover:text-white text-black ">
+                <div onClick={() => alternaSideBar(false)} className="flex px-2 py-2 mt-5 rounded-2xl cursor-pointer hover:bg-blue-dark hover:text-white text-black ">
                     <span className="w-3/5 cursor-pointer"><FontAwesomeIcon icon={faBars} size="2x" /></span>
                 </div>
 
                 {/* <div className="flex items-center justify-center mt-10 ">
-                    <Image className="cursor-pointer" src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
-                </div> */}
+    <Image className="cursor-pointer" src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
+</div> */}
 
                 <div className="absolute w-full flex flex-col justify-center items-center top-40">
                     <li className="flex justify-start items-center px-4 py-3 mt-2 w-auto rounded-2xl hover:bg-blue-dark hover:text-white text-black ">
@@ -63,17 +63,16 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
 
                 </div>
 
-                <li className="absolute bottom-10 flex justify-start items-center px-4 py-3 mt-2 w-auto bg-blue-dark_light hover:bg-blue-dark rounded-2xl text-white ">
+                <li className="absolute bottom-10 flex justify-start items-center p-2 mt-2 w-auto bg-blue-dark_light hover:bg-blue-dark rounded-2xl text-white ">
                     <Link href="/">
                         <div >
-                            <span className="w-9"><FontAwesomeIcon icon={faSignOutAlt} size="2x" /></span>
-                            {/* <span className="ml-4 text-xl">Sair</span> */}
+                            <FontAwesomeIcon icon={faSignOutAlt} size="2x"/>
                         </div>
                     </Link>
                 </li>
             </div>
 
-            
+            </div>
 
         </>
 
