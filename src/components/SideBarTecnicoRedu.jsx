@@ -8,7 +8,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
     return (
         <>
 
-            <div className="relative flex flex-col bg-blue w-32 h-screen px-4 items-center text-sm font-bold">
+            <div className="flex flex-col bg-blue w-32 h-screen px-4 items-center text-sm font-bold fixed">
 
                 <div onClick={() => alternaSideBar(true)} className="flex px-2 py-2 mt-5 rounded-2xl cursor-pointer hover:bg-blue-dark hover:text-white text-black ">
                     <span className="w-3/5 cursor-pointer"><FontAwesomeIcon icon={faBars} size="2x" /></span>

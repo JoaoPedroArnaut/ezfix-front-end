@@ -7,7 +7,7 @@ import Link from 'next/link'
 const SidebarTecnico = ({ alternaSideBar }) => {
     return (
         <>
-            <div className="min-h-screen flex flex-row">
+            <div className="min-h-screen flex flex-row fixed">
 
                 <div className="flex flex-col w-72 bg-blue overflow-hidden">
 

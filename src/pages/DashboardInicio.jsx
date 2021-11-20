@@ -1,6 +1,8 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import SidebarTecnico from "../components/SidebarTecnico"
 import SidebarTecnicoRedu from "../components/SideBarTecnicoRedu"
+import InicioAcompanhamento from "../components/InicioAcompanhamento"
+import InicioUltimasAvaliacoes from "../components/InicioUltimasAvaliacoes"
 
 
 const DashboardInicio = () => {
@@ -9,8 +11,11 @@ const DashboardInicio = () => {
 
     return (
         <>
-        {alternaSideBar ? <SidebarTecnico alternaSideBar={setAlternaSideBar}/>
-        : <SidebarTecnicoRedu alternaSideBar={setAlternaSideBar}/>}
+            <SidebarTecnico/>
+            <div>
+                <InicioAcompanhamento />
+                <InicioUltimasAvaliacoes />
+            </div>
         </>
     )
 }
