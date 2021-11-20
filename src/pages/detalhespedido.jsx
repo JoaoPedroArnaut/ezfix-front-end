@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from "../components/Navbar"
-import HeaderOrder from "../components/HeaderOrder"
 import Footer from '../components/Footer'
 import DetalhesAlternado from '../components/DetalhesAlternado'
+import HeaderPage from '../components/HeaderPage'
 
 const detalhespedido = () => {
     const [tituloPagina, setTituloPagina] = useState()
@@ -20,7 +20,7 @@ const detalhespedido = () => {
     return (
         <>
             <Navbar login={["Login", "Criar conta"]} fixed={true} page="/" logado={true} usuario="Ítalo" imgPerfil="/PerfilUsuario.jpeg" />
-            <HeaderOrder tituloPagina={tituloPagina}/>
+            <HeaderPage tituloPagina={tituloPagina}/>
             <DetalhesAlternado estagio={estagio} />
             <Footer/>
         </>

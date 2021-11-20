@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import Botao from './Botao'
 import CardRelatorio from './CardRelatorio';
 import FormProduto from './FormProduto';
+import { useRouter } from 'next/router'
 
 const ListaPedido = () => {
+    
+    const router = useRouter();
 
     const [produto, setProduto] = useState("Celular");
     const [problema, setproblema] = useState("Tela quebrada");
@@ -29,7 +32,7 @@ const ListaPedido = () => {
                         <hr className="w-full mt-5 mb-5" />
 
                         <div className="mt-10 mb-5">
-                            <Botao estilo={8} text="Concluir" />
+                            <Botao estilo={8} text="Concluir" onClick={()=> router.push("/perfilassistencia?true")} />
                         </div>
                     </div>
 

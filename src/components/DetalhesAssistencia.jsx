@@ -17,8 +17,7 @@ const DetalhesAssistencia = () => {
                         <span>Grajaú - São Paulo</span>
                     </div>
 
-                    <div className="flex flex-col items-start w-2/4">
-                        <span className=" text-3xl font-semibold">TH Tecnologia</span>
+                    <div className="flex justify-center items-center w-2/4">
                         <div className="bg-blue-light w-full flex justify-around items-center p-5 text-xl font-medium rounded-2xl">
                             <div className="flex flex-col items-center">
                                 <span>8</span>
