@@ -27,7 +27,10 @@ const Botao = ({ estilo, icone, text, onClick, type }) => {
 
         <button  type={type} onClick={onClick}  className="bg-blue-dark py-3 px-5 rounded-3xl text-white">{text}</button>,
         
-        <button  type={type} onClick={onClick} className="bg-blue-dark w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>
+        <button className="bg-blue-dark w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>,
+
+        <button className="rounded-xl px-6 py-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-semibold flex justify-around items-center" onClick={onClick}>
+            <FontAwesomeIcon icon={icone} />{text}</button>,
     ]
 
     return botao[estilo];
