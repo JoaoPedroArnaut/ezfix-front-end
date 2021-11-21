@@ -3,6 +3,7 @@ import SidebarTecnico from "../components/SidebarTecnico"
 import SidebarTecnicoRedu from "../components/SideBarTecnicoRedu"
 import InicioAcompanhamento from "../components/InicioAcompanhamento"
 import InicioUltimasAvaliacoes from "../components/InicioUltimasAvaliacoes"
+import InicioGrafico from "../components/InicioGrafico"
 
 
 const DashboardInicio = () => {
@@ -16,6 +17,7 @@ const DashboardInicio = () => {
                 <div>
                     <InicioAcompanhamento />
                     <InicioUltimasAvaliacoes />
+                    <InicioGrafico/>
                 </div>
             </div>
         </>
