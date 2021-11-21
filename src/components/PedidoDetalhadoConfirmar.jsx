@@ -3,7 +3,7 @@ import Botao from './Botao'
 import { useRouter } from 'next/router';
 import { api } from '../api/api';
 
-const PedidoDetalhadoConfirmar = ({ id, itens, status, data, dataPrivista,valorTotal,idAssistencia }) => {
+const PedidoDetalhadoConfirmar = ({ setEstagio, id, itens, status, data, dataPrivista, valorTotal, idAssistencia }) => {
 
     const [confirmacao, setConfirmacao] = useState(false);
     const router = useRouter();
@@ -73,7 +73,7 @@ const PedidoDetalhadoConfirmar = ({ id, itens, status, data, dataPrivista,valorT
 
                                 <div className="flex w-1/5 justify-between">
                                     <Botao estilo={4} text="Recusar" onClick={() => setConfirmacao(true)} />
-                                    <Botao estilo={8} text="Aceitar" />
+                                    <Botao estilo={8} text="Aceitar" onClick={() => {setEstagio(3) }} />
                                 </div>
                             </div>
 
@@ -102,7 +102,7 @@ const PedidoDetalhadoConfirmar = ({ id, itens, status, data, dataPrivista,valorT
                                             <Botao estilo={4} text="Cancelar" onClick={() => setConfirmacao(false)} />
                                             <Botao estilo={8} text="Confirmar" onClick={() => api.delete(`/orcamentos/${id}`).then(() => {
                                                 setCancelado(true)
-                                            },err => {}) } />
+                                            }, err => { })} />
                                         </>
                                     }
                                 </div>
