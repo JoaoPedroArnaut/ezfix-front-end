@@ -17,7 +17,7 @@ useEffect(()=>{
     let isTrue = router.asPath.replace("/perfilassistencia?","")
     setModalEnv(isTrue == "true" ? true : false)
 
-},[modalEnv])
+},[])
 
     return (
         <>
