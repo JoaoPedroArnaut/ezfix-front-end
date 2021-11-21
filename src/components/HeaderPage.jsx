@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Botao from './Botao'
 
-const HeaderOrder = ({tituloPagina}) =>{
+const HeaderPage = ({tituloPagina}) =>{
     return (
         <>
             <div className="pt-24 flex justify-around">
@@ -22,4 +22,4 @@ const HeaderOrder = ({tituloPagina}) =>{
     )
 }
 
-export default HeaderOrder
+export default HeaderPage
