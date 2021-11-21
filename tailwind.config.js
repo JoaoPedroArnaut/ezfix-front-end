@@ -55,6 +55,9 @@ module.exports = {
       amarelo:{
         DEFAULT: '#ffd700'
       },
+      roxo:{
+        DEFAULT: '#B09FFF'
+      },
       green:{
         DEFAULT: '#14CA3C'
       },
