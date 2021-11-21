@@ -37,8 +37,7 @@ module.exports = {
         light: '#C2E1F6',
         DEFAULT: '#008BEA',
         dark: '#15374E',
-        dark_light: '#235475' ,
-        light_dark: '#9dd4f9'
+        dark_light: '#235475',
       },
       white: {
         DEFAULT: '#ffffff'
@@ -50,7 +49,8 @@ module.exports = {
         DEFAULT: '#CCCCCC',
         light: '#F1F6F9',
         dark: '#7C7878',
-        opacity: "rgba(49,49,49,0.8)"
+        opacity: "rgba(49,49,49,0.8)",
+        blue: "#9CBED4"
       },
       amarelo:{
         DEFAULT: '#ffd700'
