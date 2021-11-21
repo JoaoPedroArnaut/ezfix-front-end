@@ -4,7 +4,7 @@ import Botao from './Botao'
 import { useRouter } from 'next/router';
 import Carregamento from './Carregamento';
 
-const CardPedido = ({ id, assistencia, status, itens }) => {
+const CardPedido = ({ id, assistencia, status, itens,idPedido }) => {
 
     const router = useRouter();
     const [confirmar, setConfirmar] = useState(false)
@@ -64,7 +64,7 @@ const CardPedido = ({ id, assistencia, status, itens }) => {
 
                 </div>
                 <div className="w-full h-24 bg-blue-dark rounded-b-2xl flex justify-between items-center px-8 mb-16">
-                    <Botao onClick={() => { router.push(`/detalhespedido?${id}`) }} estilo={1} text="Detalhes" icone={faSearchPlus} />
+                    <Botao onClick={() => { router.push(`/detalhespedido?${idPedido}`) }} estilo={1} text="Detalhes" icone={faSearchPlus} />
                     <div className="flex justify-between w-2/6">
                         <Botao estilo={1} text="Conversa" icone={faCommentDots} />
                         <Botao estilo={1} text="Ajuda" icone={faBullhorn} />

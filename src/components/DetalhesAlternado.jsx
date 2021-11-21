@@ -10,6 +10,7 @@ const DetalhesAlternado = ({pedido}) => {
 
     useEffect(() => {
         if(pedido != undefined){
+            console.log(pedido);
             if(pedido.statusGeral == "agurdando resposta tecnico"){
                 setEstagio(1)
             }else if(pedido.statusGeral == "aguardando sua resposta"){
@@ -19,9 +20,9 @@ const DetalhesAlternado = ({pedido}) => {
     },[pedido])
 
     switch (estagio) {
-        case 1: return <PedidoDetalhado status={pedido.statusGeral} itens={pedido.itens} id={pedido.id}/>;
+        case 1: return <PedidoDetalhado data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>;
 
-        case 2: return <PedidoDetalhadoConfirmar/>
+        case 2: return <PedidoDetalhadoConfirmar valorTotal={pedido.valorTotal} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>
 
         case 3: return <Pagamento/>
 
