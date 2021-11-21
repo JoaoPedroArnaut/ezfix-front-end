@@ -5,7 +5,7 @@ import PedidoDetalhadoConfirmar from './PedidoDetalhadoConfirmar'
 
 const DetalhesAlternado = ({estagio}) => {
 
-    switch (estagio) {
+    switch (1) {
         case 1: return <PedidoDetalhado/>;
 
         case 2: return <PedidoDetalhadoConfirmar/>
