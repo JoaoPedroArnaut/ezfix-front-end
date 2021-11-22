@@ -1,5 +1,7 @@
-import router from 'next/router'
-import React, {useState, useEffect} from 'react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { api } from '../api/api'
+import Carregamento from '../components/Carregamento'
 import Certificaçoes from '../components/Certificaçoes'
 import DetalhesAssistencia from '../components/DetalhesAssistencia'
 import Footer from '../components/Footer'
@@ -9,27 +11,51 @@ import Navbar from '../components/Navbar'
 import ServicosOferecidos from '../components/ServicosOferecidos'
 
 const perfilassistencia = () => {
-const [modalEnv, setModalEnv] = useState(false);
-const [nomeAssistencia, setNomeAssistencia] = useState("TH Tecnologia");
+    const router = useRouter()
 
-useEffect(()=>{
+    const [assistencia, setAssistencia] = useState({});
+    const [estado, setEstado] = useState([])
+    const [cidade, setCidade] = useState([])
+    const [carregado, setCarregado] = useState(false)
+    const [modalEnv, setModalEnv] = useState(false);
 
-    let isTrue = router.asPath.replace("/perfilassistencia?","")
-    setModalEnv(isTrue == "true" ? true : false)
+    useEffect(() => {
 
-},[])
+        let id = router.asPath.replace("/perfilassistencia?", "")
+        id = id.replace("&true","")
+        api.get(`/assistencia/${id}`).then(res => {
+            setCarregado(true)
+            setAssistencia(res.data)
+            setCidade(res.data.enderecoEspecificos[0].enderecoGeral.cidade)
+            setEstado(res.data.enderecoEspecificos[0].enderecoGeral.estado)
+            let isTrue = router.asPath.replace(`/perfilassistencia?${id}&`, "")
+            setModalEnv(isTrue == "true" ? true : false)
+        }, err => {
+            console.log(err.response);
+        })
+    }, [])
 
-    return (
-        <>
-        {modalEnv && <ModalOrcamentoEnv setModalEnv={setModalEnv}/>}
-            <Navbar fixed={true}/>
-            <HeaderPage tituloPagina={nomeAssistencia}/>
-            <DetalhesAssistencia/>
-            <ServicosOferecidos/>
-            <Certificaçoes/>
-            <Footer/>
-        </>
-    )
+    if (carregado) {
+        return (
+            <>
+                {modalEnv && <ModalOrcamentoEnv setModalEnv={setModalEnv} />}
+                <Navbar fixed={true} />
+                <HeaderPage tituloPagina={assistencia.nomeFantasia} />
+                <DetalhesAssistencia estado={estado} cidade={cidade} id={assistencia.id} avaliacao={assistencia.avaliacao} />
+                <ServicosOferecidos />
+                <Certificaçoes/>
+                <Footer />
+            </>
+        )
+    } else {
+        return (
+            <>
+                <Navbar fixed={false} />
+                <Carregamento />
+            </>
+        )
+    }
+
 }
 
 export default perfilassistencia
