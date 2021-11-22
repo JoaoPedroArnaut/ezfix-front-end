@@ -20,8 +20,7 @@ const Botao = ({ estilo, icone, text, onClick, type }) => {
         //Botão de recusa do componente PedidoDetalhado
         <button type={type} onClick={onClick} className="bg-red w-32 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75">{text}</button>,
 
-        <button type={type} className="rounded-3xl px-6 py-2  bg-blue w-52 text-white text-xl flex justify-around items-center hover:text-blue hover:bg-blue-light duration-75" onClick={onClick}>
-            <FontAwesomeIcon icon={icone} />{text}</button>,
+        <button onClick={onClick} className="rounded-xl px-60 mt-20 py-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-semibold flex justify-around items-center">{text}</button>,
         
         <button  type={type} onClick={onClick}  className="bg-blue-dark w-24 min-w-min p-2 rounded-md text-white hover:bg-blue-light duration-75" onClick={onClick}>{text}</button>,
 

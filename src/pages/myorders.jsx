@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Navbar from "../components/Navbar"
-import HeaderOrder from "../components/HeaderOrder"
 import Footer from '../components/Footer'
 import Carregamento from '../components/Carregamento'
 import { SessaoContext } from '../contexts/Sessao'
 import { api } from '../api/api'
 import CardPedido from '../components/CardPedido'
+import HeaderPage from '../components/HeaderPage'
 
 const myorders = () => {
 
@@ -19,6 +19,7 @@ const myorders = () => {
         api.get(`/orcamentos/solicitante/${user.cpf}`).then(res => {
             setCarregado(true)
             setOrcamentos(res.data)
+            console.log(res.data);
             setItens()
         }, err => {
             setCarregado(false)
@@ -30,7 +31,7 @@ const myorders = () => {
         return (
             <>
                 <Navbar fixed={true} />
-                <HeaderOrder tituloPagina="Meus Pedidos" />
+                <HeaderPage tituloPagina="Meus Pedidos" />
                 <div className="w-full min-h-screen flex justify-around">
                     <div className="sm:w-4/5 flex flex-col mt-8">
                         {orcamentos.map((item, index) =>

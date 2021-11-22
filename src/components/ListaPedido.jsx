@@ -24,7 +24,7 @@ const ListaPedido = () => {
             api.post(`/orcamentos/${user.cpf}/${router.asPath.replace("/relatorioproblema?", "")}`,pedido).then(res => {
                 console.log(pedido);
                 setPedido([])
-                router.back();
+                router.push(`/perfilassistencia?${router.asPath.replace("/relatorioproblema?", "")}&true`)
             },err => {
                 console.log(err.response);
             })

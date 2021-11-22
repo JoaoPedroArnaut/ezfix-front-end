@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from "../components/Navbar"
-import HeaderOrder from "../components/HeaderOrder"
 import Footer from '../components/Footer'
 import DetalhesAlternado from '../components/DetalhesAlternado'
 import { api } from '../api/api'
 import { useRouter } from 'next/router'
 import Carregamento from '../components/Carregamento'
+import HeaderPage from '../components/HeaderPage'
 
 const detalhespedido = () => {
 
@@ -38,7 +38,7 @@ const detalhespedido = () => {
         return (
             <>
                 <Navbar fixed={true} />
-                <HeaderOrder tituloPagina={tituloPagina} />
+                <HeaderPage tituloPagina={tituloPagina}/>
                 <DetalhesAlternado pedido={pedido} estagio={estagio} />
                 <Footer />
             </>

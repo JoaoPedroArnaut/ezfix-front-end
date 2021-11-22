@@ -4,7 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router';
 
-const DetalhesAssistencia = ({ id, nome, avaliacao, estado, cidade }) => {
+const DetalhesAssistencia = ({ id, avaliacao, estado, cidade }) => {
 
     const router = useRouter();
 
@@ -17,8 +17,7 @@ const DetalhesAssistencia = ({ id, nome, avaliacao, estado, cidade }) => {
                         <span>{cidade} - {estado}</span>
                     </div>
 
-                    <div className="flex flex-col items-start w-2/4">
-                        <span className=" text-3xl font-semibold">{nome}</span>
+                    <div className="flex justify-center items-center w-2/4">
                         <div className="bg-blue-light w-full flex justify-around items-center p-5 text-xl font-medium rounded-2xl">
                             <div className="flex flex-col items-center">
                                 <span>8</span>

@@ -4,7 +4,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Botao from './Botao'
 import { useRouter } from 'next/router'
 
-const HeaderOrder = ({tituloPagina}) =>{
+const HeaderPage = ({tituloPagina}) =>{
 
     const router = useRouter()
 
@@ -26,4 +26,4 @@ const HeaderOrder = ({tituloPagina}) =>{
     )
 }
 
-export default HeaderOrder
+export default HeaderPage
