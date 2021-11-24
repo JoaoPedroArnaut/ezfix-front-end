@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Botao from './Botao'
 import { useRouter } from 'next/router';
 
-const Pagamento = () => {
+const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
 
     const [lalamove, setSection] = useState(false);
     const [confirmacao, setConfirmacao] = useState(false);
+    const [frete, setFrete] = useState("");
+    const [subTotal, setSubtotal] = useState(valorTotal)
     const router = useRouter();
+
+    useEffect(() => {
+        console.log(assistencia);
+        console.log(solicitante.enderecoEspecificos[0].enderecoGeral.logradouro);
+    }, [])
+
+    useEffect(() => {
+        if (lalamove) {
+            setFrete("121")
+            setSubtotal(valorTotal + frete)
+        } else {
+            setFrete("Gratis")
+            setSubtotal(valorTotal)
+        }
+    }, [lalamove])
 
     return (
         <>
@@ -27,7 +44,9 @@ const Pagamento = () => {
                             <div className="mt-8">
                                 <span className="font-semibold text-xl">Confirme o seu endereço</span>
                                 <div className="h-14 w-full bg-white flex justify-between items-center px-4 rounded-2xl mt-2">
-                                    <input type="text" value="Rua Osvaldo Cruz, 78 - Vila Prudente" className="text-gray-dark w-4/5" />
+                                    <span className="text-gray-dark">
+                                        {solicitante.enderecoEspecificos[0].enderecoGeral.logradouro}, {solicitante.enderecoEspecificos[0].numero} - {solicitante.enderecoEspecificos[0].enderecoGeral.cep}
+                                    </span>
                                     <img src="./Edit.png" alt="Editar" />
                                 </div>
                             </div>
@@ -45,27 +64,20 @@ const Pagamento = () => {
                         <div className="rounded-2xl p-3 bg-blue-light">
                             <p className="font-semibold text-xl">Resumo do Pedido</p>
                             <div className="text-gray-dark">
-                                <div className="flex justify-between mt-1 mb-1">
-                                    <span>Smartphone Redmi note 8</span>
-                                    <span>R$345,00</span>
-                                </div>
-                                <div className="flex justify-between mt-1 mb-1">
-                                    <span>Smartphone Redmi note 8</span>
-                                    <span>R$450,00</span>
-                                </div>
+                                {itens.map((item, i) =>
+                                (<div className=" flex justify-between w-full">
+                                    <span>{item.produto.marca} {item.produto.modelo}</span>
+                                    <span>R${item.valorServico}</span>
+                                </div>))}
                                 <hr />
                                 <div className="flex justify-between mt-1 mb-1">
                                     <span>Taxa de Entrega</span>
-                                    <span className="text-green">Grátis</span>
-                                </div>
-                                <div className="flex justify-between mt-1 mb-1">
-                                    <span>Taxa</span>
-                                    <span>R$12,00</span>
+                                    <span className="text-green">{frete}</span>
                                 </div>
                                 <hr />
                                 <div className="flex justify-between text-black font-semibold mt-2">
                                     <span>Total</span>
-                                    <span>R$807,00</span>
+                                    <span>R${subTotal}</span>
                                 </div>
                             </div>
                         </div>

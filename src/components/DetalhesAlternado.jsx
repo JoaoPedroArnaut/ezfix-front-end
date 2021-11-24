@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Carregamento from './Carregamento';
 import Pagamento from './Pagamento';
 import PedidoDetalhado from './PedidoDetalhado'
 import PedidoDetalhadoConfirmar from './PedidoDetalhadoConfirmar'
 
-const DetalhesAlternado = ({estagio}) => {
+const DetalhesAlternado = ({pedido}) => {
 
-    switch (1) {
-        case 1: return <PedidoDetalhado/>;
+    const [estagio,setEstagio] = useState(0)
 
-        case 2: return <PedidoDetalhadoConfirmar/>
+    useEffect(() => {
+        if(pedido != undefined){
+            console.log(pedido);
+            if(pedido.statusGeral == "agurdando resposta tecnico"){
+                setEstagio(1)
+            }else if(pedido.statusGeral == "aguardando sua resposta"){
+                setEstagio(2)
+            }
+        }
+    },[pedido])
 
-        case 3: return <Pagamento/>
+    switch (estagio) {
+        case 1: return <PedidoDetalhado data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>;
 
-        default: return <div/>;
+        case 2: return <PedidoDetalhadoConfirmar setEstagio={setEstagio} valorTotal={pedido.valorTotal} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>
+
+        case 3: return <Pagamento solicitante={pedido.solicitante} assistencia={pedido.assistencia} itens={pedido.itens} valorTotal={pedido.valorTotal}/>
+
+        default: return <Carregamento/>;
     }
             
 }

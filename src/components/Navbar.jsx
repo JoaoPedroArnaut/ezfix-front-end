@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,12 +13,20 @@ const Navbar = ({ fixed }) => {
 
     const { user } = useContext(SessaoContext)
     const [menuAtivo, setMenuAtivo] = useState(false)
+    const [logado,setLogado] = useState(false)
 
-    let logado = false
+    // if (cookies.token != undefined) {
+    //     logado = true
+    // }else{
+    // }
 
-    if (cookies.token != undefined) {
-        logado = true
-    }
+    useEffect(() => {
+        if (cookies.token != undefined) {
+            setLogado(true)
+        }else if(router.route != "/login" && router.route != "/"  && router.route != "/cadastro" ){
+            router.push("/login")
+        }
+    },[])
 
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
 
