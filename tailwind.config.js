@@ -24,6 +24,8 @@ module.exports = {
         '15':'17%',
         '45': '48%',
         '12': '12%',
+        '20vw': '20vw',
+        '3vw' : '4vw',
       },
       backgroundImage: {
         'banner': "url('/Component 49.png')",
@@ -48,10 +50,14 @@ module.exports = {
         DEFAULT: '#CCCCCC',
         light: '#F1F6F9',
         dark: '#7C7878',
-        opacity: "rgba(49,49,49,0.8)"
+        opacity: "rgba(49,49,49,0.8)",
+        blue: "#9CBED4"
       },
       amarelo:{
         DEFAULT: '#ffd700'
+      },
+      roxo:{
+        DEFAULT: '#B09FFF'
       },
       green:{
         DEFAULT: '#14CA3C'

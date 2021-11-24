@@ -7,7 +7,7 @@ import { ValidacoesContext } from '../contexts/Validacoes';
 import Erros from './Erros';
 import { useRouter } from 'next/router';
 
-const FormEndereco = () => {
+const FormEndereco = ({isTecnico}) => {
 
     const [cep, setCep] = useState("")
     const [logradouro, setLogradouro] = useState('')
@@ -19,45 +19,45 @@ const FormEndereco = () => {
 
     const router = useRouter()
 
-    const { enviar, voltar , form, formPronto, cadastra } = useContext(CadastroContext)
-    const { validaEndereco, erros, setErros} = useContext(ValidacoesContext)
+    const { enviar, voltar, form, formPronto, cadastra } = useContext(CadastroContext)
+    const { validaEndereco, erros, setErros } = useContext(ValidacoesContext)
 
     useEffect(() => {
-        for(let i in form){
-            if(i == "cep"){
+        for (let i in form) {
+            if (i == "cep") {
                 setCep(form[i])
-            }else if(i == "logradouro"){
+            } else if (i == "logradouro") {
                 setLogradouro(form[i])
-            }else if(i == "bairro"){
+            } else if (i == "bairro") {
                 setBairro(form[i])
-            }else if(i == "numero"){
+            } else if (i == "numero") {
                 setNumero(form[i])
-            }else if(i == "complemento"){
+            } else if (i == "complemento") {
                 setComplemento(form[i])
-            }else if(i == "cidade"){
+            } else if (i == "cidade") {
                 setCidade(form[i])
-            }else if(i == "estado"){
+            } else if (i == "estado") {
                 setEstado(form[i])
             }
         }
-    },[])
+    }, [])
 
     useEffect(() => {
-        if(formPronto >= 3){
+        if (formPronto >= 3) {
             cadastra(form).then(res => {
-                if(res.status == 201){
+                if (res.status == 201) {
                     router.push("/login")
                 }
-            },err => {
+            }, err => {
                 console.log(err.response);
-                if(err.response.status == 409){
+                if (err.response.status == 409) {
                     setErros([err.response.data])
-                }else {
+                } else {
                     setErros(["algo inesperado aconteceu, tente novamente mais tarde"])
                 }
             })
         }
-    },[formPronto])
+    }, [formPronto])
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -83,21 +83,41 @@ const FormEndereco = () => {
         }, err => { console.log(err); })
     }
 
-    return (
-        <form className="w-full flex justify-between flex-wrap" onSubmit={handleSubmit}>
-            <Erros erros={erros} />
-            <Input  maxLength="9" value={cep} onChange={e => { mascaraCep(e.target.value, setCep) }} onBlur={autoCep} label="Cep" placeholder="XXXXX-XXX" alternativo={true} size="w-45" />
-            <div className="w-45"></div>
-            <Input disabled={true} value={logradouro} onChange={e => { setLogradouro(e.target.value) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
-            <Input value={complemento} onChange={e => { setComplemento(e.target.value) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
-            <Input value={numero} type="number" onChange={e => { setNumero(e.target.value) }} label="Número" placeholder="1500" alternativo={true} size="w-45" />
-            <Input disabled={true} value={bairro} onChange={e => { setBairro(e.target.value) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
-            <Input disabled={true} value={cidade} onChange={e => { setCidade(e.target.value) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
-            <Input maxLength="2" value={estado} onChange={e => { setEstado(e.target.value) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
-            <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Pessoais",{ cep, logradouro, numero, complemento, cidade, estado, bairro }) }} text="voltar" />
-            <BotaoForm size="45" text="enviar" />
-        </form>
-    )
+    if (isTecnico) {
+        return (    //Formulario para o endereço do técnico
+            <form className="w-full flex justify-between flex-wrap" onSubmit={handleSubmit}>
+                <Erros erros={erros} />
+                <Input maxLength="9" label="Nome da Assistência" alternativo={true} size="w-full" />
+                <Input maxLength="9" value={cep} onChange={e => { mascaraCep(e.target.value, setCep) }} onBlur={autoCep} label="Cep" placeholder="XXXXX-XXX" alternativo={true} size="w-45" />
+                <div className="w-45"></div>
+                <Input disabled={true} value={logradouro} onChange={e => { setLogradouro(e.target.value) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
+                <Input value={complemento} onChange={e => { setComplemento(e.target.value) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
+                <Input value={numero} type="number" onChange={e => { setNumero(e.target.value) }} label="Número" placeholder="1500" alternativo={true} size="w-45" />
+                <Input disabled={true} value={bairro} onChange={e => { setBairro(e.target.value) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
+                <Input disabled={true} value={cidade} onChange={e => { setCidade(e.target.value) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
+                <Input maxLength="2" value={estado} onChange={e => { setEstado(e.target.value) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
+                <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Pessoais", { cep, logradouro, numero, complemento, cidade, estado, bairro }) }} text="voltar" />
+                <BotaoForm size="45" type="submit" text="avançar" />
+            </form>
+        )
+    }
+    else {
+        return (
+            <form className="w-full flex justify-between flex-wrap" onSubmit={handleSubmit}>
+                <Erros erros={erros} />
+                <Input maxLength="9" value={cep} onChange={e => { mascaraCep(e.target.value, setCep) }} onBlur={autoCep} label="Cep" placeholder="XXXXX-XXX" alternativo={true} size="w-45" />
+                <div className="w-45"></div>
+                <Input disabled={true} value={logradouro} onChange={e => { setLogradouro(e.target.value) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
+                <Input value={complemento} onChange={e => { setComplemento(e.target.value) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
+                <Input value={numero} type="number" onChange={e => { setNumero(e.target.value) }} label="Número" placeholder="1500" alternativo={true} size="w-45" />
+                <Input disabled={true} value={bairro} onChange={e => { setBairro(e.target.value) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
+                <Input disabled={true} value={cidade} onChange={e => { setCidade(e.target.value) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
+                <Input maxLength="2" value={estado} onChange={e => { setEstado(e.target.value) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
+                <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Pessoais", { cep, logradouro, numero, complemento, cidade, estado, bairro }) }} text="voltar" />
+                <BotaoForm size="45" text="enviar" />
+            </form>
+        )
+    }
 }
 
 export default FormEndereco
