@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import BotaoForm from './BotaoForm';
 import CardPlano from './CardPlano'
 
 const FormPlanos = () => {
+
+    const [estilo1, setEstilo] = useState("bg-blue-light")
+
+    const [checked, setChecked] = useState([false, true, false]);
+
     return (
         <>
             <div className="grid grid-cols-3 gap-10 mt-10">
