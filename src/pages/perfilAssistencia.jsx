@@ -12,7 +12,7 @@ import ServicosOferecidos from '../components/ServicosOferecidos'
 
 const perfilassistencia = () => {
     const router = useRouter()
-
+ 
     const [assistencia, setAssistencia] = useState({});
     const [estado, setEstado] = useState([])
     const [cidade, setCidade] = useState([])
