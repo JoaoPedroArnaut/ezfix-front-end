@@ -9,7 +9,7 @@ function pedidosOrcamentosTecnico() {
             <section className="flex">
                 <SidebarTecnico />
 
-                <div className="p-16 w-full">
+                <div className="p-20 w-full">
                 <h1 className="text-blue-dark_light text-xl font-bold">Pedidos:</h1>
                 <BarInformacaoCliente />
                 <div className="p-8 flex flex-col items-center justify-evenly border-2 border-gray-dark border-solid rounded-xl rounded-t-none shadow-lg">
