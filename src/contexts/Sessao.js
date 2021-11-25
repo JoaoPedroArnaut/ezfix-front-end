@@ -6,7 +6,7 @@ export const SessaoContext = createContext({});
 
 export const SessaoProvider = ({ children }) => {
 
-    const [email, setEmail] = useState("");
+    const [email, setEmailSessao] = useState("");
     const [user, setUser] = useState({})
     const [isTecnico, setTecnico] = useState(false)
 
@@ -21,7 +21,7 @@ export const SessaoProvider = ({ children }) => {
             api.get(`/solicitante/cpf/${cookies.cpf}`).then(response => {
                 if (Object.keys(user).length === 0) {
                     setUser(response.data)
-                    setEmail(response.data.usuario.email)
+                    setEmailSessao(response.data.usuario.email)
                 }
             }, err => {
 
@@ -30,7 +30,7 @@ export const SessaoProvider = ({ children }) => {
             api.get(`/assistencia/${cookies.id}`).then(response => {
                 if (Object.keys(user).length === 0) {
                     setUser(response.data)
-                    setEmail(response.data.representante.usuario.email)
+                    setEmailSessao(response.data.representante.usuario.email)
                 }
             }, err => {
 
@@ -39,7 +39,7 @@ export const SessaoProvider = ({ children }) => {
     }, [user])
 
     useEffect(() => {
-        if(email != ""){
+        if(email != "" && cookies.isTecnico != undefined){
             setToken(cookies.token)
             if (cookies.isTecnico == "false") {
                 api.get(`/solicitante/email/${email}`)
@@ -67,7 +67,7 @@ export const SessaoProvider = ({ children }) => {
             }
         }
         
-    }, [email])
+    }, [email,cookies.isTecnico])
 
-    return <SessaoContext.Provider value={{ email, setEmail, user, setTecnico }}>{children}</SessaoContext.Provider>
+    return <SessaoContext.Provider value={{ email, setEmailSessao, user, setTecnico }}>{children}</SessaoContext.Provider>
 }
