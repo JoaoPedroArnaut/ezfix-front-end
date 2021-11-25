@@ -16,7 +16,8 @@ export const SessaoProvider = ({ children }) => {
 
     useEffect(() => {
         console.log(cookies.isTecnico);
-        if (!cookies.isTecnico) {
+        if (cookies.isTecnico == "false") {
+            console.log("sesao");
             api.get(`/solicitante/cpf/${cookies.cpf}`).then(response => {
                 if (Object.keys(user).length === 0) {
                     setUser(response.data)
@@ -38,32 +39,34 @@ export const SessaoProvider = ({ children }) => {
     }, [user])
 
     useEffect(() => {
-        setToken(cookies.token)
-        console.log(cookies.token);
-        if (!cookies.isTecnico) {
-            api.get(`/solicitante/email/${email}`)
-                .then(response => {
-                    setUser(response.data);
-                    setCookie(null, 'cpf', response.data.cpf, {
-                        maxAge: 3600,
-                        path: '/',
-                    });
-                }, err => {
-
-                })
-        } else {
-            api.get(`/assistencia/email/${email}`)
-                .then(response => {
-                    setUser(response.data);
-                    console.log(response.data);
-                    setCookie(null, 'id', response.data.id, {
-                        maxAge: 3600,
-                        path: '/',
-                    });
-                }, err => {
-                    
-                })
+        if(email != ""){
+            setToken(cookies.token)
+            if (cookies.isTecnico == "false") {
+                api.get(`/solicitante/email/${email}`)
+                    .then(response => {
+                        setUser(response.data);
+                        setCookie(null, 'cpf', response.data.cpf, {
+                            maxAge: 3600,
+                            path: '/',
+                        });
+                    }, err => {
+    
+                    })
+            } else {
+                api.get(`/assistencia/email/${email}`,{headers: { Authorization: `Bearer ${cookies.token}` }})
+                    .then(response => {
+                        setUser(response.data);
+                        console.log(response.data);
+                        setCookie(null, 'id', response.data.id, {
+                            maxAge: 3600,
+                            path: '/',
+                        });
+                    }, err => {
+                        
+                    })
+            }
         }
+        
     }, [email])
 
     return <SessaoContext.Provider value={{ email, setEmail, user, setTecnico }}>{children}</SessaoContext.Provider>

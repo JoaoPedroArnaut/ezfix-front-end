@@ -15,11 +15,6 @@ const Navbar = ({ fixed }) => {
     const [menuAtivo, setMenuAtivo] = useState(false)
     const [logado,setLogado] = useState(false)
 
-    // if (cookies.token != undefined) {
-    //     logado = true
-    // }else{
-    // }
-
     useEffect(() => {
         if (cookies.token != undefined) {
             setLogado(true)
@@ -33,11 +28,6 @@ const Navbar = ({ fixed }) => {
     if (fixed) {
         estilo += " fixed z-50";
     }
-
-    //TODO
-    // if(router.route){
-        
-    // }
 
     return (
         <div className={estilo}>
