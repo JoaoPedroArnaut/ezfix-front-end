@@ -9,7 +9,7 @@ const CamposUsuario = ({isTecnico}) => {
 
     const { pgForm } = useContext(CadastroContext)
 
-    const forms = [<FormUsuario />,<FormDadosPessoais />,<FormEndereco isTecnico={isTecnico}/>, <FormPlanos/>]
+    const forms = [<FormUsuario />,<FormDadosPessoais isTecnico={isTecnico}/>,<FormEndereco isTecnico={isTecnico}/>, <FormPlanos/>]
     
     return (forms[pgForm])
 }

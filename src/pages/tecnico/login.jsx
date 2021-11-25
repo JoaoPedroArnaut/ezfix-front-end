@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import Botao from '../components/Botao'
-import Footer from '../components/Footer'
-import FormLogin from '../components/FormLogin'
-import HeaderLogin from '../components/HeaderLogin'
-import Navbar from '../components/Navbar'
-import { ValidacoesProvider } from '../contexts/Validacoes'
+import Botao from '../../components/Botao'
+import Footer from '../../components/Footer'
+import FormLogin from '../../components/FormLogin'
+import HeaderLogin from '../../components/HeaderLogin'
+import Navbar from '../../components/tecnico/Navbar'
+import { ValidacoesProvider } from '../../contexts/Validacoes'
 
-const logintecnico = () => {
+const login = () => {
 
     const router = useRouter();
 
@@ -22,12 +22,12 @@ const logintecnico = () => {
                             <p>Ainda não tem uma conta?</p>
                             <p>Crie a sua agora!</p>
                         </div>
-                        <Botao estilo={7} onClick={() => {router.push("/cadastro")}} text="cadastro" />
+                        <Botao estilo={7} onClick={() => {router.push("/tecnico/cadastro")}} text="cadastro" />
                     </div>
                     <div className="w-1/2 border-2 border-l-0 border-solid border-opacity-10 border-black filter shadow-xl rounded-r-xl flex flex-col items-center p-8 pb-20">
                         <HeaderLogin />
                         <ValidacoesProvider>
-                            <FormLogin />
+                            <FormLogin isTecnico={true}/>
                         </ValidacoesProvider>
                     </div>
                 </div>
@@ -37,4 +37,4 @@ const logintecnico = () => {
     )
 }
 
-export default logintecnico
+export default login

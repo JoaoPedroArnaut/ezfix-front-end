@@ -11,22 +11,22 @@ const FormUsuario = () => {
     const [senha, setSenha] = useState("");
     const [confirmSenha, setConfirmSenha] = useState("");
 
-    const { enviar, trocaPg, form} = useContext(CadastroContext)
+    const { enviar, trocaPg, form } = useContext(CadastroContext)
     const { validaUsuario, erros } = useContext(ValidacoesContext)
 
     useEffect(() => { console.log(erros); }, [erros])
 
     useEffect(() => {
-        for(let i in form){
-            if(i == "email"){
+        for (let i in form) {
+            if (i == "email") {
                 setEmail(form[i])
-            }else if(i == "senha"){
+            } else if (i == "senha") {
                 setSenha(form[i])
-            }else if(i == "confirmSenha"){
+            } else if (i == "confirmSenha") {
                 setConfirmSenha(form[i])
             }
         }
-    },[])
+    }, [])
 
     function handleSubmit(e) {
         e.preventDefault();

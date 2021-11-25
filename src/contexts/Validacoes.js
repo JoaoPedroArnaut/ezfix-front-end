@@ -151,6 +151,8 @@ export const ValidacoesProvider = ({ children }) => {
 
                 } else if (i == "dataNasc") {
                     erros.push(`data de nascimento não pode estar em branco`)
+                }else if (i == "nomeFantasia") {
+                    erros.push(`nome da assistência não pode estar em branco`)
                 } else {
                     erros.push(`${i} não pode estar em branco`)
                 }
