@@ -68,9 +68,15 @@ const FormEndereco = ({ isTecnico }) => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (validaEndereco({ nomeFantasia, cep, logradouro, numero, bairro, complemento, cidade, estado })) {
-            trocaPg("Planos")
-            enviar({ cep, logradouro, numero, complemento, cidade, estado, bairro, nomeFantasia })
+        if (isTecnico) {
+            if (validaEndereco({ nomeFantasia, cep, logradouro, numero, bairro, complemento, cidade, estado })) {
+                trocaPg("Planos")
+                enviar({ cep, logradouro, numero, complemento, cidade, estado, bairro, nomeFantasia })
+            }
+        }else{
+            if (validaEndereco({ cep, logradouro, numero, bairro, complemento, cidade, estado })) {
+                enviar({ cep, logradouro, numero, complemento, cidade, estado, bairro })
+            }
         }
     }
 
