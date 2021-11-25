@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faReceipt, faUser, faCommentAlt, faSignOutAlt, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import { destroyCookie, parseCookies } from 'nookies'
+import { useRouter } from 'next/router'
 
 const SidebarTecnicoRedu = ({ alternaSideBar }) => {
+
+    const cookies = parseCookies()
+    const router = useRouter()
+
+    useEffect(() => {
+        if(cookies.token == undefined){
+            router.push("/tecnico/login")
+        }
+    },[])
+
     return (
         <>
         <div className="w-3vw h-screen"> 
@@ -20,7 +32,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
 
                 <div className="absolute w-full flex flex-col justify-center items-center top-40">
                     <li className="flex justify-start items-center px-4 py-3 mt-2 w-auto rounded-2xl hover:bg-blue-dark hover:text-white text-black ">
-                        <Link href="/">
+                        <Link href="/DashboardInicio">
                             <div>
                                 <span className="w-9"><FontAwesomeIcon icon={faHome} size="2x" /></span>
                                 {/* <span className="ml-4 text-xl">Inicío</span> */}
@@ -31,7 +43,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
                     <hr className="w-11/12 box mt-2 mb-2" />
 
                     <li className="flex justify-start items-center px-4 py-3 mt-2 w-auto rounded-2xl hover:bg-blue-dark hover:text-white text-black ">
-                        <Link href="/">
+                        <Link href="/pedidosTecnico">
                             <div>
                                 <span className="w-9"><FontAwesomeIcon icon={faReceipt} size="2x" /></span>
                                 {/* <span className="ml-4 text-xl">Pedidos</span> */}
@@ -42,7 +54,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
                     <hr className="w-11/12 box mt-2 mb-2" />
 
                     <li className="flex justify-start items-center px-4 py-3 mt-2 w-auto rounded-2xl hover:bg-blue-dark hover:text-white text-black ">
-                        <Link href="/" >
+                        <Link href="/perfiltecnico" >
                             <div>
                                 <span className="w-9"><FontAwesomeIcon icon={faUser} size="2x" /></span>
                                 {/* <span className="ml-4 text-xl">Perfil</span> */}
@@ -63,7 +75,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
 
                 </div>
 
-                <li className="absolute bottom-10 flex justify-start items-center p-2 mt-2 w-auto bg-blue-dark_light hover:bg-blue-dark rounded-2xl text-white ">
+                <li onClick={() => {destroyCookie(null,"token");destroyCookie(null,"id");destroyCookie(null,"isTecnico");router.push("/tecnico/home")}} className="absolute bottom-10 flex justify-start items-center p-2 mt-2 w-auto bg-blue-dark_light hover:bg-blue-dark rounded-2xl text-white ">
                     <Link href="/">
                         <div >
                             <FontAwesomeIcon icon={faSignOutAlt} size="2x"/>
