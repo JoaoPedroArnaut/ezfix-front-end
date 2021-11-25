@@ -1,18 +1,78 @@
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect, useState } from 'react'
+import { CadastroContext } from '../contexts/Cadastro';
+import { ValidacoesContext } from '../contexts/Validacoes';
 import BotaoForm from './BotaoForm';
 import CardPlano from './CardPlano'
+import Erros from './Erros';
 
 const FormPlanos = () => {
+
+    const { enviar, voltar, form, formPronto, cadastraAssistencia, trocaPg } = useContext(CadastroContext)
+    const { validaEndereco, erros, setErros } = useContext(ValidacoesContext)
+    
+    const [estilo1,setEstilo1] = useState("bg-blue-light");
+    const [estilo2,setEstilo2] = useState("bg-blue-light");
+    const [estilo3,setEstilo3] = useState("bg-blue-light");
+    const [plano,setPlano] = useState(1);
+    
+
+    const [radio,setRadio] = useState([true,false,false])
+
+    const router = useRouter()
+
+    useEffect(() => {
+        if (formPronto == 4) {
+            console.log("foi");
+            cadastraAssistencia(form).then(res => {
+                if (res.status == 201) {
+                    router.push("/tecnico/login")
+                }
+            }, err => {
+                console.log(err.response);
+                if (err.response.status == 409) {
+                    setErros([err.response.data])
+                } else {
+                    setErros(["algo inesperado aconteceu, tente novamente mais tarde"])
+                }
+            })
+        }
+    }, [formPronto])
+
+    useEffect(() => {
+        if(radio[0]){
+            setEstilo1("bg-blue-dark text-white")
+            setEstilo2("bg-blue-light")
+            setEstilo3("bg-blue-light")
+        }
+        if(radio[1]){
+            setEstilo2("bg-blue-dark text-white")
+            setEstilo1("bg-blue-light")
+            setEstilo3("bg-blue-light")
+        }
+        if(radio[2]){
+            setEstilo3("bg-blue-dark text-white")
+            setEstilo1("bg-blue-light")
+            setEstilo2("bg-blue-light")
+        }
+    },[radio])
+
+    function handleSubmit() {
+        enviar({ plano })
+    }
+
+
     return (
         <>
+            <Erros erros={erros} />
             <div className="grid grid-cols-3 gap-10 mt-10">
-                <CardPlano lista={1} plano={0} preco="Grátis" />
-                <CardPlano lista={2} plano={1} preco="R$100,00/mês" />
-                <CardPlano lista={3} plano={2} preco="R$175,00/mês" />
+                <CardPlano onClick={() => {setPlano(1);setRadio([true,false,false])}} estilo={estilo1} lista={1} plano={0} preco="Grátis" />
+                <CardPlano onClick={() => {setPlano(2);setRadio([false,true,false])}} estilo={estilo2} lista={2} plano={1} preco="R$100,00/mês" />
+                <CardPlano onClick={() => {setPlano(3);setRadio([false,false,true])}} estilo={estilo3} lista={3} plano={2} preco="R$175,00/mês" />
             </div>
             <div className="flex w-full">
-                <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Do Usuario", { nome, cpf, dataNasc, telPrimario, telSecundario }) }} text="voltar" />
-                <BotaoForm size="45" type="submit" text="avançar" />
+                <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Do Usuario", {}) }} text="voltar" />
+                <BotaoForm size="45" onClick={handleSubmit} type="submit" text="avançar" />
             </div>
         </>
     )

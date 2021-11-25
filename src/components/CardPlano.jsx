@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 
-const CardPlano = ({ lista, plano, preco }) => {
+const CardPlano = ({ lista, plano, preco,onClick,estilo }) => {
 
     const planos = ["Básico", "Intermediário", "Avançado"]
-    const [selecionado, setSelecionado] = useState(false);
+
 
 
     function getLista(lista) {
@@ -25,7 +25,7 @@ const CardPlano = ({ lista, plano, preco }) => {
     }
     return (
         <>
-            <div className="bg-blue-light flex flex-col items-center rounded-2xl h-96 p-10 hover:bg-blue-dark hover:text-white cursor-pointer">
+            <div onClick={onClick} className={`${estilo} flex flex-col items-center rounded-2xl h-96 p-10 cursor-pointer`}>
                 <h1 className="font-bold text-3xl">{planos[plano]}</h1>
                 <span className="text-gray-dark mt-2 mb-5">{preco}</span>
                 <ul className="self-start list-disc">

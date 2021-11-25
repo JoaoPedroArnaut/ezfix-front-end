@@ -8,9 +8,7 @@ export const CarrinhoProvider = ({ children }) => {
 
     function remove(i) {
         let tmpPedido = pedido
-        console.log(tmpPedido);
         tmpPedido.splice(i, 1)
-        console.log(tmpPedido);
         setPedido(tmpPedido)
     }
 
