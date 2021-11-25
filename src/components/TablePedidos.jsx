@@ -8,26 +8,29 @@ const TablePedidos = ({ nome, status, id, data, itens }) => {
 
   const [sectionExt, setSectionExt] = useState(false);
   const [etapa, setEtapa] = useState("")
+  const [estilo,setEstilo] = useState("")
 
   const router = useRouter();
 
   useEffect(() => {
     if (status == "agurdando resposta tecnico") {
-      setEtapa("novo")
+      setEtapa("Novo")
+      setEstilo("bg-roxo")
     }else{
-      setEtapa("EM andamento")
+      setEtapa("Em andamento")
+      setEstilo("bg-amarelo-andamento")
     }
   }, [])
 
   return (
     <>
-      <div onClick={() => setSectionExt(!sectionExt)} className={sectionExt ? "flex items-center justify-around bg-blue-light_dark rounded-t-2xl mt-7  "
-        : "flex items-center justify-around bg-blue-light_dark rounded-2xl mt-7"}>
+      <div  className={sectionExt ? "flex items-center justify-around bg-blue-light_dark rounded-t-2xl mt-7  "
+        : "flex items-center justify-around bg-blue-light_dark  rounded-2xl mt-7"}>
 
         <p>{nome}</p>
 
         <div className="flex items-center justify-center">
-          <Bola />
+          <div className={`h-6 w-6 rounded-full ${estilo} mr-4`}></div>
           <span>{etapa}</span>
         </div>
         <div className="w-52 flex items-center justify-around">
@@ -37,9 +40,9 @@ const TablePedidos = ({ nome, status, id, data, itens }) => {
         </div>
         <div className="flex items-center w-48 justify-evenly">
 
-          <div onClick={() => { router.push(`/pedidosOrcamentosTecnico?${id}`) }} className="bg-gray-opacity rounded-3xl p-2 cursor-pointer">
+          {etapa == "Novo" && <div onClick={() => { router.push(`/pedidosOrcamentosTecnico?${id}`) }} className="bg-gray-opacity rounded-3xl p-2 cursor-pointer">
             <b className="text-white text-sm">Detalhes</b>
-          </div>
+          </div>}
 
           <div className="cursor-pointer" onClick={() => setSectionExt(!sectionExt)}>
             <FontAwesomeIcon icon={sectionExt ? faCaretDown : faCaretRight} size="2x" className="align-middle" />

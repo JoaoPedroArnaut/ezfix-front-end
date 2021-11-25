@@ -54,7 +54,8 @@ module.exports = {
         blue: "#9CBED4"
       },
       amarelo:{
-        DEFAULT: '#ffd700'
+        DEFAULT: '#ffd700',
+        andamento: '#ffe600'
       },
       roxo:{
         DEFAULT: '#B09FFF'
