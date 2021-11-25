@@ -14,10 +14,10 @@ const FormPlanos = () => {
     const [estilo1,setEstilo1] = useState("bg-blue-light");
     const [estilo2,setEstilo2] = useState("bg-blue-light");
     const [estilo3,setEstilo3] = useState("bg-blue-light");
-    const [plano,setPlano] = useState(1);
+    const [plano,setPlano] = useState(2);
     
 
-    const [radio,setRadio] = useState([true,false,false])
+    const [radio,setRadio] = useState([false,true,false])
 
     const router = useRouter()
 
@@ -41,17 +41,17 @@ const FormPlanos = () => {
 
     useEffect(() => {
         if(radio[0]){
-            setEstilo1("bg-blue-dark text-white")
+            setEstilo1("bg-blue-dark text-white scale-110")
             setEstilo2("bg-blue-light")
             setEstilo3("bg-blue-light")
         }
         if(radio[1]){
-            setEstilo2("bg-blue-dark text-white")
+            setEstilo2("bg-blue-dark text-white scale-110")
             setEstilo1("bg-blue-light")
             setEstilo3("bg-blue-light")
         }
         if(radio[2]){
-            setEstilo3("bg-blue-dark text-white")
+            setEstilo3("bg-blue-dark text-white scale-110")
             setEstilo1("bg-blue-light")
             setEstilo2("bg-blue-light")
         }
@@ -66,9 +66,9 @@ const FormPlanos = () => {
         <>
             <Erros erros={erros} />
             <div className="grid grid-cols-3 gap-10 mt-10">
-                <CardPlano onClick={() => {setPlano(1);setRadio([true,false,false])}} estilo={estilo1} lista={1} plano={0} preco="Grátis" />
-                <CardPlano onClick={() => {setPlano(2);setRadio([false,true,false])}} estilo={estilo2} lista={2} plano={1} preco="R$100,00/mês" />
-                <CardPlano onClick={() => {setPlano(3);setRadio([false,false,true])}} estilo={estilo3} lista={3} plano={2} preco="R$175,00/mês" />
+                <CardPlano onClick={() => {setPlano(1);setRadio([true,false,false])}} estilo={estilo1} pacote={0} />
+                <CardPlano onClick={() => {setPlano(2);setRadio([false,true,false])}} estilo={estilo2} pacote={1} />
+                <CardPlano onClick={() => {setPlano(3);setRadio([false,false,true])}} estilo={estilo3} pacote={2} />
             </div>
             <div className="flex w-full">
                 <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Do Usuario", {}) }} text="voltar" />
