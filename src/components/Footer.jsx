@@ -1,5 +1,6 @@
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 
@@ -8,7 +9,9 @@ const Footer = () => {
         <div className="bg-blue-dark flex items-center flex-col text-white text-center">
             <Image src='/ezfix_logo.png' height="150" width="150" />
             <p className="sm:w-6/12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            <p className="mt-4">seja uma assistência parceira</p>
+            <Link href="/tecnico/home">
+                <p className="mt-4 cursor-pointer" >seja uma assistência parceira</p>
+            </Link>
             <div className="w-full sm:w-6/12 lg:w-3/12 flex justify-evenly mt-8">
                 <p>Lalamove</p>
                 <p>FAQs</p>
