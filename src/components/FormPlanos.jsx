@@ -14,7 +14,7 @@ const FormPlanos = () => {
     const [estilo1,setEstilo1] = useState("bg-blue-light");
     const [estilo2,setEstilo2] = useState("bg-blue-light");
     const [estilo3,setEstilo3] = useState("bg-blue-light");
-    const [plano,setPlano] = useState(1);
+    const [plano,setPlano] = useState(2);
     
 
     const [radio,setRadio] = useState([false,true,false])
