@@ -3,12 +3,13 @@ import FormEndereco from './FormEndereco';
 import FormDadosPessoais from './FormDadosPessoais';
 import FormUsuario from './FormUsuario';
 import { CadastroContext } from '../contexts/Cadastro';
+import FormPlanos from './FormPlanos';
 
-const CamposUsuario = () => {
+const CamposUsuario = ({isTecnico}) => {
 
     const { pgForm } = useContext(CadastroContext)
 
-    const forms = [<FormUsuario />,<FormDadosPessoais />,<FormEndereco />]
+    const forms = [<FormUsuario />,<FormDadosPessoais isTecnico={isTecnico}/>,<FormEndereco isTecnico={isTecnico}/>, <FormPlanos/>]
     
     return (forms[pgForm])
 }

@@ -6,5 +6,11 @@ export const CarrinhoProvider = ({ children }) => {
 
     const [pedido, setPedido] = useState([])
 
-    return (<CarrinhoContext.Provider value={{ pedido, setPedido }}>{children}</CarrinhoContext.Provider>)
+    function remove(i) {
+        let tmpPedido = pedido
+        tmpPedido.splice(i, 1)
+        setPedido(tmpPedido)
+    }
+
+    return (<CarrinhoContext.Provider value={{ pedido, setPedido, remove }}>{children}</CarrinhoContext.Provider>)
 };
