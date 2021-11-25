@@ -1,36 +1,34 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 
-const CardPlano = ({ lista, plano, preco }) => {
+const CardPlano = ({ pacote, onClick }) => {
 
-    const planos = ["Básico", "Intermediário", "Avançado"]
-    const [selecionado, setSelecionado] = useState(false);
+    const planos = ["Básico", "Intermediário", "Avançado"];
+    const precos = ["Grátis", "100,00/mês", "175,00/mês"];
 
 
-    function getLista(lista) {
-        switch (lista) {
-            case 1: return <> <li>Acesso a dashboard</li>
-                <li>Suporte 24/7</li> </>
-                break;
-            case 2: return <> <li>Acesso a dashboard</li>
-                <li>Suporte 24/7</li>
-                <li>Frete grátis até 5 km</li>
-                <li>Destaque na plataforma 2 semana/mês</li> </>
-            case 3: return <> <li>Acesso a dashboard</li>
+    const beneficios = [
+
+        <ul className="self-start list-disc"><li>Acesso a dashboard</li>
+            <li>Suporte 24/7</li></ul>,
+
+        <ul className="self-start list-disc"><li>Acesso a dashboard</li>
             <li>Suporte 24/7</li>
+            <li>Frete grátis até 5 km</li>
+            <li>Destaque na plataforma 2 semana/mês</li></ul>,
+
+        <ul className="self-start list-disc"><li>Suporte 24/7</li>
             <li>Frete grátis até 10 km</li>
             <li>Destaque na plataforma todos os dias</li>
-            <li>Métricas personalizadas</li> </>
-
-        }
-    }
+            <li>Métricas personalizadas</li></ul>
+    ];
+    let estilo ="bg-blue-dark"
     return (
         <>
-            <div className="bg-blue-light flex flex-col items-center rounded-2xl h-96 p-10 hover:bg-blue-dark hover:text-white cursor-pointer">
-                <h1 className="font-bold text-3xl">{planos[plano]}</h1>
-                <span className="text-gray-dark mt-2 mb-5">{preco}</span>
-                <ul className="self-start list-disc">
-                    {getLista(lista)}
-                </ul>
+            <div onClick={onClick} className='${estilo} transform hover:scale-110  flex flex-col items-center rounded-2xl h-96 p-10
+              cursor-pointer'>
+                <h1 className="font-bold text-3xl">{planos[pacote]}</h1>
+                <span className="text-gray-dark mt-2 mb-5">{precos[pacote]}</span>
+                {beneficios[pacote]}
             </div>
         </>
     )
