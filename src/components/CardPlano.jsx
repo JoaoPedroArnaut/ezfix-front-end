@@ -24,7 +24,7 @@ const CardPlano = ({ pacote, onClick, estilo }) => {
     
     return (
         <>
-            <div onClick={onClick} className={`${estilo} transform hover:scale-110  flex flex-col items-center rounded-2xl h-96 p-10 cursor-pointer`}>
+            <div onClick={onClick} className={`${estilo} transform flex flex-col items-center rounded-2xl h-96 p-10 cursor-pointer`}>
                 <h1 className="font-bold text-3xl">{planos[pacote]}</h1>
                 <span className="text-gray-dark mt-2 mb-5">{precos[pacote]}</span>
                 {beneficios[pacote]}

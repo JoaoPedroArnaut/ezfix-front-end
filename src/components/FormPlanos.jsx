@@ -17,7 +17,7 @@ const FormPlanos = () => {
     const [plano,setPlano] = useState(1);
     
 
-    const [radio,setRadio] = useState([true,false,false])
+    const [radio,setRadio] = useState([false,true,false])
 
     const router = useRouter()
 
@@ -41,17 +41,17 @@ const FormPlanos = () => {
 
     useEffect(() => {
         if(radio[0]){
-            setEstilo1("bg-blue-dark text-white")
+            setEstilo1("bg-blue-dark text-white scale-110")
             setEstilo2("bg-blue-light")
             setEstilo3("bg-blue-light")
         }
         if(radio[1]){
-            setEstilo2("bg-blue-dark text-white")
+            setEstilo2("bg-blue-dark text-white scale-110")
             setEstilo1("bg-blue-light")
             setEstilo3("bg-blue-light")
         }
         if(radio[2]){
-            setEstilo3("bg-blue-dark text-white")
+            setEstilo3("bg-blue-dark text-white scale-110")
             setEstilo1("bg-blue-light")
             setEstilo2("bg-blue-light")
         }
