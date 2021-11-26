@@ -65,7 +65,7 @@ const FormDadosPessoais = ({isTecnico}) => {
                 <Erros erros={erros} />
                 <Input value={nome} onChange={e => { setNome(e.target.value) }} label="Nome Completo" placeholder="josé roberto" alternativo={true} size="w-full" />
                 <Input maxLength="14" value={cpf} onChange={e => { mascaraCpf(e.target.value, setCPF) }} label={documentoLabel} placeholder="XXX.XXX.XXX-XX" alternativo={true} size="w-45" />
-                <Input maxLength="8" value={dataNasc} onChange={e => { setDataNasc(e.target.value) }} type="date" label="Data de Nascimento" placeholder="DD/MM/AAAA" alternativo={true} size="w-45" />
+                <Input maxLength="4" value={dataNasc} onChange={e => { setDataNasc(e.target.value) }} type="date" label="Data de Nascimento" placeholder="DD/MM/AAAA" alternativo={true} size="w-45" />
                 <Input maxLength="15" value={telPrimario} onChange={e => { mascaraTel(e.target.value, setTelPrimario) }} label="Telefone Primario" placeholder="(XX)XXXXX-XXXX" alternativo={true} size="w-45" />
                 <Input maxLength="15" value={telSecundario} onChange={e => { mascaraTel(e.target.value, setTelSecundario) }} label="Telefone Secundario" placeholder="(XX)XXXXX-XXXX" alternativo={true} size="w-45" />
                 <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Do Usuario",{ nome, cpf, dataNasc, telPrimario, telSecundario }) }} text="voltar" />
