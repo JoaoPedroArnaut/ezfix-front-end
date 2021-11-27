@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useEffect, useState } from 'react'
@@ -46,7 +47,7 @@ const assistencias = () => {
                 <hr className="text-black w-full lg:w-4/5 text-opacity-25" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 grid-rows-4 gap-8 w-4/5 mt-8">
                     { pagina.map( (assistencia,i) => 
-                    <CardAssistencia id={assistencia.id} nome={assistencia.nomeFantasia} avaliacao={assistencia.avaliacao} endereco={`${assistencia.enderecoEspecificos[0].enderecoGeral.cidade} - ${assistencia.enderecoEspecificos[0].enderecoGeral.estado}`} categorias="Celular" />
+                    <CardAssistencia key={i} id={assistencia.id} nome={assistencia.nomeFantasia} avaliacao={assistencia.avaliacao} endereco={`${assistencia.enderecoEspecificos[0].enderecoGeral.cidade} - ${assistencia.enderecoEspecificos[0].enderecoGeral.estado}`} categorias="Celular" />
                     ) }
                     
 

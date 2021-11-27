@@ -1,5 +1,6 @@
 import React from 'react'
-import FormProduto from './FormProduto'
+import Image from 'next/image'
+
 
 const Section22_tecnico = () => {
     return (
@@ -12,7 +13,9 @@ const Section22_tecnico = () => {
                 <p className="text-xl font-medium w-4/6">Em nossa plataforma você poderá escolher um plano de acordo com as suas demandas.</p>
             </div>
 
-            <img className="rounded-2xl p-5" src="/monitor-dash-tec.png" alt="grafico" />
+            <div className="rounded-2xl p-5">
+                <Image src="/monitor-dash-tec.png" alt="grafico" width={504} height={356}/>
+            </div>
 
         </div>
     )

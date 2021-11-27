@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { api } from '../api/api'
@@ -33,7 +34,7 @@ const perfilassistencia = () => {
         }, err => {
             console.log(err.response);
         })
-    }, [])
+    })
 
     if (carregado) {
         return (

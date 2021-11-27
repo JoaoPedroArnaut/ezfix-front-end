@@ -20,7 +20,7 @@ const TablePedidos = ({ nome, status, id, data, itens }) => {
       setEtapa("Em andamento")
       setEstilo("bg-amarelo-andamento")
     }
-  }, [])
+  },[status])
 
   return (
     <>
@@ -64,8 +64,8 @@ const TablePedidos = ({ nome, status, id, data, itens }) => {
             </thead>
             <tbody>
 
-              {itens.map((item) =>
-              (<tr>
+              {itens.map((item,i) =>
+              (<tr key={i}>
                 <td className="border-gray border-solid border-b text-center">{item.produto.tipo}</td>
                 <td className="border-gray border-solid border text-center">{item.produto.marca}</td>
                 <td className="border-gray border-solid border text-center">{item.produto.modelo}</td>

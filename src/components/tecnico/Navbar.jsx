@@ -19,11 +19,11 @@ const Navbar = ({ fixed }) => {
     return (
         <div className={estilo}>
             <div className="flex justify-between items-center container w-11/12 sm:w-4/5">
-                <Link href="/tecnico/home" >
+                <Link href="/tecnico/home" passHref>
                     <Image className="cursor-pointer" src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
                 </Link> 
                 <div>
-                    <Link href="/tecnico/cadastro">
+                    <Link href="/tecnico/cadastro" passHref>
                         <span className="text-white mr-4 cursor-pointer">Criar conta</span>
                     </Link>
                     <Botao estilo={2} text="Login" onClick={() => { router.push("/tecnico/login") }} />

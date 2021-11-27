@@ -1,11 +1,14 @@
 import React from 'react'
-import FormProduto from './FormProduto'
+import Image from 'next/image'
+
 
 const Section21_tecnico = () => {
     return (
         <div id="teste" className="w-full min-h-screen max-h-screen/2 flex justify-around items-center rounded-sm">
 
-            <img className="rounded-2x1" src="/ranking-tecnico.png" alt="grafico" />
+            <div className="rounded-2x1">
+                <Image src="/ranking-tecnico.png" alt="grafico" width={562} height={463}/>
+            </div>
 
             <div className="w-2/4 flex flex-col justify-center">
                 {/* <img src="/undraw_Questions_re_1fy7.svg" alt="" className="xl:w-2/4 lg:w-2/5 hidden lg:block" /> */}

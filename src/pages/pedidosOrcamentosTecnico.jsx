@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useEffect, useState } from 'react'
 import SidebarTecnico from "../components/SidebarTecnico";
 import BarInformacaoCliente from "../components/BarInformacaoCliente";
@@ -25,7 +26,7 @@ function pedidosOrcamentosTecnico() {
         }, err => {
 
         })
-    }, []);
+    });
 
     function somaTotal(i,v){
 
@@ -93,7 +94,7 @@ function pedidosOrcamentosTecnico() {
                         <BarInformacaoCliente id={pedido.id} status={pedido.statusGeral} nome={pedido.solicitante.nome} data={pedido.dataSolicitacao} />
                         <div className="p-8 flex flex-col items-center justify-evenly border-2 border-gray-dark border-solid rounded-xl rounded-t-none shadow-lg">
                             <Erros erros={erros}/>
-                            {pedido.itens.map((item) => <BoxProdOrcamento id={item.id} somaTotal={somaTotal} tipo={item.produto.tipo} marca={item.produto.marca} modelo={item.produto.modelo} problema={item.problema} descricao={item.descricao} />)}
+                            {pedido.itens.map((item,i) => <BoxProdOrcamento key={i} id={item.id} somaTotal={somaTotal} tipo={item.produto.tipo} marca={item.produto.marca} modelo={item.produto.modelo} problema={item.problema} descricao={item.descricao} />)}
 
                             <div className="flex flex-col w-full items-end">
                                 <div className="bg-blue-light_dark p-4 w-1/5 rounded-xl mb-1">

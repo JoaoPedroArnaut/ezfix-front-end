@@ -7,8 +7,8 @@ const Bola = () => {
                 <ellipse cx="25.8346" cy="22" rx="13.8346" ry="15" fill="url(#paint0_linear_201_1316)" />
             </g>
             <defs>
-                <filter id="filter0_d_201_1316" x="0" y="0" width="51.6692" height="54" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <filter id="filter0_d_201_1316" x="0" y="0" width="51.6692" height="54" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                     <feOffset dy="5" />
                     <feGaussianBlur stdDeviation="6" />
@@ -17,8 +17,8 @@ const Bola = () => {
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_201_1316" result="shape" />
                 </filter>
                 <linearGradient id="paint0_linear_201_1316" x1="25.8346" y1="7" x2="25.8346" y2="37" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#B09FFF" />
-                    <stop offset="1" stop-color="#8D79F6" />
+                    <stop stopColor="#B09FFF" />
+                    <stop offset="1" stopColor="#8D79F6" />
                 </linearGradient>
             </defs>
         </svg>

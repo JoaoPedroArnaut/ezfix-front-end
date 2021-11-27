@@ -18,7 +18,7 @@ const SidebarTecnico = () => {
         if(cookies.token == undefined){
              router.push("/tecnico/login")
          }
-    },[])
+    })
 
     if (alternaSideBar) {
         return <SidebarTecnicoRedu alternaSideBar={setAlternaSideBar} />;
@@ -41,10 +41,10 @@ const SidebarTecnico = () => {
                                 <Image src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
                             </div>
 
-                            <ul class="flex flex-col items-center justify-center w-full py-4">
+                            <ul className="flex flex-col items-center justify-center w-full py-4">
 
                                 <li className="flex items-center px-4 py-3 mt-1 w-5/6 rounded-2xl hover:bg-blue-dark hover:text-white text-black">
-                                    <Link href="/DashboardInicio">
+                                    <Link href="/DashboardInicio" passHref>
                                         <div>
                                             <div className="px-2 py-1 inline-flex items-center justify-center mr-2">
                                                 <FontAwesomeIcon icon={faHome} size="2x" className="" />
@@ -57,7 +57,7 @@ const SidebarTecnico = () => {
                                 <hr className="w-10/12 box mt-2 mb-2" />
 
                                 <li className="flex items-center px-4 py-3 mt-1 w-5/6 rounded-2xl hover:bg-blue-dark hover:text-white text-black">
-                                    <Link href="/pedidosTecnico">
+                                    <Link href="/pedidosTecnico" passHref>
                                         <div>
                                             <div className="px-2 py-1 inline-flex items-center justify-center mr-2">
                                                 <FontAwesomeIcon icon={faReceipt} size="2x" />
@@ -70,7 +70,7 @@ const SidebarTecnico = () => {
                                 <hr className="w-10/12 box mt-2 mb-2" />
 
                                 <li className="flex items-center px-4 py-3 mt-1 w-5/6 rounded-2xl hover:bg-blue-dark hover:text-white text-black">
-                                    <Link href="/perfiltecnico">
+                                    <Link href="/perfiltecnico" passHref>
                                         <div>
                                             <div className="px-2 py-1 inline-flex items-center justify-center mr-2">
                                                 <FontAwesomeIcon icon={faUser} size="2x" />
@@ -83,7 +83,7 @@ const SidebarTecnico = () => {
                                 <hr className="w-10/12 box mt-2 mb-2" />
 
                                 <li className="flex items-center px-4 py-3 mt-1 w-5/6 rounded-2xl hover:bg-blue-dark hover:text-white text-black">
-                                    <Link href="/">
+                                    <Link href="/" passHref>
                                         <div>
                                             <div className="px-2 py-1 inline-flex items-center justify-center mr-2">
                                                 <FontAwesomeIcon icon={faCommentAlt} size="2x" />
@@ -96,7 +96,7 @@ const SidebarTecnico = () => {
                                 <hr className="w-10/12 box mt-2 mb-2" />
 
                                 <li className="absolute bottom-2 flex justify-start items-center px-4 py-3 w-auto bg-blue-dark_light hover:bg-blue-dark rounded-2xl text-white ">
-                                    <Link href="/">
+                                    <Link href="/tecnico/home" passHref>
                                         <div >
                                             <span className="w-9" onClick={() => {destroyCookie(null,"token");destroyCookie(null,"id");destroyCookie(null,"isTecnico");router.push("/tecnico/home")}}><FontAwesomeIcon icon={faSignOutAlt} size="2x" /></span>
                                             {/* <span className="ml-4 text-xl">Sair</span> */}

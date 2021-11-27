@@ -1,4 +1,5 @@
 import React from 'react'
+import Lalamov from '../../public/Untitled.svg'
 
 const Section3 = () => {
     return (
@@ -13,7 +14,9 @@ const Section3 = () => {
             </div>
             <div className="overflow-hidden lg:row-start-2 lg:row-span-2 lg:col-start-2 lg:col-span-2 sm:row-start-2 sm:row-span-3 sm:col-start-2 sm:col-span-2 row-start-1 row-span-3 col-start-1 col-span-3">
                 <div className="mt-16 w-full h-full flex justify-around items-center">
-                    <img src="/Untitled.svg" alt="" className="w-full lg:w-9/12" />
+                    <div className="w-full lg:w-9/12">
+                        <Lalamov/>
+                    </div>
                 </div>
             </div>
         </div>

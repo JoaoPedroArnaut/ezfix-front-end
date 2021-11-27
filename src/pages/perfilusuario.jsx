@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useEffect, useState } from 'react'
 import Carregamento from '../components/Carregamento'
 import Footer from '../components/Footer'
@@ -15,6 +17,7 @@ const perfilusuario = () => {
     const { user } = useContext(SessaoContext)
 
     const [contador, setContador] = useState(0)
+    
     useEffect(() => {
         setContador(contador + 1)
         if (contador > 1 || Object.keys(user).length !== 0) {
