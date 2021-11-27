@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useContext, useEffect, useState } from 'react'
 import Input from './Input'
 import Botao from './Botao'
@@ -11,7 +12,7 @@ const EnderecosUsuario = ({ setNovoEndereco }) => {
 
     useEffect(() => {
         setEnderecos(user.enderecoEspecificos)
-    }, [])
+    }, [user.enderecoEspecificos])
 
     return (
         <>

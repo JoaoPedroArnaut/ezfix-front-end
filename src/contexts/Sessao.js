@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { parseCookies, setCookie } from "nookies";
 import { createContext, useEffect, useState } from "react";
 import { api, setToken } from "../api/api";

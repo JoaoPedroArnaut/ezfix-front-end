@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { CadastroContext } from '../contexts/Cadastro'
 import { ValidacoesContext } from '../contexts/Validacoes'
@@ -44,7 +45,7 @@ const FormDadosPessoais = ({ isTecnico }) => {
 
         if (validaDadosPessoais({ nome, cpf, dataNasc, telPrimario, telSecundario })) {
             trocaPg("Endereço")
-            enviar({ nome, cpf, dataNasc, telPrimario, telSecundario },2)
+            enviar({ nome, cpf, dataNasc, telPrimario, telSecundario })
         }
 
     }

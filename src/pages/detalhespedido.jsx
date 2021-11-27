@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react'
 import Navbar from "../components/Navbar"
@@ -33,7 +34,7 @@ const detalhespedido = () => {
         }, err => {
 
         })
-    });
+    },[]);
 
     if (carregado) {
         return (

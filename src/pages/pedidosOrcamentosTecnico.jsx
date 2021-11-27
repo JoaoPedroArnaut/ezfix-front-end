@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useEffect, useState } from 'react'
 import SidebarTecnico from "../components/SidebarTecnico";
@@ -26,7 +27,7 @@ function pedidosOrcamentosTecnico() {
         }, err => {
 
         })
-    });
+    },[]);
 
     function somaTotal(i,v){
 

@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { api } from '../api/api'
 import { SessaoContext } from '../contexts/Sessao'
 import DadosContaUsuario from './DadosContaUsuario'

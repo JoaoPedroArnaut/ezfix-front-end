@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,7 +19,7 @@ const SidebarTecnico = () => {
         if(cookies.token == undefined){
              router.push("/tecnico/login")
          }
-    })
+    },[])
 
     if (alternaSideBar) {
         return <SidebarTecnicoRedu alternaSideBar={setAlternaSideBar} />;

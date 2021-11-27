@@ -10,7 +10,6 @@ const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistenc
 
 
     useEffect(() => {
-        console.log(itens);
         if (itens != undefined) {
             setCarregado(true)
         }

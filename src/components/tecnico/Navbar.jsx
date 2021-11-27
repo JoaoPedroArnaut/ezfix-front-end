@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import Botao from '../../components/Botao'
 import Image from 'next/image'
 import Link from 'next/link'
-import { parseCookies } from 'nookies'
 import { useRouter } from 'next/router';
-import { SessaoContext } from '../../contexts/Sessao'
-import MenuOpcoes from '../../components/MenuOpcoes'
 
 const Navbar = ({ fixed }) => {
     const router = useRouter();

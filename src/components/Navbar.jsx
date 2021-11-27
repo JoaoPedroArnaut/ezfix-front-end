@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useContext, useEffect, useState } from 'react'
@@ -23,7 +24,7 @@ const Navbar = ({ fixed }) => {
         }else if(router.route != "/login" && router.route != "/"  && router.route != "/cadastro" && router.route!="/faq" ){
             router.push("/login")
         }
-    })
+    },[])
 
     let estilo = "bg-blue h-24 flex justify-around border-black border-opacity-10 border-solid border-b-2 w-full";
 
