@@ -102,13 +102,8 @@ const FormEndereco = ({ isTecnico }) => {
         }, err => {
             console.log(err);
             setEndereco(false)
-            setEnviando(true)
-            let tmpErro = "não foi posseivel preencher o seu endereço automaticamente"
-            const erro = erros.find(erro => erro == tmpErro)
-
-            if (!!erro) {
-                setErros([...erros, tmpErro])
-            }
+            setEnviando(true) 
+            setErros( ["não foi posseivel preencher o seu endereço automaticamente"])
         })
         setEnviando(false)
     }
@@ -117,15 +112,15 @@ const FormEndereco = ({ isTecnico }) => {
         return (    //Formulario para o endereço do técnico
             <form className="w-full flex justify-between flex-wrap" onSubmit={handleSubmit}>
                 <Erros erros={erros} />
-                <Input value={nomeFantasia} onChange={e => { setNomeFantasia(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Nome da Assistência" placeholder="EzFix" alternativo={true} size="w-full" />
+                <Input value={nomeFantasia} onChange={e => { setNomeFantasia(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Nome da Assistência" placeholder="EzFix" alternativo={true} size="w-full" />
                 <Input maxLength="9" value={cep} onChange={e => { mascaraCep(e.target.value, setCep) }} onBlur={autoCep} label="Cep" placeholder="XXXXX-XXX" alternativo={true} size="w-45" />
                 <div className="w-45"></div>
-                <Input disabled={endereco} value={logradouro} onChange={e => { setLogradouro(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
-                <Input value={complemento} onChange={e => { setComplemento(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
+                <Input disabled={endereco} value={logradouro} onChange={e => { setLogradouro(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
+                <Input value={complemento} onChange={e => { setComplemento(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
                 <Input value={numero} type="number" onChange={e => { setNumero(e.target.value) }} label="Número" placeholder="1500" alternativo={true} size="w-45" />
-                <Input disabled={endereco} value={bairro} onChange={e => { setBairro(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
-                <Input disabled={endereco} value={cidade} onChange={e => { setCidade(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
-                <Input maxLength="2" disabled={endereco} value={estado} onChange={e => { setEstado(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
+                <Input disabled={endereco} value={bairro} onChange={e => { setBairro(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
+                <Input disabled={endereco} value={cidade} onChange={e => { setCidade(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
+                <Input maxLength="2" disabled={endereco} value={estado} onChange={e => { setEstado(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
                 <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Pessoais", { cep, logradouro, numero, complemento, cidade, estado, bairro }) }} text="voltar" />
                 <BotaoForm size="45" type="submit" text="avançar" />
             </form>
@@ -138,12 +133,12 @@ const FormEndereco = ({ isTecnico }) => {
                     <Erros erros={erros} />
                     <Input maxLength="9" value={cep} onChange={e => { mascaraCep(e.target.value, setCep) }} onBlur={autoCep} label="Cep" placeholder="XXXXX-XXX" alternativo={true} size="w-45" />
                     <div className="w-45"></div>
-                    <Input disabled={endereco} value={logradouro} onChange={e => { setLogradouro(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
-                    <Input value={complemento} onChange={e => { setComplemento(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
+                    <Input disabled={endereco} value={logradouro} onChange={e => { setLogradouro(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Logradouro" placeholder="Av. Paulista" alternativo={true} size="w-45" />
+                    <Input value={complemento} onChange={e => { setComplemento(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Complemento" placeholder="casa 1" alternativo={true} size="w-45" />
                     <Input value={numero} type="number" onChange={e => { setNumero(e.target.value) }} label="Número" placeholder="1500" alternativo={true} size="w-45" />
-                    <Input disabled={endereco} value={bairro} onChange={e => { setBairro(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
-                    <Input disabled={endereco} value={cidade} onChange={e => { setCidade(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
-                    <Input maxLength="2" disabled={endereco} value={estado} onChange={e => { setEstado(e.target.value.replace(/[^a-zA-Z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
+                    <Input disabled={endereco} value={bairro} onChange={e => { setBairro(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="bairro" placeholder="mooca" alternativo={true} size="w-45" />
+                    <Input disabled={endereco} value={cidade} onChange={e => { setCidade(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Cidade" placeholder="São Paulo" alternativo={true} size=" w-45" />
+                    <Input maxLength="2" disabled={endereco} value={estado} onChange={e => { setEstado(e.target.value.replace(/[^a-zA-Z0-9 áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g, "")) }} label="Estado" placeholder="sp" alternativo={true} size="w-45" />
                     <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Pessoais", { cep, logradouro, numero, complemento, cidade, estado, bairro }) }} text="voltar" />
                     <BotaoForm size="45" text="enviar" />
                 </form> : <Carregamento />}

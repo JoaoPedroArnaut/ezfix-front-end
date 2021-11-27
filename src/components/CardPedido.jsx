@@ -61,7 +61,7 @@ const CardPedido = ({ id, assistencia, status, itens,idPedido }) => {
                         <div className="no-underline">
                             {teste()}
                         </div>
-                        {confirmar && <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold" onClick={() => { router.push("/detalhespedido") }}>Confirmar</button>}                        </div>
+                        {confirmar && <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold" onClick={() => { router.push(`/detalhespedido?${idPedido}`) }}>Confirmar</button>}                        </div>
 
 
                 </div>

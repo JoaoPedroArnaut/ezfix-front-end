@@ -14,7 +14,7 @@ const Footer = () => {
             </Link>
             <div className="w-full sm:w-6/12 lg:w-3/12 flex justify-evenly mt-8">
                 <p>Lalamove</p>
-                <Link href="/faq.jsx" passHref>
+                <Link href="/faq" passHref>
                 <p>FAQs</p>
                 </Link>
                 <p>Suporte</p>

@@ -56,10 +56,8 @@ export const ValidacoesProvider = ({ children }) => {
         let tmpTelSecundario = limpaFormatacao(form.telSecundario)
         let tmpDocumento = limpaFormatacao(form.cpf);
         if (tmpErros.length == 0) {
-            if (!validate(tmpDocumento)) {
-                tmpErros.push("cpf invalido")
-            }else if (validate(tmpDocumento) && cnpjUtils.isValid(tmpDocumento)){
-                tmpErros.push("cnpj invalido")
+            if (!validate(tmpDocumento) && !cnpjUtils.isValid(tmpDocumento)) {
+                tmpErros.push("Documento invalido")
             }
             tmpErros.push(...validarData(form.dataNasc))
             if (tmpTelPrimario.length < 10) {

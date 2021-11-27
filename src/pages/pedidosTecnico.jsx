@@ -44,7 +44,7 @@ function pedidosTecnico() {
 
             <SectionStatusOrders />
             {vazio ? (<div className="w-full mt-4 text-center" >Nenhum Pedido</div>):
-            orcamentos.map((item, index) => <TablePedidos key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
+            orcamentos.map((item, i) => <TablePedidos key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
             }
             
             {/* item.solicitante */}
