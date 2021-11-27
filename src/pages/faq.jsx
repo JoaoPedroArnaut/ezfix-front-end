@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
-import CardFaq from "../components/cardFaq"
+import CardFaq from "../components/CardFaq"
 
 
 function Faq() {
