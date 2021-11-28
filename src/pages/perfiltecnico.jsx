@@ -14,8 +14,8 @@ const perfiltecnico = () => {
         <>
             <div className="flex">
                 <SidebarTecnico />
-                <div className="ml-20 w-full">
-                    <h1 className="text-blue-dark_light text-4xl font-bold mt-10">Perfil:</h1>
+                <div className="w-full flex flex-col ml-10 mt-10">
+                    <h1 className="text-blue-dark_light text-4xl font-bold">Perfil:</h1>
                     <div className="bg-blue-light mt-5 p-14 w-11/12 flex rounded-2xl filter shadow-inner drop-shadow-2xl  ">
                         <div className="flex flex-col items-center">
                             <img src="./ThTecnologiaLogo.jpg" alt="Logo" width="200px" className="rounded-full" />

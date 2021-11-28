@@ -18,7 +18,7 @@ const Navbar = ({ fixed }) => {
     useEffect(() => {
         if (cookies.token != undefined) {
             setLogado(true)
-        }else if(router.route != "/login" && router.route != "/"  && router.route != "/cadastro" && router.route!="/faq" ){
+        }else if(router.route != "/login" && router.route != "/"  && router.route != "/cadastro" ){
             router.push("/login")
         }
     },[])
