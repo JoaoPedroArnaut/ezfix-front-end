@@ -15,7 +15,7 @@ import { parseCookies } from "nookies";
 function pedidosTecnico() {
 
   const { user } = useContext(SessaoContext)
-  const [carregado, setCarregado] = useState(false)
+  const [carregado, setCarregado] = useState(true)
   const [vazio,setVazio] = useState(true)
   const [orcamentos,setOrcamentos] = useState([])
   const cookies = parseCookies()
@@ -60,13 +60,6 @@ function pedidosTecnico() {
       </>
     )
   }
-
-  return (
-    <>
-
-
-    </>
-  );
 }
 
 export default pedidosTecnico;

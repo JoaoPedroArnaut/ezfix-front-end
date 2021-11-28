@@ -32,7 +32,7 @@ const MensagemMain = () => {
                     <BalaoMensagem mensagem={mensagem} hora={`${now.getHours()}:${now.getMinutes()}`} isMine={true} />
                 </div>
 
-                <div className="flex justify-start p-4 bg-gray h-24 w-full ">
+                <div className="flex justify-start p-4 bg-gray h-24 w-full rounded-br-2xl ">
                     <div className="flex items-center w-full">
                         <FontAwesomeIcon icon={faPaperclip} size="lg" className="cursor-pointer hover:text-blue" />
                         <input type="text" placeholder="Digite sua mensagem..." className="mx-4 w-full p-2 outline-none rounded-2xl" />
