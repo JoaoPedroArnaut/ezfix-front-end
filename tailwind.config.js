@@ -6,10 +6,10 @@ module.exports = {
       center: true,
     },
     maxHeight: {
-      'screen/2':'150vh'
+      'screen/2':'150vh',
      },
      minWidth:{
-      '20vw':'20vw'
+      '20vw':'20vw',
      },
     screens: {
       'sm': '640px',
@@ -29,6 +29,8 @@ module.exports = {
         '12': '12%',
         '20vw': '20vw',
         '3vw' : '4vw',
+        'screen-25': '75vh',
+        'screen-15': '85vh',
       },
       backgroundImage: {
         'banner': "url('/Component 49.png')",
