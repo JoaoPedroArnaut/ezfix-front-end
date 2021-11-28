@@ -11,6 +11,9 @@ module.exports = {
      minWidth:{
       '20vw':'20vw',
      },
+     minWidth:{
+      '20vw':'20vw'
+     },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
