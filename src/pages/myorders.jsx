@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useEffect, useState } from 'react'
 import Navbar from "../components/Navbar"
 import Footer from '../components/Footer'
@@ -35,7 +36,7 @@ const myorders = () => {
                 <div className="w-full min-h-screen flex justify-around">
                     <div className="sm:w-4/5 flex flex-col mt-8">
                         {orcamentos.map((item, index) =>
-                            <CardPedido itens={item.itens} status={item.statusGeral} id={item.assistencia.id} idPedido={item.id} assistencia={item.assistencia.nomeFantasia} />)}
+                            <CardPedido key={index} itens={item.itens} status={item.statusGeral} id={item.assistencia.id} idPedido={item.id} assistencia={item.assistencia.nomeFantasia} />)}
                     </div>
                 </div>
                 <Footer />

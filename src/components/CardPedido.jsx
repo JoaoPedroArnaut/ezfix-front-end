@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { faBullhorn, faCommentDots, faSearchPlus } from '@fortawesome/free-solid-svg-icons'
 import Botao from './Botao'
@@ -59,7 +61,7 @@ const CardPedido = ({ id, assistencia, status, itens,idPedido }) => {
                         <div className="no-underline">
                             {teste()}
                         </div>
-                        {confirmar && <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold" onClick={() => { router.push("/detalhespedido") }}>Confirmar</button>}                        </div>
+                        {confirmar && <button className="rounded-2xl p-3 bg-blue-dark w-40 hover:text-black hover:bg-blue duration-75 text-white text-xl font-bold" onClick={() => { router.push(`/detalhespedido?${idPedido}`) }}>Confirmar</button>}                        </div>
 
 
                 </div>

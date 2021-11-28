@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useRouter } from 'next/router'
 import React from 'react'
 import Botao from '../components/Botao'

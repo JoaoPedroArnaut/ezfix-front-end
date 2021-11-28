@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
 import Botao from './Botao'
 import { useRouter } from 'next/router';
@@ -65,7 +67,7 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
                             <p className="font-semibold text-xl">Resumo do Pedido</p>
                             <div className="text-gray-dark">
                                 {itens.map((item, i) =>
-                                (<div className=" flex justify-between w-full">
+                                (<div key={i} className=" flex justify-between w-full">
                                     <span>{item.produto.marca} {item.produto.modelo}</span>
                                     <span>R${item.valorServico}</span>
                                 </div>))}

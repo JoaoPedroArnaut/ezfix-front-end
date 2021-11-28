@@ -8,18 +8,20 @@ const CardPlano = ({ pacote, onClick, estilo }) => {
 
     const beneficios = [
 
-        <ul className="self-start list-disc"><li>Acesso a dashboard</li>
+        <ul key={0} className="self-start list-disc"><li>Acesso a dashboard</li>
             <li>Suporte 24/7</li></ul>,
 
-        <ul className="self-start list-disc"><li>Acesso a dashboard</li>
+        <ul key={1} className="self-start list-disc"><li>Acesso a dashboard</li>
             <li>Suporte 24/7</li>
             <li>Frete grátis até 5 km</li>
-            <li>Destaque na plataforma 2 semana/mês</li></ul>,
+            <li>Destaque na plataforma 2 semana/mês</li>
+        </ul>,
 
-        <ul className="self-start list-disc"><li>Suporte 24/7</li>
+        <ul key={2} className="self-start list-disc"><li>Suporte 24/7</li>
             <li>Frete grátis até 10 km</li>
             <li>Destaque na plataforma todos os dias</li>
-            <li>Métricas personalizadas</li></ul>
+            <li>Métricas personalizadas</li>
+        </ul>
     ];
     
     return (

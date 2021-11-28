@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useEffect, useState } from "react";
 
 import SidebarTecnico from "../components/SidebarTecnico";
@@ -15,7 +17,7 @@ function pedidosTecnico() {
   const { user } = useContext(SessaoContext)
   const [carregado, setCarregado] = useState(false)
   const [vazio,setVazio] = useState(true)
-  const [orcamentos,setOrcamentos] = useState()
+  const [orcamentos,setOrcamentos] = useState([])
   const cookies = parseCookies()
 
   useEffect(() => {
@@ -23,8 +25,9 @@ function pedidosTecnico() {
       setCarregado(true)
       if(res.status != 204){
         setVazio(false)
+        setOrcamentos(res.data)
       }
-      console.log(res);
+      console.log(res.data);
     },err => {
 
     })
@@ -40,9 +43,11 @@ function pedidosTecnico() {
             <BarQtdOrders />
 
             <SectionStatusOrders />
-            {vazio ? (<div></div>):<TablePedidos />}
+            {vazio ? (<div className="w-full mt-4 text-center" >Nenhum Pedido</div>):
+            orcamentos.map((item, i) => <TablePedidos key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
+            }
             
-            <TablePedidos />
+            {/* item.solicitante */}
           </div>
         </section>
       </>

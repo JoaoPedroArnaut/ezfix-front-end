@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react'
 import Botao from './Botao'
 import { useRouter } from 'next/router';
 import { api } from '../api/api';
+import Image from 'next/image'
 
-const PedidoDetalhadoConfirmar = ({ setEstagio, id, itens, status, data, dataPrivista, valorTotal, idAssistencia }) => {
+const PedidoDetalhadoConfirmar = ({ nomeAssistencia, setEstagio, id, itens, status, data, dataPrivista, valorTotal, idAssistencia }) => {
 
     const [confirmacao, setConfirmacao] = useState(false);
     const router = useRouter();
@@ -29,7 +31,9 @@ const PedidoDetalhadoConfirmar = ({ setEstagio, id, itens, status, data, dataPri
                                     <span>{dataPrivista}</span>
                                 </div>
                             </div>
-                            <img src={`http://localhost:8080/assistencia/perfil/${idAssistencia}`} alt="ThTecnologia" className="rounded-full w-32 h-32" />
+
+                            <img src={`http://localhost:8080/assistencia/perfil/${idAssistencia}`} alt={nomeAssistencia} className="rounded-full w-32 h-32" />
+
                         </div>
                         <div className="py-4">
                             <ul>
@@ -47,7 +51,7 @@ const PedidoDetalhadoConfirmar = ({ setEstagio, id, itens, status, data, dataPri
                         </div>
                         <div className="pt-4 pb-8 text-gray-dark">
                             {itens.map((item, i) =>
-                            (<div className=" flex justify-between w-full">
+                            (<div key={i} className=" flex justify-between w-full">
                                 <span>{item.produto.marca} {item.produto.modelo}</span>
                                 <span>R${item.valorServico}</span>
                             </div>))}
@@ -73,7 +77,7 @@ const PedidoDetalhadoConfirmar = ({ setEstagio, id, itens, status, data, dataPri
 
                                 <div className="flex w-1/5 justify-between">
                                     <Botao estilo={4} text="Recusar" onClick={() => setConfirmacao(true)} />
-                                    <Botao estilo={8} text="Aceitar" onClick={() => {setEstagio(3) }} />
+                                    <Botao estilo={8} text="Aceitar" onClick={() => { setEstagio(3) }} />
                                 </div>
                             </div>
 
@@ -88,7 +92,7 @@ const PedidoDetalhadoConfirmar = ({ setEstagio, id, itens, status, data, dataPri
                     <div className="bg-gray-opacity w-full h-screen z-10 top-0 left-0 right-0 bottom-0 fixed">
                         <div className="w-full h-screen flex justify-center items-center">
                             <div className="bg-white p-20 rounded-xl flex flex-col justify-center items-center">
-                                <img src={cancelado ? "./confirmed.png" : "./warning.png"} alt="imgConfirmed" width="100px" />
+                                <img src={cancelado ? "./confirmed.png" : "./warning.png"} alt="imgConfirmed" width={100} />
                                 {cancelado ?
                                     <p className="mt-5 mb-16 text-2xl font-semibold">Oferta recusada.</p>
                                     : <p className="mt-5 mb-16 text-2xl font-semibold">Tem certeza que deseja recusar a oferta?</p>

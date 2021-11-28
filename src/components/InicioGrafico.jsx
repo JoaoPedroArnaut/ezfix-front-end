@@ -17,7 +17,7 @@ const InicioGrafico = () => {
                     <grafico className="ml-4 mr-6">
                         <Grafico valorSmartphone={receitaSmartphone} valorNotebook={receitaNotebook} valorDesktop={receitaDesktop} valorOutros={receitaOutros} />
                     </grafico>
-
+                    
                     <receitas className="flex flex-col justify-center items-center mt-4 mb-5">
                         <span className="font-bold">Receitas</span>
                         <div className="grid grid-cols-2 gap-4 mt-5 justify-center items-center">
@@ -51,7 +51,7 @@ const InicioGrafico = () => {
                             </div>
                         </div>
                     </receitas>
-
+                    
                 </div>
             </pai>
         </>

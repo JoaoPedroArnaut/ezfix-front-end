@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Botao from './Botao';
 import Input from './Input'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 const TecnicoPerfilContato = () => {
     const [editar, setEditar] = useState(false);
@@ -20,7 +23,7 @@ const TecnicoPerfilContato = () => {
             <div className="flex  flex-col w-2/3 mt-20">
                 <div className="flex items-center justify-start">
                     <span className="font-semibold text-2xl">Contato</span>
-                    <img onClick={() => setEditar(!editar)} src="./Edit.png" alt="Editar" className="hover:bg-blue p-1 rounded-xl cursor-pointer ml-10" />
+                    <FontAwesomeIcon onClick={() => setEditar(!editar)} className="hover:bg-blue p-1 rounded-xl cursor-pointer ml-10 text-2xl" icon={faPencilAlt}/>
                 </div>
 
                 <Input label="E-mail" onChange={e => setEmail(e.target.value)} value={email} alternativoDois disabled={!editar} />

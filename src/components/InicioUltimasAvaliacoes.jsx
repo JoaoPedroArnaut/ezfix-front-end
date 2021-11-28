@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 
 const InicioUltimasAvaliacoes = () => {
@@ -22,7 +23,7 @@ const InicioUltimasAvaliacoes = () => {
                             </div>
 
                             <div className="w-max break-all mt-2 mb-1 p-2 rounded-tl-none bg-white rounded-2xl shadow-lg">
-                                <span>"Gostei muito do serviço realizado"</span>
+                                <span>&quot;Muito bom&quot;</span>
                             </div>
 
                 
@@ -44,7 +45,7 @@ const InicioUltimasAvaliacoes = () => {
                             </div>
 
                             <div className="w-max break-all mt-2 mb-1 p-2 rounded-tl-none bg-white rounded-2xl shadow-lg">
-                                <span>"Segunda vez que faço e continuo gostando do serviço"</span>
+                                <span>&quot;Gostei muito do serviço realizado, farei novamente se precisar&quot;</span>
                             </div>
 
                 

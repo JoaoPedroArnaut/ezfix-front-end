@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React, { useContext, useEffect, useState } from 'react'
 import Botao from './Botao'
 import Image from 'next/image'
@@ -18,7 +21,7 @@ const Navbar = ({ fixed }) => {
     useEffect(() => {
         if (cookies.token != undefined) {
             setLogado(true)
-        }else if(router.route != "/login" && router.route != "/"  && router.route != "/cadastro" ){
+        }else if(router.route != "/login" && router.route != "/"  && router.route != "/cadastro" && router.route!="/faq" ){
             router.push("/login")
         }
     },[])
@@ -32,15 +35,15 @@ const Navbar = ({ fixed }) => {
     return (
         <div className={estilo}>
             <div className="flex justify-between items-center container w-11/12 sm:w-4/5">
-                <Link href="/" >
+                <Link href="/" passHref>
                     <Image className="cursor-pointer" src="/ezfix_logo.png" width="150px" height="150px" alt="logo ezfix" />
                 </Link>
                 {logado ?
                     <div className="flex items-center">
-                        <Link href="/perfilusuario" >
+                        <Link href="/perfilusuario" passHref>
                             < span className="text-white text-xl mr-4 font-semibold cursor-pointer">{user.nome}</span>
                         </Link>
-                        <Link href="/perfilusuario">
+                        <Link href="/perfilusuario" passHref>
                             <img src={`http://localhost:8080/solicitante/perfil/${user.cpf}`} className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
                         </Link>
                         <div className="ml-5 mr-10 cursor-pointer">
@@ -52,7 +55,7 @@ const Navbar = ({ fixed }) => {
 
                     </div>
                     : <div>
-                        <Link href="/cadastro">
+                        <Link href="/cadastro" passHref>
                             <span className="text-white mr-4 cursor-pointer">Criar conta</span>
                         </Link>
                         <Botao estilo={2} text="Login" onClick={() => { router.push("/login") }} />

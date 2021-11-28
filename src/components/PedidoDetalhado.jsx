@@ -1,13 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
 import Carregamento from './Carregamento';
+import Image from 'next/image'
 
-const PedidoDetalhado = ({ id, itens, status,data ,idAssistencia}) => {
+
+const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistencia }) => {
 
     const [carregado, setCarregado] = useState(false)
 
 
     useEffect(() => {
-        console.log(itens);
         if (itens != undefined) {
             setCarregado(true)
         }
@@ -30,7 +32,7 @@ const PedidoDetalhado = ({ id, itens, status,data ,idAssistencia}) => {
                                         <span>{data}</span>
                                     </div>
                                 </div>
-                                <img src={`http://localhost:8080/assistencia/perfil/${idAssistencia}`} alt="ThTecnologia" className="rounded-full w-32 h-32" />
+                                <img src={`http://localhost:8080/assistencia/perfil/${idAssistencia}`} alt={nomeAssistencia} className="rounded-full w-32 h-32" />
                             </div>
 
                             <div className="pt-9 pb-9">
@@ -38,7 +40,7 @@ const PedidoDetalhado = ({ id, itens, status,data ,idAssistencia}) => {
                                 <ul>
                                     {itens.map((item, i) =>
                                     (<li key={i}>
-                                        <hr className="opacity-25"/>
+                                        <hr className="opacity-25" />
                                         <div className="my-10">
                                             {item.produto.tipo} {item.produto.marca} {item.produto.modelo} - <b>{item.problema}</b>
                                             <p className="text-gray-dark">{item.descricao}</p>
@@ -46,7 +48,7 @@ const PedidoDetalhado = ({ id, itens, status,data ,idAssistencia}) => {
                                     </li>)
                                     )}
                                 </ul>
-                                <hr className="opacity-25"/>
+                                <hr className="opacity-25" />
                             </div>
                             <div className="flex">
                                 <div className="w-7 h-7 rounded-full bg-amarelo mr-3"></div>

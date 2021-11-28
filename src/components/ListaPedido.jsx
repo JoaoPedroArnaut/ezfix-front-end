@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
 import { api } from '../api/api';
@@ -41,7 +42,7 @@ const ListaPedido = () => {
                     <div className="flex flex-col items-center justify-center overflow-y-auto bg-blue-light w-full h-fit sm:w-96 p-8 sm:rounded-2xl filter drop-shadow-md sm:shadow-2xl">
                         <p className="font-bold text-2xl">Seu Pedido</p>
                         <hr className="w-3/5 mt-5 opacity-25" />
-                        {pedido.map((item,i) => <CardRelatorio id={i} produto={item.produto} problema={item.problema} modelo={item.modelo} descricao={item.obs} />)}
+                        {pedido.map((item,i) => <CardRelatorio key={i} id={i} produto={item.produto} problema={item.problema} modelo={item.modelo} descricao={item.obs} />)}
 
                         <div className="mt-5 flex flex-col items-center">
                             <img src="./plus-circle.png" alt="" width="100px" className="hover:bg-white cursor-pointer rounded-full" onClick={()=> setNovoItem(!novoItem)} />

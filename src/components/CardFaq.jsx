@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faCaretRight, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 const CardFaq = ({ pergunta, resposta }) => {
@@ -22,7 +22,7 @@ const CardFaq = ({ pergunta, resposta }) => {
                     </p>
                 </div>
             }
-            </div>
+        </div>
 
 
 

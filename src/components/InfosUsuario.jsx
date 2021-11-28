@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { api } from '../api/api'
 import { SessaoContext } from '../contexts/Sessao'
 import DadosContaUsuario from './DadosContaUsuario'
@@ -34,7 +35,7 @@ const InfosUsuario = ({setNovoEndereco}) => {
                         <div className="ml-8 text-3xl font-bold flex flex-col">
                             <span>{user.nome}</span>
                             <div className="text-base mt-16">
-                                <label for="img" className="cursor-pointer bg-blue-dark py-3 px-5 rounded-3xl text-white">Mudar Imagem</label>
+                                <label htmlFor="img" className="cursor-pointer bg-blue-dark py-3 px-5 rounded-3xl text-white">Mudar Imagem</label>
                                 <input onChange={e => { handlelUplod(e.target.files) }} id="img" type="file" className="hidden" />
                             </div>
                         </div>

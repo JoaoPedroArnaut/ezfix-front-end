@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Input from './Input'
 import Botao from './Botao'
 import Erros from './Erros'

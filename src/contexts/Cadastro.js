@@ -10,7 +10,7 @@ export const CadastroProvider = ({ children }) => {
     const [pgForm, setPgForm] = useState(0);
     const [tituloForm, setTituloForm] = useState('Dados Do Usuario');
     const [form, setForm] = useState({});
-    const [formPronto, setFormPronto] = useState(0)
+    const [formPronto, setFormPronto] = useState(false)
     const router = useRouter();
 
     function trocaPg(novoTitulo) {
@@ -27,14 +27,13 @@ export const CadastroProvider = ({ children }) => {
         tmpEtapa.pop()
         setStages(tmpEtapa)
         setPgForm(pgForm - 1)
-        setFormPronto(formPronto - 1)
         setTituloForm(novoTitulo)
     }
 
 
-    function enviar(dados) {
+    function enviar(dados,f) {
         setForm({ ...form, ...dados })
-        setFormPronto(formPronto + 1)
+        setFormPronto(f)
     }
 
     useEffect(() => {

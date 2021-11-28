@@ -14,7 +14,7 @@ const FormLogin = ({isTecnico}) => {
     const [senha, setSenha] = useState("");
 
     const { erros, isBlank, setErros } = useContext(ValidacoesContext)
-    const context = useContext(SessaoContext)
+    const {setEmailSessao} = useContext(SessaoContext)
 
     function validaErros(){
         let erro = [...isBlank({ email, senha })]
@@ -37,7 +37,7 @@ const FormLogin = ({isTecnico}) => {
                     maxAge: 3600,
                     path: '/',
                 });
-                context.setEmail(email)
+                setEmailSessao(email)
                 if(!isTecnico){
                     setCookie(null, 'isTecnico', false, {
                         maxAge: 3600,

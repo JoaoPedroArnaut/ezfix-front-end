@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 import { validate } from 'gerador-validador-cpf'
+import cnpjUtils from 'cnpj-utils'
+import erro from './../pages/erro404';
 
 export const ValidacoesContext = createContext({});
 
@@ -48,13 +50,16 @@ export const ValidacoesProvider = ({ children }) => {
 
     function validaDadosPessoais(form) {
         let tmpErros = [...isBlank(form)]
+        
         setErros(tmpErros)
         let tmpTelPrimario = limpaFormatacao(form.telPrimario)
         let tmpTelSecundario = limpaFormatacao(form.telSecundario)
+        let tmpDocumento = limpaFormatacao(form.cpf);
         if (tmpErros.length == 0) {
-            if (!validate(limpaFormatacao(form.cpf))) {
-                tmpErros.push("cpf invalido")
+            if (!validate(tmpDocumento) && !cnpjUtils.isValid(tmpDocumento)) {
+                tmpErros.push("Documento invalido")
             }
+            tmpErros.push(...validarData(form.dataNasc))
             if (tmpTelPrimario.length < 10) {
                 tmpErros.push("telefone primario deve ter ao menos 10 digitos")
             }
@@ -70,6 +75,24 @@ export const ValidacoesProvider = ({ children }) => {
         } else {
             return false
         }
+    }
+
+    function validarData(d){
+        
+        let erro = []
+
+        let anoAtual = new Date().getFullYear();
+        let ano = Number(d.slice(6,10))
+        let mes = Number(d.slice(3,5))
+        let dia = Number(d.slice(0,2))
+        
+        if(dia > 31 || dia < 1 || mes > 12 || mes < 1 || ano > anoAtual || ano < 1900 || d.length < 10){
+            erro.push("data invalida")
+        }else if((anoAtual - ano) < 18 ){
+            erro.push("o usuario deve ser maior de idade")
+        }
+    
+        return erro
     }
 
     function ValidaAttSenha(form) {

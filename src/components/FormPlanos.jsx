@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
 import { CadastroContext } from '../contexts/Cadastro';
@@ -22,7 +23,7 @@ const FormPlanos = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if (formPronto == 4) {
+        if (formPronto) {
             console.log("foi");
             cadastraAssistencia(form).then(res => {
                 if (res.status == 201) {
@@ -58,7 +59,7 @@ const FormPlanos = () => {
     },[radio])
 
     function handleSubmit() {
-        enviar({ plano })
+        enviar({ plano },true)
     }
 
 
@@ -71,7 +72,7 @@ const FormPlanos = () => {
                 <CardPlano onClick={() => {setPlano(3);setRadio([false,false,true])}} estilo={estilo3} pacote={2} />
             </div>
             <div className="flex w-full">
-                <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Do Usuario", {}) }} text="voltar" />
+                <BotaoForm size="45" onClick={() => { setErros([]); voltar("Dados Do Usuario", {plano}) }} text="voltar" />
                 <BotaoForm size="45" onClick={handleSubmit} type="submit" text="avançar" />
             </div>
         </>

@@ -20,9 +20,9 @@ const DetalhesAlternado = ({pedido}) => {
     },[pedido])
 
     switch (estagio) {
-        case 1: return <PedidoDetalhado data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>;
+        case 1: return <PedidoDetalhado nomeAssistencia={pedido.assistencia.nomeFantasia} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>;
 
-        case 2: return <PedidoDetalhadoConfirmar setEstagio={setEstagio} valorTotal={pedido.valorTotal} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>
+        case 2: return <PedidoDetalhadoConfirmar nomeAssistencia={pedido.assistencia.nomeFantasia} setEstagio={setEstagio} valorTotal={pedido.valorTotal} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>
 
         case 3: return <Pagamento solicitante={pedido.solicitante} assistencia={pedido.assistencia} itens={pedido.itens} valorTotal={pedido.valorTotal}/>
 

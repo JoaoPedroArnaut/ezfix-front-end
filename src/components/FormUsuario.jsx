@@ -26,7 +26,7 @@ const FormUsuario = () => {
                 setConfirmSenha(form[i])
             }
         }
-    }, [])
+    }, [form])
 
     function handleSubmit(e) {
         e.preventDefault();
