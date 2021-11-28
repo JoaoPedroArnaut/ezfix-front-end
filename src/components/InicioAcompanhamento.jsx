@@ -4,7 +4,8 @@ const InicioAcompanhamento = () => {
     return (
 
         <>
-            <pai className="w-4/6 flex flex-col ml-10 mt-4">
+            <pai className="w-full flex flex-col ml-10 mt-10">
+            <h1 className="text-blue-dark_light text-4xl font-bold mb-10">Início:</h1>
 
                 <span><span className="font-semibold">Acompanhamento</span> (Hoje)</span>
 

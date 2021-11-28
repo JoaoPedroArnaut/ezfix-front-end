@@ -66,7 +66,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
                     <hr className="w-11/12 box mt-2 mb-2" />
 
                     <li className="flex justify-start items-center px-4 py-3 mt-2 w-auto rounded-2xl hover:bg-blue-dark hover:text-white text-black ">
-                        <Link href="/" passHref>
+                        <Link href="/tecnico/mensagens">
                             <div>
                                 <span className="w-9 "><FontAwesomeIcon icon={faCommentAlt} size="2x" /></span>
                                 {/* <span className="ml-4 text-xl">Mensagens</span> */}
