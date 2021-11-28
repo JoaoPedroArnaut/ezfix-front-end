@@ -1,31 +1,64 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import SidebarTecnico from "../components/SidebarTecnico";
 import TablePedidos from "../components/TablePedidos";
 import SectionStatusOrders from "../components/SectionStatusOrders";
 import BarQtdOrders from "../components/BarQtdOrders";
+import { SessaoContext } from './../contexts/Sessao';
+import Carregamento from './../components/Carregamento';
+import { api } from './../api/api';
+import { parseCookies } from "nookies";
 
 
 function pedidosTecnico() {
-  
+
+  const { user } = useContext(SessaoContext)
+  const [carregado, setCarregado] = useState(false)
+  const [vazio,setVazio] = useState(true)
+  const [orcamentos,setOrcamentos] = useState()
+  const cookies = parseCookies()
+
+  useEffect(() => {
+    api.get(`/orcamentos/assistencia/${cookies.id}`).then(res => {
+      setCarregado(true)
+      if(res.status != 204){
+        setVazio(false)
+      }
+      console.log(res);
+    },err => {
+
+    })
+  },[])
+
+  if (carregado) {
+    return (
+      <>
+        <section className="flex">
+          <SidebarTecnico />
+          <div className="p-16 w-full">
+            <h1 className="text-blue-dark_light text-xl font-bold">Pedidos:</h1>
+            <BarQtdOrders />
+
+            <SectionStatusOrders />
+            {vazio ? (<div></div>):<TablePedidos />}
+            
+            <TablePedidos />
+          </div>
+        </section>
+      </>
+    )
+  } else {
+
+    return (
+      <>
+        <Carregamento />
+      </>
+    )
+  }
 
   return (
     <>
-      <section className="flex">
-         
-          <SidebarTecnico  />
-       
-         
-        
-        <div className="p-16 w-full">
-          <h1 className="text-blue-dark_light text-xl font-bold">Pedidos:</h1>
 
-          <BarQtdOrders />
-          <SectionStatusOrders />
-          <TablePedidos />
-          <TablePedidos />
-        </div>
-      </section>
 
     </>
   );

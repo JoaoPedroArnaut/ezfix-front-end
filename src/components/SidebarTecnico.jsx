@@ -26,7 +26,7 @@ const SidebarTecnico = () => {
     else {
         return (
             <>
-                <div className="w-20vw h-screen">
+                <div className="min-w-20vw h-screen">
                     <aside className="fixed left-0 top-0 min-h-screen flex flex-row z-0">
 
                         <div className="flex flex-col w-20vw bg-blue overflow-hidden">
@@ -83,7 +83,7 @@ const SidebarTecnico = () => {
                                 <hr className="w-10/12 box mt-2 mb-2" />
 
                                 <li className="flex items-center px-4 py-3 mt-1 w-5/6 rounded-2xl hover:bg-blue-dark hover:text-white text-black">
-                                    <Link href="/">
+                                    <Link href="/tecnico/mensagens">
                                         <div>
                                             <div className="px-2 py-1 inline-flex items-center justify-center mr-2">
                                                 <FontAwesomeIcon icon={faCommentAlt} size="2x" />

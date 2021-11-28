@@ -14,7 +14,7 @@ const DashboardInicio = () => {
                 <div>
                     <InicioAcompanhamento />
                     <InicioUltimasAvaliacoes />
-                    <InicioGrafico/>
+                    <InicioGrafico />
                 </div>
             </div>
         </>

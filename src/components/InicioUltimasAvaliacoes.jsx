@@ -22,7 +22,7 @@ const InicioUltimasAvaliacoes = () => {
                             </div>
 
                             <div className="w-max break-all mt-2 mb-1 p-2 rounded-tl-none bg-white rounded-2xl shadow-lg">
-                                <span>"Sou gay mas moro em Belém do Para"</span>
+                                <span>"Gostei muito do serviço realizado"</span>
                             </div>
 
                 
@@ -44,7 +44,7 @@ const InicioUltimasAvaliacoes = () => {
                             </div>
 
                             <div className="w-max break-all mt-2 mb-1 p-2 rounded-tl-none bg-white rounded-2xl shadow-lg">
-                                <span>"12345678912345678912345678912345678912345678912345"</span>
+                                <span>"Segunda vez que faço e continuo gostando do serviço"</span>
                             </div>
 
                 

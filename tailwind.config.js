@@ -8,6 +8,9 @@ module.exports = {
     maxHeight: {
       'screen/2':'150vh'
      },
+     minWidth:{
+      '20vw':'20vw'
+     },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
