@@ -13,7 +13,7 @@ const mensagens = () => {
             
         <HeaderPage tituloPagina="Mensagens"/>
             <div className="w-full flex justify-center">
-                <div className="bg-blue-light mt-5 w-4/5 h-screen-25 flex justify-center rounded-2xl filter shadow-inner drop-shadow-2xl  ">
+                <div className="bg-blue-light mt-5 w-4/5 min-h-screen-25 flex justify-center rounded-2xl filter shadow-inner drop-shadow-2xl  ">
                     {/* Barra de contatos latera INICIO */}
                     <div className="h-full w-1/3 border-r filter border-opacity-30 border-black ">
                         <div className="flex justify-start my-5 items-center bg-white h-11 w-11/12 px-5  mx-auto rounded-2xl">

@@ -38,15 +38,14 @@ function pedidosTecnico() {
       <>
         <section className="flex">
           <SidebarTecnico />
-          <div className="p-16 w-full">
-            <h1 className="text-blue-dark_light text-xl font-bold">Pedidos:</h1>
+          <div className="w-11/12 flex flex-col ml-10 mt-10">
+            <h1 className="text-blue-dark_light text-4xl font-bold mb-5">Pedidos:</h1>
             <BarQtdOrders />
 
             <SectionStatusOrders />
             {vazio ? (<div className="w-full mt-4 text-center" >Nenhum Pedido</div>):
             orcamentos.map((item, i) => <TablePedidos key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
             }
-            
             {/* item.solicitante */}
           </div>
         </section>

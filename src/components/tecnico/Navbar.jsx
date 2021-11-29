@@ -21,7 +21,7 @@ const Navbar = ({ fixed }) => {
                 </Link> 
                 <div>
                     <Link href="/tecnico/cadastro" passHref>
-                        <span className="text-white mr-4 cursor-pointer">Criar conta</span>
+                        <span className="text-white mr-4 cursor-pointer hover:underline">Criar conta</span>
                     </Link>
                     <Botao estilo={2} text="Login" onClick={() => { router.push("/tecnico/login") }} />
                 </div>

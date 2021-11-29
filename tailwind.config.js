@@ -8,11 +8,12 @@ module.exports = {
     maxHeight: {
       'screen/2':'150vh',
      },
-     minWidth:{
-      '20vw':'20vw',
+     minHeight: {
+      'screen-25': '75vh',
+      'screen': '100vh',
      },
      minWidth:{
-      '20vw':'20vw'
+      '20vw':'20vw',
      },
     screens: {
       'sm': '640px',
@@ -63,13 +64,15 @@ module.exports = {
       },
       amarelo:{
         DEFAULT: '#ffd700',
-        andamento: '#ffe600'
+        andamento: '#ffe600',
       },
       roxo:{
-        DEFAULT: '#B09FFF'
+        DEFAULT: '#B09FFF',
+        darker: '#A212E5',
       },
       green:{
-        DEFAULT: '#14CA3C'
+        DEFAULT: '#14CA3C',
+        light: '#01FF1A',
       },
       red: '#C62424',
       error:{

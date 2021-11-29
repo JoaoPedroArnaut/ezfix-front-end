@@ -23,14 +23,14 @@ const perfilassistencia = () => {
 
     useEffect(() => {
 
-        let id = router.asPath.replace("/perfilassistencia?", "")
+        let id = router.asPath.replace("/perfilAssistencia?", "")
         id = id.replace("&true","")
         api.get(`/assistencia/${id}`).then(res => {
             setCarregado(true)
             setAssistencia(res.data)
             setCidade(res.data.enderecoEspecificos[0].enderecoGeral.cidade)
             setEstado(res.data.enderecoEspecificos[0].enderecoGeral.estado)
-            let isTrue = router.asPath.replace(`/perfilassistencia?${id}&`, "")
+            let isTrue = router.asPath.replace(`/perfilAssistencia?${id}&`, "")
             setModalEnv(isTrue == "true" ? true : false)
         }, err => {
             console.log(err.response);
