@@ -15,11 +15,12 @@ import { parseCookies } from "nookies";
 function pedidosTecnico() {
 
   const { user } = useContext(SessaoContext)
-  const [carregado, setCarregado] = useState(true)
+  const [carregado, setCarregado] = useState(false)
   const [vazio,setVazio] = useState(true)
   const [orcamentos,setOrcamentos] = useState([])
   const cookies = parseCookies()
   const [menu,setMenu] = useState(1);
+  const [lista, setLista] = useState([]);
 
   useEffect(() => {
     api.get(`/orcamentos/assistencia/${cookies.id}`).then(res => {
@@ -34,6 +35,15 @@ function pedidosTecnico() {
     })
   },[])
 
+  useEffect(() => {
+    if (menu == 1) {
+     setLista(orcamentos.filter(o => o.statusGeral == "agurdando resposta tecnico"))
+    }
+    else if(menu == 2){
+      setLista(orcamentos.filter(o => o.statusGeral == "aguardando sua resposta"))
+    }
+  },[menu])
+
   if (carregado) {
     return (
       <>
@@ -45,7 +55,7 @@ function pedidosTecnico() {
 
             <SectionStatusOrders setMenu={setMenu} />
             {vazio ? (<div className="w-full mt-4 text-center" >Nenhum Pedido</div>):
-            orcamentos.map((item, i) => <TablePedidos menu={menu} key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
+            lista.map((item, i) => <TablePedidos key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
             }
             {/* item.solicitante */}
           </div>

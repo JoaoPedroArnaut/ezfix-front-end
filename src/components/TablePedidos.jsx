@@ -22,14 +22,12 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
     }
   }, [status])
 
-
     return (
       <>
         <div className={sectionExt ? "flex items-center justify-around py-2 bg-blue-light_dark rounded-t-2xl mt-7  "
           : "flex items-center justify-around bg-blue-light_dark py-2 rounded-2xl mt-7"}>
 
           <p>{nome}</p>
-
           <div className="flex items-center justify-center">
             <div className={`h-6 w-6 rounded-full ${estilo} mr-4`}></div>
             <span>{etapa}</span>
@@ -81,6 +79,5 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
       </>
     )
   }
-
 
 export default TablePedidos
