@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Bola from './Bola';
 
-const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
+const TablePedidos = ({ nome, status, id, data, itens }) => {
 
   const [sectionExt, setSectionExt] = useState(false);
   const [etapa, setEtapa] = useState("")
@@ -21,7 +21,6 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
       setEstilo("bg-amarelo-andamento")
     }
   }, [status])
-
 
     return (
       <>
