@@ -21,6 +21,9 @@ function pedidosTecnico() {
   const cookies = parseCookies()
   const [menu,setMenu] = useState(1);
   const [lista, setLista] = useState([]);
+  const [novos,setNovos] = useState(0)
+  const [andamento,setAndamento] = useState(0)
+  const [finalizado,setFinalizado] = useState(0)
 
   useEffect(() => {
     api.get(`/orcamentos/assistencia/${cookies.id}`).then(res => {
@@ -28,21 +31,38 @@ function pedidosTecnico() {
       if(res.status != 204){
         setVazio(false)
         setOrcamentos(res.data)
+        filtraLista(menu,res.data)
+        console.log();
+        setNovos(res.data.filter(o => o.statusGeral == "agurdando resposta tecnico").length)
+        setAndamento(res.data.filter(o => o.statusGeral == "aguardando sua resposta").length)
       }
-      console.log(res.data);
     },err => {
 
     })
   },[])
 
   useEffect(() => {
-    if (menu == 1) {
-     setLista(orcamentos.filter(o => o.statusGeral == "agurdando resposta tecnico"))
+    if(lista.length == 0){
+      setVazio(true)
+    }else {
+      setVazio(false)
     }
-    else if(menu == 2){
-      setLista(orcamentos.filter(o => o.statusGeral == "aguardando sua resposta"))
-    }
+  },[lista])
+
+  useEffect(() => {
+    filtraLista(menu,orcamentos)
   },[menu])
+
+  function filtraLista(m,l){
+    if (m == 1) {
+      setLista(l.filter(o => o.statusGeral == "agurdando resposta tecnico"))
+     }
+     else if(m == 2){
+       setLista(l.filter(o => o.statusGeral == "aguardando sua resposta"))
+     }else{
+       setLista([])
+     }
+  }
 
   if (carregado) {
     return (
@@ -51,7 +71,7 @@ function pedidosTecnico() {
           <SidebarTecnico />
           <div className="w-11/12 flex flex-col ml-10 mt-10">
             <h1 className="text-blue-dark_light text-4xl font-bold mb-5">Pedidos:</h1>
-            <BarQtdOrders />
+            <BarQtdOrders novo={novos} andamento={andamento}/>
 
             <SectionStatusOrders setMenu={setMenu} />
             {vazio ? (<div className="w-full mt-4 text-center" >Nenhum Pedido</div>):

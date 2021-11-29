@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
 
-const BarQtdOrders = () => {
+const BarQtdOrders = ({ novo, andamento, finalizado }) => {
 
   return (
     <>
@@ -16,7 +16,7 @@ const BarQtdOrders = () => {
             </div>
             <div className="flex flex-col ml-5 justify-center text-2xl">
               <b>Novos</b>
-              <b>3</b>
+              <b>{novo}</b>
             </div>
           </div>
 
@@ -28,7 +28,7 @@ const BarQtdOrders = () => {
             </div>
             <div className="flex flex-col ml-5 justify-center text-2xl">
               <b>Em andamento</b>
-              <b>3</b>
+              <b>{andamento}</b>
             </div>
           </div>
 
@@ -40,7 +40,7 @@ const BarQtdOrders = () => {
             </div>
             <div className="flex flex-col ml-5 justify-center text-2xl">
               <b>Finalizados</b>
-              <b>3</b>
+              <b>{finalizado}</b>
             </div>
           </div>
         </div>
