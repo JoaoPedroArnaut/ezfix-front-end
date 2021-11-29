@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Bola from './Bola';
 
-const TablePedidos = ({ nome, status, id, data, itens }) => {
+const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
 
   const [sectionExt, setSectionExt] = useState(false);
   const [etapa, setEtapa] = useState("")
@@ -28,7 +28,6 @@ const TablePedidos = ({ nome, status, id, data, itens }) => {
           : "flex items-center justify-around bg-blue-light_dark py-2 rounded-2xl mt-7"}>
 
           <p>{nome}</p>
-
           <div className="flex items-center justify-center">
             <div className={`h-6 w-6 rounded-full ${estilo} mr-4`}></div>
             <span>{etapa}</span>
@@ -80,6 +79,5 @@ const TablePedidos = ({ nome, status, id, data, itens }) => {
       </>
     )
   }
-
 
 export default TablePedidos
