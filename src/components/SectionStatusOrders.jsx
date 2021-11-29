@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
 
 
-const SectionStatusOrders = () => {
+const SectionStatusOrders = ({setMenu}) => {
 
   const [estilo1,setEstilo1] = useState("");
   const [estilo2,setEstilo2] = useState("");
   const [estilo3,setEstilo3] = useState("");
-  const [menu,setMenu] = useState(1);
   const [radio,setRadio] = useState([true,false,false])
 
   useEffect(() => {
