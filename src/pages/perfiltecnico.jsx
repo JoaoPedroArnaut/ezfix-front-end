@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Input from '../components/Input';
 import { SessaoContext } from '../contexts/Sessao'
 import { api } from '../api/api'
@@ -9,12 +9,21 @@ import SidebarTecnico from "../components/SidebarTecnico";
 import TecnicoAbaCertificado from '../components/TecnicoAbaCertificado';
 import TecnicoAbaContato from '../components/TecnicoAbaContato';
 import ModalNovoCert from '../components/ModalNovoCert'
+import Carregamento from '../components/Carregamento';
 
 const perfiltecnico = () => {
     const { user } = useContext(SessaoContext)
     const router = useRouter();
     const [contCert, setContCert] = useState(true);
     const [modalNovoCert, setModalNovoCert] = useState(false);
+    const [carregado, setCarregado] = useState(false)
+
+    useEffect(() => {
+        if (Object.keys(user).length !== 0) {
+            console.log(user);
+            setCarregado(true)
+        }
+    }, [user])
 
     function handlelUplod(e) {
 
@@ -29,8 +38,11 @@ const perfiltecnico = () => {
             })
     }
 
-    return (
-        <>
+    
+
+    if (carregado) {
+        return (
+            <>
             <div className="flex">
                 <SidebarTecnico />
                 <div className="w-full flex flex-col ml-10 mt-10">
@@ -43,8 +55,8 @@ const perfiltecnico = () => {
                                 <input onChange={e => { handlelUplod(e.target.files) }} id="img" type="file" className="hidden" />
                             </div>
                             <span className="text-3xl font-semibold">{user.nomeFantasia}</span>
-                            <Input label="Proprietário" value="BiriJhonson" alternativoDois disabled={true} />
-                            <Input label="CNPJ" value="CNPJ do mano" alternativoDois disabled={true} />
+                            <Input label="Proprietário" value={user.representante.nome} alternativoDois disabled={true} />
+                            <Input label="Documento" value={user.representante.documento} alternativoDois disabled={true} />
                         </div>
                         <div className="self-center border-r-2 h-96 mr-20 ml-20"></div>
                         <div className="flex flex-col items-center w-full">
@@ -66,7 +78,14 @@ const perfiltecnico = () => {
 
             </div>
         </>
-    )
+        )
+    } else {
+        return (
+            <>
+                <Carregamento />
+            </>
+        )
+    }
 }
 
 export default perfiltecnico

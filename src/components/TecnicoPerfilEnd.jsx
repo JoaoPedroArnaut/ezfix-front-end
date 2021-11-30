@@ -1,38 +1,57 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useContext, useEffect, useState } from 'react'
+import { SessaoContext } from '../contexts/Sessao'
+import Carregamento from './Carregamento'
 import Input from './Input'
 
 const TecnicoPerfilEnd = () => {
-    return (
-        <>
-            <div className="w-2/3">
-                <span className="font-semibold text-2xl">Endereço:</span>
-                <div className="flex justify-between">
-                    <div className="w-4/12">
-                        <Input label="CEP" value="09182-440" alternativoDois onChange disabled={true}/>
+
+    const [carregado, setCarregado] = useState(false)
+    const { user } = useContext(SessaoContext)
+
+
+    useEffect(() => {
+        if (Object.keys(user).length !== 0) {
+            setCarregado(true)
+        }
+    }, [user])
+
+
+    if (carregado) {
+        return (
+            <>
+                <div className="w-2/3">
+                    <span className="font-semibold text-2xl">Endereço:</span>
+                    <div className="flex justify-between">
+                        <div className="w-4/12">
+                            <Input label="CEP" value={user.enderecoEspecificos[0].enderecoGeral.cep} alternativoDois onChange disabled={true} />
+                        </div>
+                        <div className="w-7/12">
+                            <Input label="Bairro" value={user.enderecoEspecificos[0].enderecoGeral.bairro} alternativoDois disabled={true} />
+                        </div>
                     </div>
-                    <div className="w-7/12">
-                        <Input label="Bairro" value="Jd. Las Vegas" alternativoDois disabled={true}/>
+                    <div className="flex justify-between">
+                        <div className="w-4/5">
+                            <Input label="Logradouro" value={user.enderecoEspecificos[0].enderecoGeral.logradouro} alternativoDois disabled={true} />
+                        </div>
+                        <div className="w-12">
+                            <Input label="Número" value={user.enderecoEspecificos[0].numero} alternativoDois disabled={true} />
+                        </div>
+                    </div>
+                    <div className="flex justify-between">
+                        <div className="w-12">
+                            <Input label="Estado" value={user.enderecoEspecificos[0].enderecoGeral.estado} alternativoDois disabled={true} />
+                        </div>
+                        <div className="w-4/5">
+                            <Input label="Cidade" value={user.enderecoEspecificos[0].enderecoGeral.cidade} alternativoDois disabled={true} />
+                        </div>
                     </div>
                 </div>
-                <div className="flex justify-between">
-                    <div className="w-4/5">
-                        <Input label="Rua" value="R. Antônio Zanetti" alternativoDois disabled={true}/>
-                    </div>
-                    <div className="w-12">
-                        <Input label="Número" value="285" alternativoDois disabled={true}/>
-                    </div>
-                </div>
-                <div className="flex justify-between">
-                    <div className="w-12">
-                        <Input label="Estado" value="SP" alternativoDois disabled={true}/>
-                    </div>
-                    <div className="w-4/5">
-                        <Input label="Cidade" value="Santo André" alternativoDois disabled={true}/>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    } else {
+        return <Carregamento />
+    }
 }
 
 export default TecnicoPerfilEnd
