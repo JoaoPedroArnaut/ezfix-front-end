@@ -24,27 +24,19 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
     }
   }, [status])
 
-  function baixar() {
-    api.get(`/orcamentos/nota/${id}`,{responseType: 'blob'}).then(res => {
-      fileDownload(res.data,"itensPedido.txt")
-    }, err => {
-      console.log(err);
-    })
-  }
+    return (
+      <>
+        <div className={sectionExt ? "flex items-center justify-around py-2 bg-blue-light_dark rounded-t-2xl mt-7  "
+          : "flex items-center justify-around bg-blue-light_dark py-2 rounded-2xl mt-7"}>
 
-  return (
-    <>
-      <div className={sectionExt ? "flex items-center justify-around py-2 bg-blue-light_dark rounded-t-2xl mt-7  "
-        : "flex items-center justify-around bg-blue-light_dark py-2 rounded-2xl mt-7"}>
-
-        <p>{nome}</p>
-        <div className="flex items-center justify-center">
-          <div className={`h-6 w-6 rounded-full ${estilo} mr-4`}></div>
-          <span>{etapa}</span>
-        </div>
-        <div className="w-52 flex items-center justify-around">
-          <span>{data}</span>
-          <span className="font-bold">#{id}</span>
+          <p>{nome}</p>
+          <div className="flex items-center justify-center">
+            <div className={`h-6 w-6 rounded-full ${estilo} mr-4`}></div>
+            <span>{etapa}</span>
+          </div>
+          <div className="w-52 flex items-center justify-around">
+            <span>{data}</span>
+            <span className="font-bold">#{id}</span>
 
         </div>
         <div className="flex items-center w-48 justify-evenly">
@@ -89,6 +81,5 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
       </>
     )
   }
-
 
 export default TablePedidos
