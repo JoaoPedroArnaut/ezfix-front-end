@@ -15,7 +15,6 @@ const InfosUsuario = ({setNovoEndereco}) => {
 
         var formdata = new FormData();
         formdata.append("img", e[0], e[0].name);
-
         api.post(`http://localhost:8080/solicitante/perfil/${user.cpf}`,formdata)
         .then(res => {
             router.reload();

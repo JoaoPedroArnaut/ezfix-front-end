@@ -70,7 +70,7 @@ const perfiltecnico = () => {
                                     : "bg-blue-dark text-white text-2xl font-medium py-2 px-6 rounded-full"}
                                     onClick={() => setContCert(false)}>Certificados</button>
                             </div>
-                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado setModalNovoCert={setModalNovoCert} />}
+                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado id={user.id} setModalNovoCert={setModalNovoCert} />}
                         </div>
                     </div>
                     {modalNovoCert && <ModalNovoCert setModalNovoCert={setModalNovoCert} />}
