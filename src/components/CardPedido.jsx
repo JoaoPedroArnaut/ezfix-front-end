@@ -75,7 +75,7 @@ const CardPedido = ({ id, assistencia, status, itens,idPedido }) => {
             </>
         )
     } else {
-        return (<div />)
+        return (<Carregamento/>)
     }
 }
 

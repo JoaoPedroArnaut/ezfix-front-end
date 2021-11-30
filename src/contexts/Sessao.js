@@ -16,9 +16,7 @@ export const SessaoProvider = ({ children }) => {
     const cookies = parseCookies()
 
     useEffect(() => {
-        console.log(cookies.isTecnico);
         if (cookies.isTecnico == "false") {
-            console.log("sesao");
             api.get(`/solicitante/cpf/${cookies.cpf}`).then(response => {
                 if (Object.keys(user).length === 0) {
                     setUser(response.data)
@@ -57,7 +55,6 @@ export const SessaoProvider = ({ children }) => {
                 api.get(`/assistencia/email/${email}`,{headers: { Authorization: `Bearer ${cookies.token}` }})
                     .then(response => {
                         setUser(response.data);
-                        console.log(response.data);
                         setCookie(null, 'id', response.data.id, {
                             maxAge: 3600,
                             path: '/',
