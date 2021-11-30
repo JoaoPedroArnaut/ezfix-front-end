@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { api } from '../api/api';
 import Bola from './Bola';
 
-const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
+const TablePedidos = ({ nome, status, id, data, itens}) => {
 
   const [sectionExt, setSectionExt] = useState(false);
   const [etapa, setEtapa] = useState("")
