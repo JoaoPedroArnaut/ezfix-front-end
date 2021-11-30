@@ -100,7 +100,6 @@ const FormEndereco = ({ isTecnico }) => {
             setEnviando(true)
             setEndereco(true)
         }, err => {
-            console.log(err);
             setEndereco(false)
             setEnviando(true) 
             setErros( ["não foi posseivel preencher o seu endereço automaticamente"])

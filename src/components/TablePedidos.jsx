@@ -28,7 +28,6 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
     api.get(`/orcamentos/nota/${id}`,{responseType: 'blob'}).then(res => {
       fileDownload(res.data,"itensPedido.txt")
     }, err => {
-      console.log(err);
     })
   }
 
