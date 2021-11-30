@@ -10,7 +10,6 @@ const DetalhesAlternado = ({pedido}) => {
 
     useEffect(() => {
         if(pedido != undefined){
-            console.log(pedido);
             if(pedido.statusGeral == "agurdando resposta tecnico"){
                 setEstagio(1)
             }else if(pedido.statusGeral == "aguardando sua resposta"){

@@ -52,7 +52,6 @@ const FormLogin = ({isTecnico}) => {
                     router.push('/DashboardInicio')
                 }
             }, err => {
-                console.log(err.response);
                 try{
                     if (err.response.status == 403){
 

@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { api } from '../api/api';
 import Bola from './Bola';
 
-const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
+const TablePedidos = ({ nome, status, id, data, itens}) => {
 
   const [sectionExt, setSectionExt] = useState(false);
   const [etapa, setEtapa] = useState("")
@@ -28,7 +28,6 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
     api.get(`/orcamentos/nota/${id}`,{responseType: 'blob'}).then(res => {
       fileDownload(res.data,"itensPedido.txt")
     }, err => {
-      console.log(err);
     })
   }
 
@@ -53,41 +52,41 @@ const TablePedidos = ({ nome, status, id, data, itens, menu }) => {
             Detalhes
           </div>}
 
-          <div className="cursor-pointer" onClick={() => setSectionExt(!sectionExt)}>
-            <FontAwesomeIcon icon={sectionExt ? faCaretDown : faCaretRight} size="2x" className="align-middle" />
+            <div className="cursor-pointer" onClick={() => setSectionExt(!sectionExt)}>
+              <FontAwesomeIcon icon={sectionExt ? faCaretDown : faCaretRight} size="2x" className="align-middle" />
+            </div>
           </div>
+
         </div>
 
-      </div>
+        {sectionExt &&
+          <div className="flex justify-center w-full">
+            <table className="w-full rounded-b-2xl bg-blue-light">
+              <thead>
+                <tr>
+                  <th className="border-gray border-solid  border-t py-4">Produto</th>
+                  <th className="border-gray border-solid border py-4">Marca</th>
+                  <th className="border-gray border-solid border py-4">Modelo</th>
+                  <th className="border-gray border-solid border-t py-4">Categoria</th>
+                </tr>
+              </thead>
+              <tbody>
 
-      {sectionExt &&
-        <div className="flex justify-center w-full">
-          <table className="w-full rounded-b-2xl bg-blue-light">
-            <thead>
-              <tr>
-                <th className="border-gray border-solid  border-t py-4">Produto</th>
-                <th className="border-gray border-solid border py-4">Marca</th>
-                <th className="border-gray border-solid border py-4">Modelo</th>
-                <th className="border-gray border-solid border-t py-4">Categoria</th>
-              </tr>
-            </thead>
-            <tbody>
+                {itens.map((item, i) =>
+                (<tr key={i}>
+                  <td className="border-gray border-solid border-t py-3 text-center">{item.produto.tipo}</td>
+                  <td className="border-gray border-solid border py-3 text-center">{item.produto.marca}</td>
+                  <td className="border-gray border-solid border py-3 text-center">{item.produto.modelo}</td>
+                  <td className="border-gray border-solid  border-t py-3 text-center">{item.problema}</td>
+                </tr>)
+                )}
+              </tbody>
+            </table>
+          </div>
+        }
 
-              {itens.map((item, i) =>
-              (<tr key={i}>
-                <td className="border-gray border-solid border-t py-3 text-center">{item.produto.tipo}</td>
-                <td className="border-gray border-solid border py-3 text-center">{item.produto.marca}</td>
-                <td className="border-gray border-solid border py-3 text-center">{item.produto.modelo}</td>
-                <td className="border-gray border-solid  border-t py-3 text-center">{item.problema}</td>
-              </tr>)
-              )}
-            </tbody>
-          </table>
-        </div>
-      }
-
-    </>
-  )
-}
+      </>
+    )
+  }
 
 export default TablePedidos

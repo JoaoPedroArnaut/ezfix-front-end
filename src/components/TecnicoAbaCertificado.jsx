@@ -1,24 +1,45 @@
-import React, {useState} from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react'
+import { api } from '../api/api'
 import Botao from './Botao'
 import CardCertificacao from './CardCertificacao'
-import ModalNovoCert from './ModalNovoCert'
+import Carregamento from './Carregamento'
 
-const TecnicoAbaCertificado = ({setModalNovoCert}) => {
-    
-    return (
-        <>
-            <div className="grid grid-cols-1 gap-10 justify-start w-full mt-32">
+const TecnicoAbaCertificado = ({ setModalNovoCert, id }) => {
 
-                <CardCertificacao nomeCurso="Manuntenção de Celuladares avançado" dataConclusao="20/11/2021" dataInicio="01/01/2020" cargaHoraria="840 Horas" alternativo={true} />
-                <CardCertificacao nomeCurso="Especialização em reparo de notebooks" dataConclusao="20/11/2021" dataInicio="01/01/2020" cargaHoraria="840 Horas" alternativo={true} />
-                <CardCertificacao nomeCurso="Conserto de placa-mãe" dataConclusao="20/11/2021" dataInicio="01/01/2020" cargaHoraria="840 Horas" alternativo={true} />
-            </div>
-            <Botao estilo={5} text="Adicionar" onClick={()=>setModalNovoCert(true)}/>
 
-            {/* <ModalNovoCert/> */}
+    const [carregado, setCarregado] = useState(false)
+    const [certificados,serCertificados] = useState([])
 
-        </>
-    )
+    useEffect(() => {
+        api(`/certificacoes/${id}`).then(res => {
+            setCarregado(true)
+            serCertificados(res.data)
+            console.log(res.data);
+        },err => {
+            console.log(err.response);
+        })
+    },[])
+
+    if (carregado) {
+        return (
+            <>
+                <div className="grid grid-cols-1 gap-10 justify-start w-full mt-32">
+                    {certificados.map((certificado,i) => 
+                        <CardCertificacao key={i} nomeCurso={certificado.nomeCurso} dataConclusao={certificado.dataConclusao} dataInicio={certificado.dataInicio} cargaHoraria={certificado.quantidadeHoras} alternativo={true} />
+                    )}
+                </div>
+                <Botao estilo={5} text="Adicionar" onClick={() => setModalNovoCert(true)} />
+
+            </>
+        )
+    } else {
+        return (
+            <>
+                <Carregamento />
+            </>
+        )
+    }
 }
 
 export default TecnicoAbaCertificado
