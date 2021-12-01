@@ -5,39 +5,40 @@ import { api } from '../api/api'
 import Botao from './Botao'
 import Footer from './Footer'
 import HeaderPage from './HeaderPage'
+import ModalAvaliacao from './ModalAvaliacao'
 import Navbar from './Navbar'
 import EtapaLinhaStatus from './tecnico/EtapaLinhaStatus'
 import EtapaStatus from './tecnico/EtapaStatus'
 
-const StatusPedido = ({ id, status }) => {
+const StatusPedido = ({ id, status, setModalAvaliar }) => {
 
-    const [etapas,setEtapas] = useState([])
-    const [botao,setBotao] = useState("")
+    const [etapas, setEtapas] = useState([])
+    const [botao, setBotao] = useState("")
     const router = useRouter();
 
     useEffect(() => {
-        if (status == "reparo em andamento"){
+        if (status == "reparo em andamento") {
             setTBotao("Concluir Reparo")
             setEtapas([true])
-        }else if (status == "reparo conluido"){
-            setEtapas([true,true])
-        }else if (status == "aguardando avalicao"){
-            setEtapas([true,true,true])
+        } else if (status == "reparo conluido") {
+            setEtapas([true, true])
+        } else if (status == "aguardando avalicao") {
+            setEtapas([true, true, true])
         }
     }, [])
 
     function atualizaStatus() {
-        if(status == "reparo conluido"){
-            api.put(`/orcamentos`,{
-                "id":id,
-                "status":"aguardando avalicao"
+        if (status == "reparo conluido") {
+            api.put(`/orcamentos`, {
+                "id": id,
+                "status": "aguardando avalicao"
             }).then(res => {
                 router.reload()
-            },err => {
-    
+            }, err => {
+
             })
-        } else if(status == "aguardando avalicao"){
-            console.log("avaliado");
+        } else if (status == "aguardando avalicao") {
+            setModalAvaliar(true);
         }
     }
 
@@ -56,7 +57,7 @@ const StatusPedido = ({ id, status }) => {
                         <EtapaStatus cliente etapa={3} dataStatus="26/11/2021" horaStatus="15:30" checked={etapas[3]} />
                     </div>
 
-                    {etapas[1] || etapas[2] ? <Botao text={etapas[1] && etapas[2] ? "avalie" : "confirme a retirada" } estilo={9}  onClick={() => atualizaStatus()}/> : <div/>}
+                    {etapas[1] || etapas[2] ? <Botao text={etapas[1] && etapas[2] ? "avalie" : "confirme a retirada"} estilo={9} onClick={() => atualizaStatus()} /> : <div />}
                 </div>
             </div>
         </>
