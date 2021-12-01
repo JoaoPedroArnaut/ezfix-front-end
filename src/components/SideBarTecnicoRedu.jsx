@@ -66,7 +66,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
                     <hr className="w-11/12 box mt-2 mb-2" />
 
                     <li className="flex justify-start items-center px-4 py-3 mt-2 w-auto rounded-2xl hover:bg-blue-dark hover:text-white text-black ">
-                        <Link href="/tecnico/mensagens">
+                        <Link href="/tecnico/mensagens" passHref>
                             <div>
                                 <span className="w-9 "><FontAwesomeIcon icon={faCommentAlt} size="2x" /></span>
                                 {/* <span className="ml-4 text-xl">Mensagens</span> */}
@@ -77,7 +77,7 @@ const SidebarTecnicoRedu = ({ alternaSideBar }) => {
                 </div>
 
                 <li onClick={() => {destroyCookie(null,"token");destroyCookie(null,"id");destroyCookie(null,"isTecnico");router.push("/tecnico/home")}} className="absolute bottom-10 flex justify-start items-center p-2 mt-2 w-auto bg-blue-dark_light hover:bg-blue-dark rounded-2xl text-white ">
-                    <Link href="/" passHref>
+                    <Link href="/tecnico/home" passHref>
                         <div >
                             <FontAwesomeIcon icon={faSignOutAlt} size="2x"/>
                         </div>

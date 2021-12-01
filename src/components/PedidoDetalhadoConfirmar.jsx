@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Botao from './Botao'
 import { useRouter } from 'next/router';
 import { api } from '../api/api';
-import Image from 'next/image'
 
 const PedidoDetalhadoConfirmar = ({ nomeAssistencia, setEstagio, id, itens, status, data, dataPrivista, valorTotal, idAssistencia }) => {
 

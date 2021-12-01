@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
 const EtapaStatus = ({ etapa, checked, dataStatus, horaStatus, cliente }) => {
-    const andamentoTecnico = ["Envio do cliente", "Reparo conluído", "Pedido retirado"]
-    const andamentoCliente = ["Equipamento entregue", "Reparo em andamento", "Pedido pronto", "Pedido retirado"]
+    const andamentoTecnico = ["Orcamento aceito", "Envio do cliente", "Reparo conluído", "Pedido retirado","Pedido avaliado"]
+    const andamentoCliente = ["Equipamento entregue", "Pedido pronto", "Pedido retirado","Avaliação"]
 
     return (
         <>

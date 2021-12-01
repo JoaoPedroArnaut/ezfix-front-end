@@ -20,7 +20,7 @@ function pedidosOrcamentosTecnico() {
     const [erros, setErros] = useState([])
 
     useEffect(() => {
-        api.get(`/orcamentos/${router.asPath.replace("/tecnico/detalhesorcamento?", "")}`).then(res => {
+        api.get(`/orcamentos/${router.asPath.replace("/criaorcamento?", "")}`).then(res => {
             console.log(res.data);
             setPedido(res.data)
             setCarregado(true)
@@ -55,7 +55,6 @@ function pedidosOrcamentosTecnico() {
     }
 
     function validEnvia() {
-        console.log("a");
 
         let tudocerto
         if (itemEditado.length < pedido.itens.length) {
@@ -72,7 +71,7 @@ function pedidosOrcamentosTecnico() {
         }
         if (tudocerto) {
             setErros([])
-            api.put(`/orcamentos/${router.asPath.replace("/pedidosOrcamentosTecnico?", "")}`, {
+            api.put(`/orcamentos/${router.asPath.replace("/criaorcamento?", "")}`, {
                 "itemEditarForms": itemEditado,
                 "status": "aguardando sua resposta"
             }).then(res => {
