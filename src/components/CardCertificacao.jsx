@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArchive, faCaretDown, faCaretRight, faPaperclip, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretRight, faEdit, faPaperclip, faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-const CardCertificacao = ({ nomeCurso, cargaHoraria, dataInicio, dataConclusao, alternativo }) => {
+const CardCertificacao = ({ nomeCurso, cargaHoraria, dataInicio, dataConclusao, alternativo, setModalEditar }) => {
     const [expandido, setExpandido] = useState(false);
     if (alternativo) {
         return (
@@ -27,7 +27,9 @@ const CardCertificacao = ({ nomeCurso, cargaHoraria, dataInicio, dataConclusao, 
                             </div>
                             <span>Data conclusão: <strong>{dataConclusao}</strong></span>
                             <div className="text-right">
+                                <FontAwesomeIcon icon={faTrashAlt} size="2x" className="hover:bg-red hover:text-white p-2 rounded-full cursor-pointer" />
                                 <FontAwesomeIcon icon={faPaperclip} size="2x" className="hover:bg-blue-dark hover:text-white p-2 rounded-full cursor-pointer" />
+                                <FontAwesomeIcon onClick={()=>setModalEditar(true)} icon={faEdit} size="2x" className="hover:bg-blue-dark hover:text-white p-2 rounded-full cursor-pointer"/>
                             </div>
                         </div>
                     }

@@ -10,7 +10,7 @@ const mensagens = () => {
         <>
             <div className="flex h-screen">
                 <SidebarTecnico />
-                <div className="ml-20 w-full h-screen-15">
+                <div className="ml-10 w-full h-screen-15">
                     <h1 className="text-blue-dark_light text-4xl font-bold mt-10">Mensagens:</h1>
                     <div className="bg-blue-light mt-5 w-11/12 h-full flex rounded-2xl filter shadow-inner drop-shadow-2xl  ">
                         {/* Barra de contatos latera INICIO */}

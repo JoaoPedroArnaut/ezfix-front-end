@@ -9,6 +9,7 @@ import SidebarTecnico from "../components/SidebarTecnico";
 import TecnicoAbaCertificado from '../components/TecnicoAbaCertificado';
 import TecnicoAbaContato from '../components/TecnicoAbaContato';
 import ModalNovoCert from '../components/ModalNovoCert'
+import ModalEditarCertificado from '../components/tecnico/ModalEditarCertificado';
 import Carregamento from '../components/Carregamento';
 
 const perfiltecnico = () => {
@@ -16,6 +17,7 @@ const perfiltecnico = () => {
     const router = useRouter();
     const [contCert, setContCert] = useState(true);
     const [modalNovoCert, setModalNovoCert] = useState(false);
+    const [modalEditar, setModalEditar] = useState(false);
     const [carregado, setCarregado] = useState(false)
 
     useEffect(() => {
@@ -70,10 +72,11 @@ const perfiltecnico = () => {
                                     : "bg-blue-dark text-white text-2xl font-medium py-2 px-6 rounded-full"}
                                     onClick={() => setContCert(false)}>Certificados</button>
                             </div>
-                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado id={user.id} setModalNovoCert={setModalNovoCert} />}
+                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado id={user.id} setModalNovoCert={setModalNovoCert} setModalEditar={setModalEditar} />}
                         </div>
                     </div>
                     {modalNovoCert && <ModalNovoCert setModalNovoCert={setModalNovoCert} />}
+                    {modalEditar && <ModalEditarCertificado setModalEditar={setModalEditar} />}
                 </div>
 
             </div>

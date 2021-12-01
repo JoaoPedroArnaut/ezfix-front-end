@@ -48,9 +48,9 @@ const TablePedidos = ({ nome, status, id, data, itens}) => {
         </div>
         <div className="flex items-center w-48 justify-evenly">
           <FontAwesomeIcon icon={faFileDownload} size="lg" className="hover:text-white cursor-pointer " onClick={baixar} />
-          {etapa == "Novo" && <div onClick={() => { router.push(`/pedidosOrcamentosTecnico?${id}`) }} className="bg-gray-opacity rounded-3xl py-2 px-4 text-white font-semibold hover:bg-gray-dark cursor-pointer">
+          <div onClick={() => { router.push(`/tecnico/detalhesorcamento?${id}`) }} className="bg-gray-opacity rounded-3xl py-2 px-4 text-white font-semibold hover:bg-gray-dark cursor-pointer">
             Detalhes
-          </div>}
+          </div>
 
             <div className="cursor-pointer" onClick={() => setSectionExt(!sectionExt)}>
               <FontAwesomeIcon icon={sectionExt ? faCaretDown : faCaretRight} size="2x" className="align-middle" />

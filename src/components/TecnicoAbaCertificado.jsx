@@ -5,7 +5,7 @@ import Botao from './Botao'
 import CardCertificacao from './CardCertificacao'
 import Carregamento from './Carregamento'
 
-const TecnicoAbaCertificado = ({ setModalNovoCert, id }) => {
+const TecnicoAbaCertificado = ({ setModalNovoCert, setModalEditar, id }) => {
 
 
     const [carregado, setCarregado] = useState(false)
@@ -26,7 +26,7 @@ const TecnicoAbaCertificado = ({ setModalNovoCert, id }) => {
             <>
                 <div className="grid grid-cols-1 gap-10 justify-start w-full mt-32">
                     {certificados.map((certificado,i) => 
-                        <CardCertificacao key={i} nomeCurso={certificado.nomeCurso} dataConclusao={certificado.dataConclusao} dataInicio={certificado.dataInicio} cargaHoraria={certificado.quantidadeHoras} alternativo={true} />
+                        <CardCertificacao setModalEditar={setModalEditar} key={i} nomeCurso={certificado.nomeCurso} dataConclusao={certificado.dataConclusao} dataInicio={certificado.dataInicio} cargaHoraria={certificado.quantidadeHoras} alternativo={true} />
                     )}
                 </div>
                 <Botao estilo={5} text="Adicionar" onClick={() => setModalNovoCert(true)} />
