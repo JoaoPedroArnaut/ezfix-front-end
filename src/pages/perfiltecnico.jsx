@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Input from '../components/Input';
 import { SessaoContext } from '../contexts/Sessao'
 import { api } from '../api/api'
@@ -10,6 +10,7 @@ import TecnicoAbaCertificado from '../components/TecnicoAbaCertificado';
 import TecnicoAbaContato from '../components/TecnicoAbaContato';
 import ModalNovoCert from '../components/ModalNovoCert'
 import ModalEditarCertificado from '../components/tecnico/ModalEditarCertificado';
+import Carregamento from '../components/Carregamento';
 
 const perfiltecnico = () => {
     const { user } = useContext(SessaoContext)
@@ -17,6 +18,14 @@ const perfiltecnico = () => {
     const [contCert, setContCert] = useState(true);
     const [modalNovoCert, setModalNovoCert] = useState(false);
     const [modalEditar, setModalEditar] = useState(false);
+    const [carregado, setCarregado] = useState(false)
+
+    useEffect(() => {
+        if (Object.keys(user).length !== 0) {
+            console.log(user);
+            setCarregado(true)
+        }
+    }, [user])
 
     function handlelUplod(e) {
 
@@ -31,8 +40,11 @@ const perfiltecnico = () => {
             })
     }
 
-    return (
-        <>
+    
+
+    if (carregado) {
+        return (
+            <>
             <div className="flex">
                 <SidebarTecnico />
                 <div className="w-full flex flex-col ml-10 mt-10">
@@ -45,8 +57,8 @@ const perfiltecnico = () => {
                                 <input onChange={e => { handlelUplod(e.target.files) }} id="img" type="file" className="hidden" />
                             </div>
                             <span className="text-3xl font-semibold">{user.nomeFantasia}</span>
-                            <Input label="Proprietário" value="BiriJhonson" alternativoDois disabled={true} />
-                            <Input label="CNPJ" value="CNPJ do mano" alternativoDois disabled={true} />
+                            <Input label="Proprietário" value={user.representante.nome} alternativoDois disabled={true} />
+                            <Input label="Documento" value={user.representante.documento} alternativoDois disabled={true} />
                         </div>
                         <div className="self-center border-r-2 h-96 mr-20 ml-20"></div>
                         <div className="flex flex-col items-center w-full">
@@ -60,7 +72,7 @@ const perfiltecnico = () => {
                                     : "bg-blue-dark text-white text-2xl font-medium py-2 px-6 rounded-full"}
                                     onClick={() => setContCert(false)}>Certificados</button>
                             </div>
-                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado setModalNovoCert={setModalNovoCert} setModalEditar={setModalEditar} />}
+                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado id={user.id} setModalNovoCert={setModalNovoCert} setModalEditar={setModalEditar} />}
                         </div>
                     </div>
                     {modalNovoCert && <ModalNovoCert setModalNovoCert={setModalNovoCert} />}
@@ -69,7 +81,14 @@ const perfiltecnico = () => {
 
             </div>
         </>
-    )
+        )
+    } else {
+        return (
+            <>
+                <Carregamento />
+            </>
+        )
+    }
 }
 
 export default perfiltecnico

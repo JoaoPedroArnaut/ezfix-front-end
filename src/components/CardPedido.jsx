@@ -14,7 +14,6 @@ const CardPedido = ({ id, assistencia, status, itens,idPedido }) => {
 
 
     useEffect(() => {
-        console.log(itens);
         if (itens.length > 0) {
             setCarregado(true)
         }
