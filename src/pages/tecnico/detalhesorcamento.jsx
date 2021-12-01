@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import router from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { api } from '../../api/api';

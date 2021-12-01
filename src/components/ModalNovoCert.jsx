@@ -11,8 +11,8 @@ const ModalNovoEndereco = ({ setModalNovoCert }) => {
                 <Input label="Carga Horário" type="number" alternativo={true} size="w-45" />
                 <Input label="Data de Início" type="date" alternativo={true} size="w-45" />
                 <Input label="Data de Término" type="date" alternativo={true} size="w-45" />
-                <input label="Arquivo" type="file" alternativo={true} size="w-45" className="bg-gray-blue mt-5 p-3 rounded-xl"/>
-                <div className="w-45"></div>
+                {/* <input label="Arquivo" type="file" alternativo={true} size="w-45" className="bg-gray-blue mt-5 p-3 rounded-xl"/> */}
+                {/* <div className="w-45"></div> */}
                 <BotaoForm size="45" onClick={() => setModalNovoCert(false)} text="Cancelar" />
                 <BotaoForm size="45" text="enviar" />
             </form>
