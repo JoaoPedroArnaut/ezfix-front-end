@@ -46,6 +46,8 @@ function PedidoStatusAndamento() {
                 setEtapas([true,true,true])
             }else if (pedido.statusGeral == "aguardando avalicao"){
                 setEtapas([true,true,true,true])
+            }else if (pedido.statusGeral == "concluido") {
+                setEtapas([true,true,true,true,true])
             }
         }
     }, [pedido])

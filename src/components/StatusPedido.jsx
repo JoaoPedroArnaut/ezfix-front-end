@@ -24,6 +24,8 @@ const StatusPedido = ({ id, status, setModalAvaliar }) => {
             setEtapas([true, true])
         } else if (status == "aguardando avalicao") {
             setEtapas([true, true, true])
+        }else if (status == "concluido") {
+            setEtapas([true, true, true,true])
         }
     }, [])
 
@@ -57,7 +59,7 @@ const StatusPedido = ({ id, status, setModalAvaliar }) => {
                         <EtapaStatus cliente etapa={3} dataStatus="26/11/2021" horaStatus="15:30" checked={etapas[3]} />
                     </div>
 
-                    {etapas[1] || etapas[2] ? <Botao text={etapas[1] && etapas[2] ? "avalie" : "confirme a retirada"} estilo={9} onClick={() => atualizaStatus()} /> : <div />}
+                    {(etapas[1] || etapas[2]) && !etapas[3] ? <Botao text={etapas[1] && etapas[2] ? "avalie" : "confirme a retirada"} estilo={9} onClick={() => atualizaStatus()} /> : <div />}
                 </div>
             </div>
         </>
