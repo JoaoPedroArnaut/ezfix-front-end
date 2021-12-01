@@ -8,6 +8,7 @@ import { api } from '../api/api'
 import { useRouter } from 'next/router'
 import Carregamento from '../components/Carregamento'
 import HeaderPage from '../components/HeaderPage'
+import ModalAvaliacao from '../components/ModalAvaliacao'
 
 const detalhespedido = () => {
 
@@ -17,6 +18,7 @@ const detalhespedido = () => {
     const [estagio, setEstagio] = useState(2)
     const [carregado, setCarregado] = useState(false)
     const [pedido,setPedido] = useState({})
+    const [modalAvaliar, setModalAvaliar] = useState(false);
 
 
     function alternaTitulo(estagio) {
@@ -39,9 +41,11 @@ const detalhespedido = () => {
     if (carregado) {
         return (
             <>
+            
+            {modalAvaliar && <ModalAvaliacao />}
                 <Navbar fixed={true} />
                 <HeaderPage tituloPagina={tituloPagina}/>
-                <DetalhesAlternado pedido={pedido} estagio={estagio} />
+                <DetalhesAlternado pedido={pedido} setModalAvaliar={setModalAvaliar} />
                 <Footer />
             </>
         )

@@ -8,11 +8,6 @@ const ModalAvaliacao = () => {
     const [avaliacao, setAvaliacao] = useState();
     const [comentario, setComentario] = useState("");
 
-    const ratingChanged = (novaAvaliacao) => {
-        setAvaliacao(novaAvaliacao);
-        console.log(novaAvaliacao);
-        console.log(comentario);
-    };
 
 
     return (
@@ -23,7 +18,7 @@ const ModalAvaliacao = () => {
                         <h1 className="font-bold text-3xl">Avalie o Serviço</h1>
                         <ReactStars
                             count={5}
-                            onChange={ratingChanged}
+                            onChange={ a => setAvaliacao(a)}
                             size={100}
                             activeColor="#ffd700"
                             isHalf={true}
@@ -32,7 +27,7 @@ const ModalAvaliacao = () => {
                             <span>Deixe um comentário sobre:</span>
                             <span className="text-gray-dark">{comentario.length}/50</span>
                         </div>
-                        <input maxLength="50" onChange={e => { setComentario(e.target.value) }} type="text" className="bg-blue-light p-4 rounded-2xl mb-5 w-full" />
+                        <input maxLength="50" value={comentario} onChange={e => { setComentario(e.target.value) }} type="text" className="bg-blue-light p-4 rounded-2xl mb-5 w-full" />
                         <Botao text="Avaliar" estilo={8}/>
                     </div>
                 </div>

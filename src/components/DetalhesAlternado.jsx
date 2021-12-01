@@ -5,7 +5,7 @@ import PedidoDetalhado from './PedidoDetalhado'
 import PedidoDetalhadoConfirmar from './PedidoDetalhadoConfirmar'
 import StatusPedido from './StatusPedido';
 
-const DetalhesAlternado = ({pedido}) => {
+const DetalhesAlternado = ({pedido, setModalAvaliar}) => {
 
     const [estagio,setEstagio] = useState(0)
 
@@ -28,7 +28,7 @@ const DetalhesAlternado = ({pedido}) => {
 
         case 3: return <Pagamento id={pedido.id} solicitante={pedido.solicitante} assistencia={pedido.assistencia} itens={pedido.itens} valorTotal={pedido.valorTotal}/>
 
-        case 4: return <StatusPedido id={pedido.id} status={pedido.statusGeral} />
+        case 4: return <StatusPedido id={pedido.id} status={pedido.statusGeral} setModalAvaliar={setModalAvaliar} />
 
         default: return <Carregamento/>;
     }
