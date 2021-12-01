@@ -11,6 +11,7 @@ import TecnicoAbaContato from '../components/TecnicoAbaContato';
 import ModalNovoCert from '../components/ModalNovoCert'
 import ModalEditarCertificado from '../components/tecnico/ModalEditarCertificado';
 import Carregamento from '../components/Carregamento';
+import { ValidacoesProvider } from '../contexts/Validacoes';
 
 const perfiltecnico = () => {
     const { user } = useContext(SessaoContext)
@@ -19,6 +20,7 @@ const perfiltecnico = () => {
     const [modalNovoCert, setModalNovoCert] = useState(false);
     const [modalEditar, setModalEditar] = useState(false);
     const [carregado, setCarregado] = useState(false)
+    const [novidade,setNovidade] = useState(0)
 
     useEffect(() => {
         if (Object.keys(user).length !== 0) {
@@ -72,10 +74,14 @@ const perfiltecnico = () => {
                                     : "bg-blue-dark text-white text-2xl font-medium py-2 px-6 rounded-full"}
                                     onClick={() => setContCert(false)}>Certificados</button>
                             </div>
-                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado id={user.id} setModalNovoCert={setModalNovoCert} setModalEditar={setModalEditar} />}
+                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado novidade={novidade} id={user.id} setModalNovoCert={setModalNovoCert} setModalEditar={setModalEditar} />}
                         </div>
                     </div>
-                    {modalNovoCert && <ModalNovoCert setModalNovoCert={setModalNovoCert} />}
+                    {modalNovoCert && 
+                    <ValidacoesProvider>
+                        <ModalNovoCert novidade={novidade} setNovidade={setNovidade}  id={user.id} setModalNovoCert={setModalNovoCert} />
+                    </ValidacoesProvider>
+                    }
                     {modalEditar && <ModalEditarCertificado setModalEditar={setModalEditar} />}
                 </div>
 
