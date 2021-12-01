@@ -9,12 +9,14 @@ import SidebarTecnico from "../components/SidebarTecnico";
 import TecnicoAbaCertificado from '../components/TecnicoAbaCertificado';
 import TecnicoAbaContato from '../components/TecnicoAbaContato';
 import ModalNovoCert from '../components/ModalNovoCert'
+import ModalEditarCertificado from '../components/tecnico/ModalEditarCertificado';
 
 const perfiltecnico = () => {
     const { user } = useContext(SessaoContext)
     const router = useRouter();
     const [contCert, setContCert] = useState(true);
     const [modalNovoCert, setModalNovoCert] = useState(false);
+    const [modalEditar, setModalEditar] = useState(false);
 
     function handlelUplod(e) {
 
@@ -58,10 +60,11 @@ const perfiltecnico = () => {
                                     : "bg-blue-dark text-white text-2xl font-medium py-2 px-6 rounded-full"}
                                     onClick={() => setContCert(false)}>Certificados</button>
                             </div>
-                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado setModalNovoCert={setModalNovoCert} />}
+                            {contCert ? <TecnicoAbaContato /> : <TecnicoAbaCertificado setModalNovoCert={setModalNovoCert} setModalEditar={setModalEditar} />}
                         </div>
                     </div>
                     {modalNovoCert && <ModalNovoCert setModalNovoCert={setModalNovoCert} />}
+                    {modalEditar && <ModalEditarCertificado setModalEditar={setModalEditar} />}
                 </div>
 
             </div>
