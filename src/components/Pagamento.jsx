@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from 'react'
 import Botao from './Botao'
 import { useRouter } from 'next/router';
+import { api } from '../api/api';
 
-const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
+const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
 
     const [lalamove, setSection] = useState(false);
     const [confirmacao, setConfirmacao] = useState(false);
@@ -27,16 +28,27 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
         }
     }, [lalamove])
 
+    function envio() {
+        api.put(`/orcamentos`,{
+            "id":id,
+            "status":"aguardando envio"
+        }).then(res => {
+            router.push("/myorders")
+        },err => {
+
+        })
+    }
+
     return (
         <>
             <div className="w-full mb-15 flex justify-around">
                 <div className="sm:w-4/5 flex justify-between mt-8">
                     <div className="w-7/12 bg-blue-light rounded-2xl p-10 font-semibold">
-                        <div className="h-14 w-full bg-white flex justify-start items-center p-2 rounded-2xl">
+                        {/* <div className="h-14 w-full bg-white flex justify-start items-center p-2 rounded-2xl">
                             <input onClick={() => setSection(true)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3" />
                             <img src="./lalamoveLogo.png" alt="lalamoveLogo" className="mr-3" />
                             <p>Entrega e recebimento com a Lalamove</p>
-                        </div>
+                        </div> */}
                         <div className="h-14 w-full bg-white flex justify-start items-center mt-8 p-2 rounded-2xl">
                             <input onClick={() => setSection(false)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3" />
                             <img src="./Walking.png" alt="imgAnd" className="mr-3" />
@@ -55,9 +67,9 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
                         </div>
                         <div className="mt-5 flex justify-end">
                             <div className="flex flex-col justify-center items-center">
-                                <Botao estilo={8} text="Finalizar" onClick={() => setConfirmacao(true)} />
-                                <span className="text-xs mt-2 text-gray-dark">Pagamento via</span>
-                                <img src="mercado-pago-logo.png" alt="Mercado Pago" width="120px" className="mt-2" />
+                                <Botao estilo={8} text="Finalizar" onClick={() => envio()} />
+                                {/* <span className="text-xs mt-2 text-gray-dark">Pagamento via</span> */}
+                                {/* <img src="mercado-pago-logo.png" alt="Mercado Pago" width="120px" className="mt-2" /> */}
 
                             </div>
                         </div>
@@ -86,7 +98,7 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
                     </div>
                 </div>
 
-                {confirmacao &&
+                {/* {confirmacao &&
                     <div className="bg-gray-opacity w-full h-screen z-10 top-0 left-0 right-0 bottom-0 fixed">
                         <div className="w-full h-screen flex justify-center items-center">
                             <div className="bg-white p-20 rounded-xl flex flex-col justify-center items-center">
@@ -97,7 +109,7 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia }) => {
                             </div>
                         </div>
                     </div>
-                }
+                } */}
 
 
             </div>

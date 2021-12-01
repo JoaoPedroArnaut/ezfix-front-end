@@ -15,7 +15,7 @@ const TablePedidos = ({ nome, status, id, data, itens}) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (status == "agurdando resposta tecnico") {
+    if (status == "aguardando resposta tecnico") {
       setEtapa("Novo")
       setEstilo("bg-roxo")
     } else {
@@ -48,7 +48,7 @@ const TablePedidos = ({ nome, status, id, data, itens}) => {
         </div>
         <div className="flex items-center w-48 justify-evenly">
           <FontAwesomeIcon icon={faFileDownload} size="lg" className="hover:text-white cursor-pointer " onClick={baixar} />
-          <div onClick={() => { router.push(`/tecnico/detalhesorcamento?${id}`) }} className="bg-gray-opacity rounded-3xl py-2 px-4 text-white font-semibold hover:bg-gray-dark cursor-pointer">
+          <div onClick={() => { etapa == "Novo" ? router.push(`/criaorcamento?${id}`) : router.push(`/tecnico/detalhesorcamento?${id}`) }} className="bg-gray-opacity rounded-3xl py-2 px-4 text-white font-semibold hover:bg-gray-dark cursor-pointer">
             Detalhes
           </div>
 

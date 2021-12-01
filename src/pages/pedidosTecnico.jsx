@@ -33,8 +33,8 @@ function pedidosTecnico() {
         setOrcamentos(res.data)
         filtraLista(menu,res.data)
         console.log();
-        setNovos(res.data.filter(o => o.statusGeral == "agurdando resposta tecnico").length)
-        setAndamento(res.data.filter(o => o.statusGeral == "aguardando sua resposta").length)
+        setNovos(res.data.filter(o => o.statusGeral == "aguardando resposta tecnico").length)
+        setAndamento(res.data.filter(o => o.statusGeral != "aguardando resposta tecnico" ).length)
       }
     },err => {
 
@@ -55,10 +55,10 @@ function pedidosTecnico() {
 
   function filtraLista(m,l){
     if (m == 1) {
-      setLista(l.filter(o => o.statusGeral == "agurdando resposta tecnico"))
+      setLista(l.filter(o => o.statusGeral == "aguardando resposta tecnico"))
      }
      else if(m == 2){
-       setLista(l.filter(o => o.statusGeral == "aguardando sua resposta"))
+       setLista(l.filter(o => o.statusGeral != "aguardando resposta tecnico"))
      }else{
        setLista([])
      }
@@ -77,7 +77,6 @@ function pedidosTecnico() {
             {vazio ? (<div className="w-full mt-4 text-center" >Nenhum Pedido</div>):
             lista.map((item, i) => <TablePedidos key={i} itens={item.itens} nome={item.solicitante.nome} data={item.dataSolicitacao} status={item.statusGeral} id={item.id} />)
             }
-            {/* item.solicitante */}
           </div>
         </section>
       </>

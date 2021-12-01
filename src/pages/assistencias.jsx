@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/router'
 import React, { useContext, useEffect, useState } from 'react'
 import { api } from '../api/api'
 import BarraOtimiza from '../components/BarraOtimiza'
@@ -16,6 +18,7 @@ import { CarrinhoContext } from '../contexts/Carrinho'
 const assistencias = () => {
 
     const { pedido } = useContext(CarrinhoContext)
+    const router = useRouter()
 
     const [pagina, setPagina] = useState([])
     const [carregado, setCarregado] = useState(false)
@@ -25,7 +28,8 @@ const assistencias = () => {
             setPagina(res.data.content)
             setCarregado(true)
         }, err => {
-            console.log(err);
+            console.log(err.response);
+            router.reload()
         })
     }, [])
 
