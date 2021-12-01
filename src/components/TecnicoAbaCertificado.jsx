@@ -26,7 +26,7 @@ const TecnicoAbaCertificado = ({ setModalNovoCert, setModalEditar, id }) => {
             <>
                 <div className="grid grid-cols-1 gap-10 justify-start w-full mt-32">
                     {certificados.map((certificado,i) => 
-                        <CardCertificacao key={i} nomeCurso={certificado.nomeCurso} dataConclusao={certificado.dataConclusao} dataInicio={certificado.dataInicio} cargaHoraria={certificado.quantidadeHoras} alternativo={true} />
+                        <CardCertificacao setModalEditar={setModalEditar} key={i} nomeCurso={certificado.nomeCurso} dataConclusao={certificado.dataConclusao} dataInicio={certificado.dataInicio} cargaHoraria={certificado.quantidadeHoras} alternativo={true} />
                     )}
                 </div>
                 <Botao estilo={5} text="Adicionar" onClick={() => setModalNovoCert(true)} />
