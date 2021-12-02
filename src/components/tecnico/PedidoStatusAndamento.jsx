@@ -46,6 +46,8 @@ function PedidoStatusAndamento() {
                 setEtapas([true,true,true])
             }else if (pedido.statusGeral == "aguardando avalicao"){
                 setEtapas([true,true,true,true])
+            }else if (pedido.statusGeral == "concluido") {
+                setEtapas([true,true,true,true,true])
             }
         }
     }, [pedido])
@@ -80,15 +82,15 @@ function PedidoStatusAndamento() {
                 <div className="p-10 h-96 flex items-center justify-center border-2 border-gray-dark border-solid rounded-xl rounded-t-none shadow-lg">
                     
                     <div className="w-6/12 flex mb-24 mr-20">
-                    <EtapaStatus checked={etapas[0]} etapa={0} dataStatus="18/11/2021" horaStatus="15:10"/>
-                    <EtapaLinhaStatus />
-                    <EtapaStatus checked={etapas[1]} etapa={1} dataStatus="25/11/2021" horaStatus="20:15"/>
-                    <EtapaLinhaStatus />
-                    <EtapaStatus checked={etapas[2]} etapa={2} dataStatus="26/11/2021" horaStatus="15:30"/>
-                    <EtapaLinhaStatus />
-                    <EtapaStatus checked={etapas[3]} etapa={3} dataStatus="26/11/2021" horaStatus="15:30"/>
-                    <EtapaLinhaStatus />
-                    <EtapaStatus checked={etapas[4]} etapa={4} dataStatus="26/11/2021" horaStatus="15:30"/>
+                    <EtapaStatus checked={etapas[0]} etapa={0}/>
+                    <EtapaLinhaStatus checked={etapas[0]} />
+                    <EtapaStatus checked={etapas[1]} etapa={1}/>
+                    <EtapaLinhaStatus checked={etapas[1]} />
+                    <EtapaStatus checked={etapas[2]} etapa={2}/>
+                    <EtapaLinhaStatus checked={etapas[2]} />
+                    <EtapaStatus checked={etapas[3]} etapa={3}/>
+                    <EtapaLinhaStatus checked={etapas[3]} />
+                    <EtapaStatus checked={etapas[4]} etapa={4}/>
                     </div>
                     {botao && <Botao text={tBotao} onClick={atualizaStatus} estilo={9}/>}
 

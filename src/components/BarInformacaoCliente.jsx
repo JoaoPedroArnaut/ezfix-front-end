@@ -11,6 +11,9 @@ const BarInformacaoCliente = ({ nome, data, id,status }) => {
   useEffect(() => {
     if (status == "aguardando resposta tecnico") {
       setEtapa("novo")
+    }else if(status == "concluido"){
+      setEtapa("concluido")
+      setEstilo("bg-green")
     }else {
       setEtapa("Em andamento")
       setEstilo("bg-amarelo-andamento")

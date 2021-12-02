@@ -2,7 +2,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-const EtapaStatus = ({ etapa, checked, dataStatus, horaStatus, cliente }) => {
+const EtapaStatus = ({ etapa, checked, cliente }) => {
     const andamentoTecnico = ["Orcamento aceito", "Envio do cliente", "Reparo conluído", "Pedido retirado","Pedido avaliado"]
     const andamentoCliente = ["Equipamento entregue", "Pedido pronto", "Pedido retirado","Avaliação"]
 
@@ -16,8 +16,6 @@ const EtapaStatus = ({ etapa, checked, dataStatus, horaStatus, cliente }) => {
 
                 <div className="flex flex-col text-base text-center">
                     <p className="font-semibold text-xl mb-5">{cliente ? andamentoCliente[etapa] : andamentoTecnico[etapa]}</p>
-                    <p>{dataStatus}</p>
-                    <p>{horaStatus}</p>
                 </div>
 
             </div>

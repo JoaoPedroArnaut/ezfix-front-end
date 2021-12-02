@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import Carregamento from '../components/Carregamento'
 import HeaderPage from '../components/HeaderPage'
 import ModalAvaliacao from '../components/ModalAvaliacao'
+import { ValidacoesProvider } from '../contexts/Validacoes'
 
 const detalhespedido = () => {
 
@@ -17,7 +18,7 @@ const detalhespedido = () => {
     const [tituloPagina, setTituloPagina] = useState()
     const [estagio, setEstagio] = useState(2)
     const [carregado, setCarregado] = useState(false)
-    const [pedido,setPedido] = useState({})
+    const [pedido, setPedido] = useState({})
     const [modalAvaliar, setModalAvaliar] = useState(false);
 
 
@@ -36,15 +37,16 @@ const detalhespedido = () => {
         }, err => {
 
         })
-    },[]);
+    }, []);
 
     if (carregado) {
         return (
             <>
-            
-            {modalAvaliar && <ModalAvaliacao />}
+                <ValidacoesProvider>
+                    {modalAvaliar && <ModalAvaliacao pedido={pedido} />}
+                </ValidacoesProvider>
                 <Navbar fixed={true} />
-                <HeaderPage tituloPagina={tituloPagina}/>
+                <HeaderPage tituloPagina={tituloPagina} />
                 <DetalhesAlternado pedido={pedido} setModalAvaliar={setModalAvaliar} />
                 <Footer />
             </>

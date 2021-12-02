@@ -18,7 +18,10 @@ const TablePedidos = ({ nome, status, id, data, itens}) => {
     if (status == "aguardando resposta tecnico") {
       setEtapa("Novo")
       setEstilo("bg-roxo")
-    } else {
+    } else if(status == "concluido") {
+      setEtapa("concluido")
+      setEstilo("bg-green")
+    }else {
       setEtapa("Em andamento")
       setEstilo("bg-amarelo-andamento")
     }
