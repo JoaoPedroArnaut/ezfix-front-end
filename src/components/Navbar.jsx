@@ -29,7 +29,7 @@ const Navbar = ({ fixed }) => {
     }, [])
 
     useEffect(() => {
-        if(user != null){
+        if(user != null || cookies.token == undefine){
             setCarregado(true)
         }
     },[user])
