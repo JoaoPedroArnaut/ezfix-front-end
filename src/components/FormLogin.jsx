@@ -33,11 +33,11 @@ const FormLogin = ({isTecnico}) => {
                 "email": email,
                 "senha": senha
             }).then(res => {
+                setEmailSessao(email)
                 setCookie(null, 'token', res.data.token, {
                     maxAge: 3600,
                     path: '/',
                 });
-                setEmailSessao(email)
                 if(!isTecnico){
                     setCookie(null, 'isTecnico', false, {
                         maxAge: 3600,

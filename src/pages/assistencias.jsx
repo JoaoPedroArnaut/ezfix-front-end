@@ -14,24 +14,28 @@ import Navbar from '../components/Navbar'
 import Pagination from '../components/Pagination'
 import Recomendadas from '../components/Recomendadas'
 import { CarrinhoContext } from '../contexts/Carrinho'
+import { SessaoContext } from '../contexts/Sessao'
 
 const assistencias = () => {
 
-    const { pedido } = useContext(CarrinhoContext)
     const router = useRouter()
+
+    const { user } = useContext(SessaoContext)
 
     const [pagina, setPagina] = useState([])
     const [carregado, setCarregado] = useState(false)
 
     useEffect(() => {
-        api.get("/assistencia").then(res => {
-            setPagina(res.data.content)
-            setCarregado(true)
-        }, err => {
-            console.log(err.response);
-            router.reload()
-        })
-    }, [])
+        if(user != undefined && user != null){
+            api.get("/assistencia").then(res => {
+                setPagina(res.data.content)
+                setCarregado(true)
+            }, err => {
+                console.log(err.response);
+                router.reload()
+            })
+        }
+    }, [user])
 
     if (carregado) {
         return (
