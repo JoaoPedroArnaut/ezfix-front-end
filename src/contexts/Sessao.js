@@ -17,11 +17,13 @@ export const SessaoProvider = ({ children }) => {
     const cookies = parseCookies()
 
     useEffect(() => {
+        console.log(user);
         if (cookies.isTecnico == "false") {
+            console.log("abacate");
             api.get(`/solicitante/cpf/${cookies.cpf}`).then(response => {
-                console.log(response);
-
+                console.log(response.data != null);
                 if (response.data != null) {
+                    console.log(user == null);
                     if (user == null) {
                         setUser(response.data)
                         setEmailSessao(response.data.usuario.email)
