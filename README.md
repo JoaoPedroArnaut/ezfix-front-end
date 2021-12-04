@@ -33,7 +33,7 @@ algumas dificuldades semelhantes em que os afetam.</p>
 <details>
   <summary><b>Solucionador</b></summary>
   <ul>
-    <li>Poucas demandas, resultandoem baixa renda</li>
+    <li>Poucas demandas, resultando em baixa renda</li>
     <li>Dificuldade na gestão nos pedidos</li>
     <li>Demora para fazer um orçamento</li>
   </ul>
@@ -50,7 +50,7 @@ algumas dificuldades semelhantes em que os afetam.</p>
 
 ## Como vai funcionar?
 ### Solicitante
-<p>Bom... No lado do <b>solicitante</b>, acessando a plataforma, poderá vizualizar as assistências próximas de sua localização. Assim como suas certificações, avaliações e serviços que atende.</p>
+<p>Bom... No lado do <b>solicitante</b>, acessando a plataforma, poderá visualizar as assistências próximas de sua localização. Assim como suas certificações, avaliações e serviços que atende.</p>
 
 <div align=center>
   
@@ -71,7 +71,7 @@ algumas dificuldades semelhantes em que os afetam.</p>
 
 <details>
   <summary><b>Pagamento</b></summary>
-  <p>Após o técnico retornar com um orçamento para seu pedido, você poderá decidir se aceita ou não o valor proposto pelo técnico. Caso aceite, poderá contar com a segurança do pagamento via mercado-pago! Além de ter a opção de ter seu equipamento ser entregue pela nossa parceira <b>LALAMOVE</b></p>
+  <p>Após o técnico retornar com um orçamento para seu pedido, você poderá decidir se aceita ou não o valor proposto pelo técnico. Caso aceite, poderá contar com a segurança do pagamento via mercado-pago! Além de ter a opção de ter seu equipamento ser entregue pela nossa parceira <b>LALAMOVE!</b></p>
   
   <div align=center>
     
@@ -196,7 +196,7 @@ algumas dificuldades semelhantes em que os afetam.</p>
 
 <details>
   <summary><b>Demandas</b></summary>
-  <p>Você terá controle de todos os seu pedidos. Temos um menu especialmente para isso, onde você poderá acomapanhar os novos pedidos que chegam para orçar e os pedidos que estão em andamento, assim como os concluídos.</p>
+  <p>Você terá controle de todos os seu pedidos. Temos um menu especialmente para isso, onde você poderá acompanhar os novos pedidos que chegam para orçar e os pedidos que estão em andamento, assim como os concluídos.</p>
   
 <div align=center>
     
@@ -217,8 +217,8 @@ algumas dificuldades semelhantes em que os afetam.</p>
 
 <details>
   <summary><b>Perfil</b></summary>
-  <p>Sua assistência deverá ter sempre sua marca, então contará com a página pava ver sua informações cadastrais e se necessário edita-las.</p>
-  <p>Temos a aba "certificações" onde você poderá adicionar certificados conquistados, para exibir ao cliente que visitar sua assistência.</p>
+  <p>Sua assistência deverá ter sempre sua marca, então contará com um página para ver sua informações cadastrais e se necessário edita-las.</p>
+  <p>Temos a aba "certificações" onde você poderá adicionar certificados conquistados, para exibir aos clientes que visitarem sua assistência.</p>
   
 <div align=center>
     
