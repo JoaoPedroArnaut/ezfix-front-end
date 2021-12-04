@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 const cookies = parseCookies()
 
 export let api = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "http://34.151.229.209:8080",
     headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
@@ -15,7 +15,7 @@ export let api = axios.create({
 
 export function setToken(token) {
     api = axios.create({
-        baseURL: "http://localhost:8080",
+        baseURL: "http://34.151.229.209:8080",
         headers: { Authorization: `Bearer ${token}` }
     })
 }
