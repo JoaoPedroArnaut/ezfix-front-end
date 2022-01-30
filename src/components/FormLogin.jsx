@@ -14,7 +14,6 @@ const FormLogin = ({isTecnico}) => {
     const [senha, setSenha] = useState("");
 
     const { erros, isBlank, setErros } = useContext(ValidacoesContext)
-    const {setEmailSessao} = useContext(SessaoContext)
 
     function validaErros(){
         let erro = [...isBlank({ email, senha })]
@@ -33,28 +32,14 @@ const FormLogin = ({isTecnico}) => {
                 "email": email,
                 "senha": senha
             }).then(res => {
-                setEmailSessao(email)
                 setCookie(null, 'token', res.data.token, {
                     maxAge: 3600,
                     path: '/',
                 });
-                if(!isTecnico){
-                    setCookie(null, 'isTecnico', false, {
-                        maxAge: 3600,
-                        path: '/',
-                    });
-                    router.push('/assistencias')
-                }else {
-                    setCookie(null, 'isTecnico', true, {
-                        maxAge: 3600,
-                        path: '/',
-                    });
-                    router.push('/DashboardInicio')
-                }
+                router.push('/assistencias')
             }, err => {
                 try{
                     if (err.response.status == 403){
-
                         setErros(["email e/ou senha invalidos"])
                     }else {
                         setErros(["algo inesperado ocorreu, tente novamente mais tarde"])

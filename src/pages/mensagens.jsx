@@ -1,8 +1,8 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import CardMensagem from '../components/tecnico/CardMensagem'
-import MensagemMain from '../components/tecnico/MensagemMain'
+// import CardMensagem from '../components/tecnico/CardMensagem'
+// import MensagemMain from '../components/tecnico/MensagemMain'
 import Navbar from '../components/Navbar'
 import HeaderPage from '../components/HeaderPage'
 
@@ -20,10 +20,10 @@ const mensagens = () => {
                             <FontAwesomeIcon icon={faSearch} className="text-gray-dark" />
                             <input type="text" placeholder="Persquisar conversa" className="w-full outline-none ml-5" />
                         </div>
-                        <CardMensagem />
+                        {/* <CardMensagem /> */}
                     </div>
                     {/* Barra de contatos latera FIM */}
-                    <MensagemMain />
+                    {/* <MensagemMain /> */}
 
                 </div>
             </div>

@@ -22,7 +22,7 @@ function erro() {
                     <p className="mb-8"> está pagina não existe. </p>
 
 
-                    <Botao estilo={3} onClick={() => { router.push("/index") }} text="voltar" />
+                    <Botao estilo={3} onClick={() => { router.back() }} text="voltar" />
 
                 </div>
                 <div>

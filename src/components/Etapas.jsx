@@ -14,12 +14,6 @@ const Etapas = ({isTecnico}) => {
             <Etapa etapa="2" checked={stage[1]}/>
             <EtapaLinha checked={stage[2]}/>
             <Etapa etapa="3" checked={stage[2]}/>
-            {isTecnico && 
-            <>
-            <EtapaLinha checked={stage[3]}/>
-            <Etapa etapa="4" checked={stage[3]}/>
-            </>
-            }
         </div>
     )
 }

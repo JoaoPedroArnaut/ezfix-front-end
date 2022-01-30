@@ -19,10 +19,7 @@ const perfilusuario = () => {
     const [contador, setContador] = useState(0)
     
     useEffect(() => {
-        setContador(contador + 1)
-        if (contador > 1 || Object.keys(user).length !== 0) {
-            setCarregado(true)
-        }
+        if(user != null) setCarregado(true)
     }, [user])
 
     if (carregado) {

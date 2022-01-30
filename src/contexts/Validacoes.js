@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { validate } from 'gerador-validador-cpf'
 import cnpjUtils from 'cnpj-utils'
-import erro from './../pages/erro404';
+import erro from '../pages/404';
 
 export const ValidacoesContext = createContext({});
 
