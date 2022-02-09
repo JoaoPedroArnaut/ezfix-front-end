@@ -6,8 +6,6 @@ import CardFaq from "../components/CardFaq"
 function Faq() {
     return (
         <>
-
-            <Navbar fixed={false} />
             <section className="flex flex-col items-center justify-center p-40 font-bold text-4xl">
                 <h1 className="mb-8"> Dúvidas </h1>
                 <div className=" border-solid border-black border-2 w-full p-20" >

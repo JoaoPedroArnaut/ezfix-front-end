@@ -9,7 +9,6 @@ const cadastro = () => {
 
     return (
         <>
-            <Navbar />
             <CadastroProvider>
                 <BodyCadastro />
             </CadastroProvider>

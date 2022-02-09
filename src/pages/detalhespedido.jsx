@@ -45,7 +45,6 @@ const detalhespedido = () => {
                 <ValidacoesProvider>
                     {modalAvaliar && <ModalAvaliacao pedido={pedido} />}
                 </ValidacoesProvider>
-                <Navbar fixed={true} />
                 <HeaderPage tituloPagina={tituloPagina} />
                 <DetalhesAlternado pedido={pedido} setModalAvaliar={setModalAvaliar} />
                 <Footer />
@@ -54,7 +53,6 @@ const detalhespedido = () => {
     } else {
         return (
             <>
-                <Navbar fixed={false} />
                 <Carregamento />
             </>
         )

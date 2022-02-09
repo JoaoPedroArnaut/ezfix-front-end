@@ -31,7 +31,6 @@ const myorders = () => {
     if (carregado) {
         return (
             <>
-                <Navbar fixed={true} />
                 <HeaderPage tituloPagina="Meus Pedidos" />
                 <div className="w-full min-h-screen flex justify-around">
                     <div className="sm:w-4/5 flex flex-col mt-8">
@@ -46,7 +45,6 @@ const myorders = () => {
 
         return (
             <>
-                <Navbar fixed={false} />
                 <Carregamento />
             </>
         )

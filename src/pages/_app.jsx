@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import React, { useState, useEffect } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -6,15 +6,24 @@ import { CarrinhoProvider } from '../contexts/Carrinho'
 import { SessaoProvider } from '../contexts/Sessao'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
+import Navbar from '../components/Navbar'
 import '../styles/nprogress.css'
-import { useEffect } from 'react'
+import '../styles/globals.css'
+import { set } from 'nprogress'
 library.add(fab, faCoffee)
 
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter()
+  const [fixed, setFixed] = useState(true);
 
   useEffect(() => {
+    if(router.route == "/login" || router.route == "/cadastro"){
+      setFixed(false)
+    }else{
+      setFixed(true)
+    }
+
     const handleStart = () => {
       NProgress.start()
     }
@@ -36,6 +45,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <SessaoProvider>
       <CarrinhoProvider>
+        <Navbar fixed={fixed}/>
         <Component {...pageProps} />
       </CarrinhoProvider>
     </SessaoProvider>

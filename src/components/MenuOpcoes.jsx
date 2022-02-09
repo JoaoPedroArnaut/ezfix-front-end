@@ -17,7 +17,7 @@ const MenuOpcoes = () => {
                                     <li onClick={() => {router.push("/mensagens")}} className=" hover:text-blue-light">Mensagens</li>
                                     <li className=" hover:text-blue-light">Ajuda</li>
                                     <hr className="text text-gray" />
-                                    <li onClick={() => {destroyCookie(null,"token");destroyCookie(null,"isTecnico");destroyCookie(null,"cpf");router.push("/")}} className=" hover:text-blue-light">Sair</li>
+                                    <li onClick={() => {destroyCookie(null,"token");router.push("/")}} className=" hover:text-blue-light">Sair</li>
                                 </ul>
                             </div>
                         </div>

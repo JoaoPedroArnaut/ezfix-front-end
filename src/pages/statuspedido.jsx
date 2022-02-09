@@ -9,7 +9,6 @@ import EtapaStatus from '../components/tecnico/EtapaStatus'
 const statuspedido = () => {
     return (
         <>
-            <Navbar fixed/>
             <HeaderPage tituloPagina="Acompanhamento"/>
             <div className="w-full flex mt-10 mb-10 justify-center items-center">
                 <div className="h-2/4 p-20 w-4/5 bg-blue-light rounded-3xl flex justify-center items-center">

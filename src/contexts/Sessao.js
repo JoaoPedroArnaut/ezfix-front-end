@@ -9,7 +9,7 @@ export const SessaoContext = createContext({});
 
 export const SessaoProvider = ({ children }) => {
 
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({init: null})
     const router = useRouter()
     const cookies = parseCookies()
 

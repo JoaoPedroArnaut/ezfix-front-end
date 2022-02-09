@@ -11,8 +11,6 @@ import SectionAcompa from "../components/SectionAcompa";
 function acompanhamento() {
     return (
         <>
-
-            <Navbar fixed={false} />
             <section className="w-full p-24 flex flex-col items-center">
 
                 <div className="flex items-center w-full justify-between border-b-2 pb-2">

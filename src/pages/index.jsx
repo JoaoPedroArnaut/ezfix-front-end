@@ -11,7 +11,6 @@ import Section5 from "../components/Section5"
 function Home() {
     return (
         <>
-            <Navbar fixed={true}/>
             <Banner />
             <Section2 />
             <Section3/>

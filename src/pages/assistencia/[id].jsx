@@ -45,7 +45,6 @@ const perfilassistencia = () => {
     return (
         <>
             {modalEnv && <ModalOrcamentoEnv setModalEnv={setModalEnv} />}
-            <Navbar fixed={true} />
             {carregado ? 
             <div>
                 <HeaderPage tituloPagina={assistencia.nomeFantasia} />

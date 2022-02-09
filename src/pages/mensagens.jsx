@@ -8,9 +8,7 @@ import HeaderPage from '../components/HeaderPage'
 
 const mensagens = () => {
     return (
-        <>
-            <Navbar fixed />
-            
+        <>  
         <HeaderPage tituloPagina="Mensagens"/>
             <div className="w-full flex justify-center">
                 <div className="bg-blue-light mt-5 w-4/5 min-h-screen-25 flex justify-center rounded-2xl filter shadow-inner drop-shadow-2xl  ">

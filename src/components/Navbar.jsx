@@ -21,8 +21,8 @@ const Navbar = ({ fixed }) => {
     const [carregado, setCarregado] = useState(false)
 
     useEffect(() => {
-        if (cookies.token != undefined) setLogado(true)
-    }, [])
+        cookies.token != undefined? setLogado(true): setLogado(false)
+    }, [cookies.token])
 
     useEffect(() => {
         NProgress.start()

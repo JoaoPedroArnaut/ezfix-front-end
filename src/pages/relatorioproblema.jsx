@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar'
 const relatorioproblema = () => {
     return (
         <>
-            <Navbar/>
             <ListaPedido/>
             <Footer/>
         </>

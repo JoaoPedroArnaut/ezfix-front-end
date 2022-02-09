@@ -27,7 +27,6 @@ const perfilusuario = () => {
             <>
                 <ValidacoesProvider>
                     {novoEndereco && <ModalNovoEndereco setNovoEndereco={setNovoEndereco} />}
-                    <Navbar />
 
                     <InfosUsuario setNovoEndereco={setNovoEndereco} />
                 </ValidacoesProvider>
@@ -37,7 +36,6 @@ const perfilusuario = () => {
     } else {
         return (
             <>
-                <Navbar fixed={false} />
                 <Carregamento />
             </>
         )
