@@ -11,8 +11,6 @@ function erro() {
 
     return (
         <>
-
-            <Navbar fixed={false} />
             <section className="flex w-full items-center justify-around p-40 font-bold text-4xl">
                 <div className="border-solid  p-20" >
                     <h1 className="text text-8xl font-bold mb-8 text-blue" >Erro 404</h1>
