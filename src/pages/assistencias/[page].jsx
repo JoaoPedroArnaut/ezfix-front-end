@@ -2,16 +2,19 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useState } from 'react'
-import { api } from '../api/api'
-import CardAssistencia from '../components/CardAssistencia'
-import ComboBox from '../components/ComboBox'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import NProgress from 'nprogress'
+import { Router, useRouter } from 'next/router'
+import React, { useEffect } from 'react'
+import { api } from '../../api/api'
+import CardAssistencia from '../../components/CardAssistencia'
+import ComboBox from '../../components/ComboBox'
+import Footer from '../../components/Footer'
 
 const assistencias = ({ data }) => {
+
+    useEffect(() => {
+        if(data == null) useRouter().push("/404")
+    }, [])
+    
 
     return (
         <>
@@ -39,20 +42,18 @@ const assistencias = ({ data }) => {
 
 }
 
-export async function getServerSideProps() {
-    let teste = []
-
-    await api.get("/assistencia/card-assistencia").then(res => {
-        teste = res.data.content
-        console.log(teste);
+export async function getServerSideProps({params}) {
+    
+    const data = await api.get(`/assistencia/card-assistencia?page=${params.page - 1}`).then(res => {
+        return res.status == 200? res.data.content: []
     }, err => {
         console.log(err.response);
-        router.push("/404")
+        return null
     }) 
     
     return {
         props: {
-            data: teste,
+            data,
         }
     }
 }

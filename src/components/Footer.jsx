@@ -10,12 +10,12 @@ const Footer = () => {
             <Image src='/ezfix_logo.png' alt="logo ezfix" height="150" width="150" />
             <p className="sm:w-6/12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
             <Link href="/tecnico/home" passHref>
-                <p className="mt-4 cursor-pointer" >seja uma assistência parceira</p>
+                <a className="mt-4 cursor-pointer" >seja uma assistência parceira</a>
             </Link>
             <div className="w-full sm:w-6/12 lg:w-3/12 flex justify-evenly mt-8">
                 <p>Lalamove</p>
                 <Link href="/faq" passHref>
-                <p>FAQs</p>
+                    <a>FAQs</a>
                 </Link>
                 <p>Suporte</p>
             </div>

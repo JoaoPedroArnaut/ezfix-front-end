@@ -1,11 +1,6 @@
-import Etapa from "../components/Etapa";
-import Navbar from "../components/Navbar";
-import EtapaLinha from "../components/EtapaLinha";
-import Etapas from "../components/Etapas";
-import React, { useContext } from 'react'
+import React from 'react'
 import Botao from "../components/Botao";
 import BoxEtapas from "../components/BoxEtapas";
-import SectionAcompa from "../components/SectionAcompa";
 
 
 function acompanhamento() {

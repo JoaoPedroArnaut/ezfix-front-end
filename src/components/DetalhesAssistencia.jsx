@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import React, { useEffect } from 'react'
 import Botao from './Botao'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,11 @@ import { useRouter } from 'next/router';
 const DetalhesAssistencia = ({ id, avaliacao, estado, cidade }) => {
 
     const router = useRouter();
+
+    useEffect(() => {
+      console.log(id);
+    }, [])
+    
 
     return (
         <>

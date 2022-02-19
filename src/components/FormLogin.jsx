@@ -1,18 +1,17 @@
 import React, { useContext, useState } from 'react'
 import Botao from './Botao'
 import Input from './Input'
+import Erros from './Erros';
 import { useRouter } from 'next/router';
 import { setCookie } from 'nookies';
-import Erros from './Erros';
 import { ValidacoesContext } from '../contexts/Validacoes';
-import {api} from '../api/api';
-import { SessaoContext } from '../contexts/Sessao';
+import {api, setToken} from '../api/api';
 
 const FormLogin = ({isTecnico}) => {
     const router = useRouter()
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-
+    
     const { erros, isBlank, setErros } = useContext(ValidacoesContext)
 
     function validaErros(){
@@ -36,14 +35,13 @@ const FormLogin = ({isTecnico}) => {
                     maxAge: 3600,
                     path: '/',
                 });
-                router.push('/assistencias')
+                setToken(res.data.token)
+                router.push('/assistencias/1')
             }, err => {
                 try{
-                    if (err.response.status == 403){
-                        setErros(["email e/ou senha invalidos"])
-                    }else {
-                        setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
-                    }
+                    err.response.status == 403?
+                    setErros(["email e/ou senha invalidos"]):
+                    setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
                 }catch(e){
                     setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
                 }

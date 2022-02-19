@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar"
 import Banner from "../components/Banner"
 import Section2 from "../components/Section2"
 import Section6 from "../components/Section6"
@@ -17,7 +16,6 @@ function Home() {
             <Section4/>
             <Section5/>
             <Section6/>
-            <Footer />
         </>
     )
 }

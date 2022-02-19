@@ -8,8 +8,8 @@ import HeaderPage from './HeaderPage'
 import ModalAvaliacao from './ModalAvaliacao'
 import Navbar from './Navbar'
 import StatusPassos from './StatusPassos'
-import EtapaLinhaStatus from './tecnico/EtapaLinhaStatus'
-import EtapaStatus from './tecnico/EtapaStatus'
+// import EtapaLinhaStatus from './tecnico/EtapaLinhaStatus'
+// import EtapaStatus from './tecnico/EtapaStatus'
 
 const StatusPedido = ({ id, status, setModalAvaliar }) => {
 
@@ -52,13 +52,13 @@ const StatusPedido = ({ id, status, setModalAvaliar }) => {
                     <StatusPassos/>
 
                     <div className="w-full flex mb-24 ">
-                        <EtapaStatus cliente etapa={0} checked={etapas[0]} />
-                        <EtapaLinhaStatus checked={etapas[0]} />
-                        <EtapaStatus cliente etapa={1} checked={etapas[1]} />
-                        <EtapaLinhaStatus checked={etapas[1]}/>
-                        <EtapaStatus cliente etapa={2} checked={etapas[2]} />
-                        <EtapaLinhaStatus checked={etapas[2]}/>
-                        <EtapaStatus cliente etapa={3} checked={etapas[3]} />
+                        {/* <EtapaStatus cliente etapa={0} checked={etapas[0]} /> */}
+                        {/* <EtapaLinhaStatus checked={etapas[0]} /> */}
+                        {/* <EtapaStatus cliente etapa={1} checked={etapas[1]} /> */}
+                        {/* <EtapaLinhaStatus checked={etapas[1]}/> */}
+                        {/* <EtapaStatus cliente etapa={2} checked={etapas[2]} /> */}
+                        {/* <EtapaLinhaStatus checked={etapas[2]}/> */}
+                        {/* <EtapaStatus cliente etapa={3} checked={etapas[3]} /> */}
                     </div>
 
                     {(etapas[1] || etapas[2]) && !etapas[3] ? <Botao text={etapas[1] && etapas[2] ? "avalie" : "confirme a retirada"} estilo={9} onClick={() => atualizaStatus()} /> : <div />}

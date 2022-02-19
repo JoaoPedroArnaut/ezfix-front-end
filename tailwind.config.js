@@ -6,15 +6,16 @@ module.exports = {
       center: true,
     },
     maxHeight: {
-      'screen/2':'150vh',
-     },
-     minHeight: {
+      'screen/2': '150vh',
+      '24': '6rem',
+    },
+    minHeight: {
       'screen-25': '75vh',
       'screen': '100vh',
-     },
-     minWidth:{
-      '20vw':'20vw',
-     },
+    },
+    minWidth: {
+      '20vw': '20vw',
+    },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -28,11 +29,11 @@ module.exports = {
     extend: {
       spacing: {
         '96': '400px',
-        '15':'17%',
+        '15': '17%',
         '45': '48%',
         '12': '12%',
         '20vw': '20vw',
-        '3vw' : '4vw',
+        '3vw': '4vw',
         'screen-25': '75vh',
         'screen-15': '85vh',
       },
@@ -46,7 +47,7 @@ module.exports = {
         light: '#C2E1F6',
         DEFAULT: '#008BEA',
         dark: '#15374E',
-        dark_light: '#235475' ,
+        dark_light: '#235475',
         light_dark: '#9dd4f9'
       },
       white: {
@@ -55,27 +56,27 @@ module.exports = {
       black: {
         DEFAULT: '#000000'
       },
-      gray:{
+      gray: {
         DEFAULT: '#CCCCCC',
         light: '#F1F6F9',
         dark: '#7C7878',
         opacity: "rgba(49,49,49,0.8)",
         blue: "#9CBED4"
       },
-      amarelo:{
+      amarelo: {
         DEFAULT: '#ffd700',
         andamento: '#ffe600',
       },
-      roxo:{
+      roxo: {
         DEFAULT: '#B09FFF',
         darker: '#A212E5',
       },
-      green:{
+      green: {
         DEFAULT: '#14CA3C',
         light: '#01FF1A',
       },
       red: '#C62424',
-      error:{
+      error: {
         DEFAULT: '#FFA3A3',
         dark: '#F38484',
       },

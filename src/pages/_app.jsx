@@ -6,11 +6,13 @@ import { CarrinhoProvider } from '../contexts/Carrinho'
 import { SessaoProvider } from '../contexts/Sessao'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
-import Navbar from '../components/Navbar'
 import '../styles/nprogress.css'
 import '../styles/globals.css'
-import { set } from 'nprogress'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import Main from '../components/Main'
 library.add(fab, faCoffee)
+
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
 
@@ -18,9 +20,9 @@ function MyApp({ Component, pageProps }) {
   const [fixed, setFixed] = useState(true);
 
   useEffect(() => {
-    if(router.route == "/login" || router.route == "/cadastro"){
+    if (router.route == "/login" || router.route == "/cadastro") {
       setFixed(false)
-    }else{
+    } else {
       setFixed(true)
     }
 
@@ -43,12 +45,12 @@ function MyApp({ Component, pageProps }) {
   }, [router])
 
   return (
-    <SessaoProvider>
-      <CarrinhoProvider>
-        <Navbar fixed={fixed}/>
-        <Component {...pageProps} />
-      </CarrinhoProvider>
-    </SessaoProvider>
+    <QueryClientProvider client={queryClient}>
+        <Main>
+          <Component {...pageProps} />
+        </Main>
+    </QueryClientProvider>
+
   )
 }
 

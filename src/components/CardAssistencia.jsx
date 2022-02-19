@@ -8,7 +8,7 @@ const CardAssistencia = ({ nome, avaliacao, categorias, endereco, id }) => {
     const router = useRouter()
     return (
 
-        <div onClick={() => {router.push(`/assistencia/${id}`)}} className="cursor-pointer w-full bg-blue-light h-28 flex rounded-lg p-4">
+        <div onClick={() => {router.push(`/perfil-assistencia/${id}`)}} className="cursor-pointer w-full bg-blue-light h-28 flex rounded-lg p-4">
             <div className="w-2/5 flex justify-around items-center">
                 <img src={`http://localhost:8080/assistencia/perfil/${id}`} alt="" className="rounded-full h-20" />
             </div>

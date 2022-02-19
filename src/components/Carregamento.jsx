@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
+import Image from 'next/image'
 
 const Carregamento = () => {
     return (
-        <div className="w-full alturaSemNavbar grid grid-cols-3 grid-rows-3">
-            <div className="row-span-1 col-span-1 col-start-2 row-start-2">
-                <img src="/hug.gif" alt="" className="m-auto" />
+        <div className="h-screen w-full pt-24 flex items-center m-auto">
+            <div className='m-auto'>
+                <Image src="/hug.gif" height={150} width={150} alt="carregamento" />
             </div>
         </div>
     )

@@ -6,7 +6,6 @@ import Botao from '../components/Botao'
 import Footer from '../components/Footer'
 import FormLogin from '../components/FormLogin'
 import HeaderLogin from '../components/HeaderLogin'
-import Navbar from '../components/Navbar'
 import { ValidacoesProvider } from '../contexts/Validacoes'
 
 const login = () => {
