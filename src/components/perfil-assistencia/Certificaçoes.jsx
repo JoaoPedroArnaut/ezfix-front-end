@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import CardCertificacao from './CardCertificacao'
 
-const Certificaçoes = () => {
+const Certificaçoes = ({certificados}) => {
 
-    const [sectionExt, setSectionExt] = useState(false);
+    const [sectionExt, setSectionExt] = useState(true);
 
     return (
         <>
@@ -21,9 +21,7 @@ const Certificaçoes = () => {
                     {sectionExt &&
                         <div className="w-full flex justify-around mb-20">
                             <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-10">
-                                <CardCertificacao nomeCurso="Manuntenção de Celuladares avançado" dataConclusao="20/11/2021" dataInicio="01/01/2020" cargaHoraria="840 Horas" />
-                                <CardCertificacao nomeCurso="Especialização em reparo de notebooks" dataConclusao="20/11/2021" dataInicio="01/01/2020" cargaHoraria="840 Horas" />
-                                <CardCertificacao nomeCurso="Conserto de placa-mãe" dataConclusao="20/11/2021" dataInicio="01/01/2020" cargaHoraria="840 Horas" />
+                                {certificados.map((certificado, index) => <CardCertificacao key={index} nomeCurso={certificado.nomeCurso} dataConclusao={certificado.dataConclusao} dataInicio={certificado.dataInicio} cargaHoraria={certificado.quantidadeHoras} /> )}
                             </div>
                         </div>
                     }

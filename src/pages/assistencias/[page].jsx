@@ -36,7 +36,6 @@ const assistencias = ({ data }) => {
             </div>
 
             {/* <Pagination /> */}
-            <Footer />
         </>
     )
 

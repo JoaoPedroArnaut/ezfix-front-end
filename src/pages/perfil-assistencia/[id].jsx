@@ -3,12 +3,11 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { api } from '../../api/api'
-import Certificaçoes from '../../components/Certificaçoes'
-import DetalhesAssistencia from '../../components/DetalhesAssistencia'
-import Footer from '../../components/Footer'
+import Certificaçoes from '../../components/perfil-assistencia/Certificaçoes'
+import DetalhesAssistencia from '../../components/perfil-assistencia/DetalhesAssistencia'
 import HeaderPage from '../../components/HeaderPage'
-import ModalOrcamentoEnv from '../../components/ModalOrcamentoEnv'
-import ServicosOferecidos from '../../components/ServicosOferecidos'
+import ModalOrcamentoEnv from '../../components/perfil-assistencia/ModalOrcamentoEnv'
+import ServicosOferecidos from '../../components/perfil-assistencia/ServicosOferecidos'
 
 const perfilassistencia = ({ data, id }) => {
     const router = useRouter()
@@ -17,6 +16,9 @@ const perfilassistencia = ({ data, id }) => {
     const [modalEnv, setModalEnv] = useState(false);
 
     useEffect(() => {
+        if (router.query.modal) {
+            setModalEnv(true)
+        }
         data == null ? router.push("/404") : setCarregado(true)
     }, [])
 
@@ -28,11 +30,9 @@ const perfilassistencia = ({ data, id }) => {
                 <div>
                     <HeaderPage tituloPagina={data.nomeFantasia} />
                     <DetalhesAssistencia estado={data.estado} cidade={data.cidade} id={id} avaliacao={data.avaliacao} />
-                    <ServicosOferecidos />
-                    <Certificaçoes />
+                    {/* <ServicosOferecidos /> */}
+                    <Certificaçoes certificados={data.certificados}/>
                 </div>}
-
-            <Footer />
         </>
     )
 

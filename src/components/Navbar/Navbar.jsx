@@ -13,11 +13,8 @@ const Navbar = ({ nome, cpf }) => {
     const [fixed, setFixed] = useState(true)
 
     useEffect(() => {
-        if(router.route == "/login" || router.route == "/cadastro"){
-            setFixed(false)
-        }else {
-            setFixed(true)
-        }
+        const rotas = ["/login","/cadastro","/solicitar-pedido/[id]"]
+        rotas.includes(router.route)? setFixed(false): setFixed(true)
     }, [router.route])
 
     return (
