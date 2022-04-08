@@ -23,7 +23,7 @@ const Content = ({ nome, cpf }) => {
                 </Link>
                 <Link href="/perfilusuario" passHref>
                     <a>
-                        <img src={`http://localhost:8080/solicitante/perfil/${cpf}`} className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
+                        <img src={`http://52.67.126.2:8080/solicitante/perfil/${cpf}`} className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
                     </a>
                 </Link>
                 <div className="ml-5 mr-10 cursor-pointer">
