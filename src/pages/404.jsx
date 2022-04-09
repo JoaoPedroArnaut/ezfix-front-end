@@ -30,8 +30,6 @@ function erro() {
 
 
             </section>
-
-            <Footer />
         </>
     )
 }

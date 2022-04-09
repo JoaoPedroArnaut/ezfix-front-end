@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Carregamento from './Carregamento';
 import Image from 'next/image'
+import { url } from '../api/api';
 
 
 const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistencia }) => {
@@ -32,7 +33,7 @@ const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistenc
                                         <span>{data}</span>
                                     </div>
                                 </div>
-                                <img src={`https://52.67.126.2:8080/assistencia/perfil/${idAssistencia}`} alt={nomeAssistencia} className="rounded-full w-32 h-32" />
+                                <img src={`${url()}/assistencia/perfil/${idAssistencia}`} alt={nomeAssistencia} className="rounded-full w-32 h-32" />
                             </div>
 
                             <div className="pt-9 pb-9">

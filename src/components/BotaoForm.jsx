@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BotaoForm = ({ onClick, text, type,size}) => {
+const BotaoForm = ({ onClick, text, type, size, disable }) => {
 
     return (
         <div className={` w-${size} flex justify-around pt-8`} >

@@ -3,6 +3,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { url } from '../api/api'
 
 const CardAssistencia = ({ nome, avaliacao, categorias, endereco, id }) => {
     const router = useRouter()
@@ -10,7 +11,7 @@ const CardAssistencia = ({ nome, avaliacao, categorias, endereco, id }) => {
 
         <div onClick={() => {router.push(`/perfil-assistencia/${id}`)}} className="cursor-pointer w-full bg-blue-light h-28 flex rounded-lg p-4">
             <div className="w-2/5 flex justify-around items-center">
-                <img src={`https://52.67.126.2:8080/assistencia/perfil/${id}`} alt="" className="rounded-full h-20" />
+                <img src={`${url()}/assistencia/perfil/${id}`} alt="" className="rounded-full h-20" />
             </div>
             <div className="w-4/5 p-2">
                 <p>{nome}</p>

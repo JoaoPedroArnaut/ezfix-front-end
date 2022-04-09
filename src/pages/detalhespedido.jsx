@@ -46,7 +46,6 @@ const detalhespedido = () => {
                 </ValidacoesProvider>
                 <HeaderPage tituloPagina={tituloPagina} />
                 <DetalhesAlternado pedido={pedido} setModalAvaliar={setModalAvaliar} />
-                <Footer />
             </>
         )
     } else {

@@ -9,21 +9,20 @@ import { api } from '../api/api'
 import Sucesso from './Sucesso'
 import { useRouter } from 'next/router'
 
-const DadosPessoaisUsuario = () => {
+const DadosPessoaisUsuario = ({nome,telefonePrimario,telefoneSecundario,cpf}) => {
 
-    const [nome, setNome] = useState("")
+    const [nomeAtual, setNome] = useState("")
     const [telPrimario, setTelPrimario] = useState('')
     const [telSecundario, setTelSecundario] = useState('')
     const [msg, setMsg] = useState("")
     const router = useRouter();
 
-    const { user } = useContext(SessaoContext)
     const { erros, setErros, validaAttDadosPessoais } = useContext(ValidacoesContext)
 
     useEffect(() => {
-            setNome(user.nome)
-            setTelPrimario(mascaraTel(user.telefonePrimario))
-            setTelSecundario(mascaraTel(user.telefoneSecundario))
+            setNome(nome)
+            setTelPrimario(mascaraTel(telefonePrimario))
+            setTelSecundario(mascaraTel(telefoneSecundario))
     }, [])
 
 
@@ -73,8 +72,8 @@ const DadosPessoaisUsuario = () => {
                 <form className="w-6/12 mt-5" onSubmit={handleChanges}>
                     <Sucesso msg={msg}/>
                     <Erros erros={erros} />
-                    <Input value={nome} onChange={e => setNome(e.target.value)} label="Nome Completo" placeholder="italou@live.com" alternativo={true} size="w-full" />
-                    <Input value={mascaraCpf(user.cpf)} disabled="true" label="CPF" onChange={e => { mascaraCpf(e.target.value, setCPF) }} placeholder="229.846.518-55" alternativo={true} size="w-full" />
+                    <Input value={nomeAtual} onChange={e => setNome(e.target.value)} label="Nome Completo" placeholder="seu@email.com" alternativo={true} size="w-full" />
+                    <Input value={mascaraCpf(cpf)} disabled="true" label="CPF" onChange={e => { mascaraCpf(e.target.value, setCPF) }} placeholder="229.846.518-55" alternativo={true} size="w-full" />
                     <Input maxLength={15} value={telPrimario} label="Telefone Primário" onChange={e => { setTelPrimario(mascaraTel(e.target.value)) }} placeholder="(XX)XXXXX-XXXX" alternativo={true} size="w-full" />
                     <Input maxLength={15} value={telSecundario} label="Telefone Alternativo" onChange={e => { setTelSecundario(mascaraTel(e.target.value)) }} placeholder="(XX)XXXXX-XXXX" alternativo={true} size="w-full" />
                     <div className="mt-8 flex justify-end">

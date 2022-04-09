@@ -4,6 +4,7 @@ import Botao from '../Botao'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router';
+import { url } from '../../api/api';
 
 const DetalhesAssistencia = ({ id, avaliacao, estado, cidade }) => {
 
@@ -15,7 +16,7 @@ const DetalhesAssistencia = ({ id, avaliacao, estado, cidade }) => {
             <div className="flex justify-center w-full mt-20">
                 <div className="w-4/5 flex justify-around">
                     <div className="flex flex-col items-center">
-                        <img src={`https://52.67.126.2:8080/assistencia/perfil/${id}`} alt="logo" width="150px" className="rounded-full" />
+                        <img src={`${url()}/assistencia/perfil/${id}`} alt="logo" width="150px" className="rounded-full" />
                         <span>{cidade} - {estado}</span>
                     </div>
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Botao from './Botao'
 import { useRouter } from 'next/router';
-import { api } from '../api/api';
+import { api, url } from '../api/api';
 
 const PedidoDetalhadoConfirmar = ({ nomeAssistencia, setEstagio, id, itens, status, data, dataPrivista, valorTotal, idAssistencia }) => {
 
@@ -31,7 +31,7 @@ const PedidoDetalhadoConfirmar = ({ nomeAssistencia, setEstagio, id, itens, stat
                                 </div>
                             </div>
 
-                            <img src={`https://52.67.126.2:8080/assistencia/perfil/${idAssistencia}`} alt={nomeAssistencia} className="rounded-full w-32 h-32" />
+                            <img src={`${url()}/assistencia/perfil/${idAssistencia}`} alt={nomeAssistencia} className="rounded-full w-32 h-32" />
 
                         </div>
                         <div className="py-4">

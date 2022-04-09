@@ -1,18 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useContext, useEffect, useState } from 'react'
-import Input from './Input'
-import Botao from './Botao'
+import React from 'react'
 import CardEndereco from './CardEndereco'
-import { SessaoContext } from '../contexts/Sessao'
 
-const EnderecosUsuario = ({ setNovoEndereco }) => {
-
-    const { user } = useContext(SessaoContext)
-    const [enderecos, setEnderecos] = useState([]);
-
-    useEffect(() => {
-        setEnderecos(user.enderecoEspecificos)
-    }, [user.enderecoEspecificos])
+const EnderecosUsuario = ({ setNovoEndereco, enderecos }) => {
 
     return (
         <>

@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 const cookies = parseCookies()
 
 export let api = axios.create({
-    baseURL: "http://52.67.126.2:8080",
+    baseURL: url(),
     headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
@@ -15,7 +15,11 @@ export let api = axios.create({
 
 export function setToken(token) {
     api = axios.create({
-        baseURL: "http://52.67.126.2:8080",
+        baseURL: url(),
         headers: { Authorization: `Bearer ${token}` }
     })
+}
+
+export function url(){
+    return "https://api.ezfix.com.br"
 }

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { faBullhorn, faCommentDots, faSearchPlus } from '@fortawesome/free-solid-svg-icons'
 import Botao from '../Botao'
 import { useRouter } from 'next/router';
+import { url } from '../../api/api';
 
 const CardPedido = ({ id, assistencia, status, itens, idPedido }) => {
 
@@ -32,7 +33,7 @@ const CardPedido = ({ id, assistencia, status, itens, idPedido }) => {
     return (
         <>
             <div className="w-full h-52 flex bg-blue-light rounded-t-2xl items-center p-14">
-                <img src={`https://52.67.126.2:8080/assistencia/perfil/${id}`} alt="ThTecnologia" className="rounded-full w-32 h-32" />
+                <img src={`${url()}/assistencia/perfil/${id}`} alt="ThTecnologia" className="rounded-full w-32 h-32" />
                 <div className="flex flex-col justify-center w-2/6 ml-10">
                     <p className="text-4xl font-bold">{assistencia}</p>
                     <div className="flex mt-1">

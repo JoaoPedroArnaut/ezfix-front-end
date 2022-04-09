@@ -6,6 +6,7 @@ import MenuOpcoes from './MenuOpcoes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { url } from '../../api/api'
 
 const Content = ({ nome, cpf }) => {
     const router = useRouter();
@@ -23,7 +24,7 @@ const Content = ({ nome, cpf }) => {
                 </Link>
                 <Link href="/perfilusuario" passHref>
                     <a>
-                        <img src={`https://52.67.126.2:8080/solicitante/perfil/${cpf}`} className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
+                        <img src={`${url()}/solicitante/perfil/${cpf}`} className="rounded-full cursor-pointer" width="70px" height="70px" alt="logo ezfix" />
                     </a>
                 </Link>
                 <div className="ml-5 mr-10 cursor-pointer">

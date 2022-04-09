@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import { setCookie } from 'nookies';
 import { ValidacoesContext } from '../contexts/Validacoes';
 import {api, setToken} from '../api/api';
+import NProgress from 'nprogress'
+
 
 const FormLogin = ({isTecnico}) => {
     const router = useRouter()
@@ -46,6 +48,7 @@ const FormLogin = ({isTecnico}) => {
                     setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
                 }
             })
+            NProgress.start()
         }
     }
 

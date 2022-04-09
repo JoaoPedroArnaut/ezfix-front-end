@@ -27,8 +27,6 @@ function Faq() {
 
                 </div>
             </section>
-
-            <Footer />
         </>
     )
 }

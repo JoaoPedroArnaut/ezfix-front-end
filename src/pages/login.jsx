@@ -32,7 +32,6 @@ const login = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

@@ -32,7 +32,6 @@ const statuspedido = () => {
                 <Botao text="Confirmar Retirada" estilo={9}/>
                 </div>
             </div>
-            <Footer/>
         </>
     )
 }
