@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
+import { useQuery } from 'react-query'
 import { api, url } from '../api/api'
 import { SessaoContext } from '../contexts/Sessao'
+import Carregamento from './Carregamento'
 import DadosContaUsuario from './DadosContaUsuario'
 import DadosPessoaisUsuario from './DadosPessoaisUsuario'
 import EnderecosUsuario from './EnderecosUsuario'
@@ -28,7 +30,8 @@ const InfosUsuario = ({setNovoEndereco}) => {
 
     return (
         <>
-            <div className="w-full flex justify-around">
+        
+            {!!data ? <div className="w-full flex justify-around">
                 <div className="sm:w-4/5 mt-8 mb-20 p-10 border-2 border-solid border-opacity-10 border-black filter shadow-xl rounded-xl">
                     <div className="flex mb-10">
                         <img src={`${url()}/solicitante/perfil/${data.cpf}`} alt="img" width="160px" className="rounded-full" />
@@ -48,7 +51,7 @@ const InfosUsuario = ({setNovoEndereco}) => {
                     <EnderecosUsuario setNovoEndereco={setNovoEndereco}/>
                 </div>
 
-            </div>
+            </div>: <Carregamento/>}
         </>
     )
 }
