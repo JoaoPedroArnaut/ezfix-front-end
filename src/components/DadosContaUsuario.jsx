@@ -15,6 +15,10 @@ const DadosContaUsuario = ({email}) => {
     const [confirmSenha, setConfirmSenha] = useState("");
     const [msg, setMsg] = useState("");
 
+    function handleSubmit() {
+        
+    }
+
     return (
         <>
             <form className="flex flex-col items-center justify-center" onSubmit={handleSubmit}>

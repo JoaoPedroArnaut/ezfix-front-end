@@ -5,7 +5,6 @@ import Carregamento from '../components/Carregamento'
 import Footer from '../components/Footer'
 import InfosUsuario from '../components/InfosUsuario'
 import ModalNovoEndereco from '../components/ModalNovoEndereco'
-import { SessaoContext } from '../contexts/Sessao'
 import { ValidacoesProvider } from '../contexts/Validacoes'
 
 const perfilusuario = () => {
