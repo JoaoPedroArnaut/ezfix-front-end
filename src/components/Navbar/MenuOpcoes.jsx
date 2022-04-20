@@ -21,7 +21,7 @@ const MenuOpcoes = () => {
                     <ul>
                         <li onClick={() => { router.push("/assistencias/1") }} className=" hover:text-blue-light">inicio</li>
                         <li onClick={() => { router.push("/meu-pedidos") }} className=" hover:text-blue-light">Pedidos</li>
-                        <li onClick={() => { router.push("/perfi-lusuario") }} className=" hover:text-blue-light">Perfil</li>
+                        <li onClick={() => { router.push("/perfil-usuario") }} className=" hover:text-blue-light">Perfil</li>
                         <li onClick={() => { router.push("/mensagens") }} className=" hover:text-blue-light">Mensagens</li>
                         <li className=" hover:text-blue-light">Ajuda</li>
                         <hr className="text text-gray" />
