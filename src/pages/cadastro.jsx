@@ -11,7 +11,6 @@ const cadastro = () => {
             <CadastroProvider>
                 <BodyCadastro />
             </CadastroProvider>
-            <Footer />
         </>
     )
 

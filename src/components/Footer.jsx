@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div className="bg-blue-dark flex items-center flex-col text-white text-center">
             <Image src='/ezfix_logo.png' alt="logo ezfix" height="150" width="150" />
-            <p className="sm:w-6/12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            <p className="sm:w-6/12">Maquina: </p>
             <Link href="/tecnico/home" passHref>
                 <a className="mt-4 cursor-pointer" >seja uma assistência parceira</a>
             </Link>
