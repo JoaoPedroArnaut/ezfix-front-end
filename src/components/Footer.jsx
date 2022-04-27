@@ -1,14 +1,23 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Footer = () => {
+
+    const [maquina, setMaquina] = useState(1)
+
+    useEffect(() => {
+
+        Math.floor(Math.random() * 10) % 2 == 0 ? setMaquina(1) : setMaquina(2)
+    }, [])
+
     return (
         <div className="bg-blue-dark flex items-center flex-col text-white text-center">
             <Image src='/ezfix_logo.png' alt="logo ezfix" height="150" width="150" />
-            <p className="sm:w-6/12">Maquina: </p>
+            <p className="sm:w-6/12">Maquina: {maquina}</p>
             <Link href="/tecnico/home" passHref>
                 <a className="mt-4 cursor-pointer" >seja uma assistência parceira</a>
             </Link>
