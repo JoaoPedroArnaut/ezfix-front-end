@@ -11,7 +11,7 @@
     <p><a href="https://github.com/AmorimJoaoVitor">João Amorim</a></p>
 </details>
 
-## Antes de tudo!!!!
+## Antes de tudo!
 <p>Nossa empresa foi criada a partir de um projeto de faculdade, com isso dito, nossa empresa é <b>FICTICIA</b>!</p>
 
 ## Qual o objetivo da EzFix?
