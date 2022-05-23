@@ -51,7 +51,7 @@ const CardPedido = ({ id, assistencia, status, itens, idPedido }) => {
 
             </div>
             <div className="w-full h-24 bg-blue-dark rounded-b-2xl flex justify-between items-center px-8 mb-16">
-                <Botao onClick={() => { router.push(`/detalhespedido?${idPedido}`) }} estilo={1} text="Detalhes" icone={faSearchPlus} />
+                <Botao onClick={() => { router.push(`/detalhes-pedido/${idPedido}`) }} estilo={1} text="Detalhes" icone={faSearchPlus} />
                 <div className="flex justify-between w-2/6">
                     <Botao estilo={1} text="Conversa" icone={faCommentDots} />
                     <Botao estilo={1} text="Ajuda" icone={faBullhorn} />

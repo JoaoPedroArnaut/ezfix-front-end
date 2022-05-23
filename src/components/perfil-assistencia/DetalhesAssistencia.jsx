@@ -39,7 +39,7 @@ const DetalhesAssistencia = ({ id, avaliacao, estado, cidade }) => {
                         </div>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Botao estilo={9} text="Solicitar Orçamento" onClick={() => router.push(`/relatorioproblema?${id}`)} />
+                        <Botao estilo={9} text="Solicitar Orçamento" onClick={() => router.push(`/solicitar-pedido/${id}`)} />
                     </div>
                 </div>
             </div>

@@ -2,14 +2,21 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import FormProduto from './FormProduto'
 import SvgProduto from '../../public/undraw_Questions_re_1fy7.svg'
+import { parseCookies } from 'nookies';
 
 
 const Section2 = () => {
 
     const router = useRouter();
+    const { token = null } = parseCookies();
 
     function final() {
-        router.push("/assistencias")
+        if(!!token){
+            router.push("/assistencias/1")
+        }else{
+            router.push("/login")
+        }
+        
     }
 
     return (

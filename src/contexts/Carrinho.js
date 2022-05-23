@@ -4,13 +4,21 @@ export const CarrinhoContext = createContext({});
 
 export const CarrinhoProvider = ({ children }) => {
 
-    const [pedido, setPedido] = useState([])
+    const [itens, setItens] = useState([])
 
     function remove(i) {
         let tmpPedido = pedido
         tmpPedido.splice(i, 1)
-        setPedido(tmpPedido)
+        setItens(tmpPedido)
     }
 
-    return (<CarrinhoContext.Provider value={{ pedido, setPedido, remove }}>{children}</CarrinhoContext.Provider>)
+    function addItem(item){
+        setItens([...itens,item])
+    }
+
+    function limpaCart(){
+        setItens([])
+    }
+
+    return (<CarrinhoContext.Provider value={{ itens, addItem, remove, limpaCart }}>{children}</CarrinhoContext.Provider>)
 };

@@ -1,15 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react'
-import Footer from '../components/Footer'
-import DetalhesAlternado from '../components/DetalhesAlternado'
-import { api } from '../api/api'
+import DetalhesAlternado from '../../components/DetalhesAlternado'
+import { api } from '../../api/api'
 import { useRouter } from 'next/router'
-import Carregamento from '../components/Carregamento'
-import HeaderPage from '../components/HeaderPage'
-import ModalAvaliacao from '../components/ModalAvaliacao'
-import { ValidacoesProvider } from '../contexts/Validacoes'
-import RenderIf from '../components/RenderIf'
+import Carregamento from '../../components/Carregamento'
+import HeaderPage from '../../components/HeaderPage'
+import ModalAvaliacao from '../../components/ModalAvaliacao'
+import { ValidacoesProvider } from '../../contexts/Validacoes'
+import RenderIf from '../../components/RenderIf'
 
 const detalhespedido = () => {
 
@@ -29,8 +28,10 @@ const detalhespedido = () => {
 
     useEffect(() => {
         alternaTitulo(estagio)
+        let idPedido = router.query.id
+        console.log(router);
 
-        api.get(`/orcamentos/${router.asPath.replace("/detalhespedido?", "")}`).then(res => {
+        api.get(`/orcamentos/${idPedido}`).then(res => {
             setCarregado(true)
             setPedido(res.data)
             console.log(res.data);

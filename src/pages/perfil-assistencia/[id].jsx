@@ -7,7 +7,6 @@ import Certificaçoes from '../../components/perfil-assistencia/Certificaçoes'
 import DetalhesAssistencia from '../../components/perfil-assistencia/DetalhesAssistencia'
 import HeaderPage from '../../components/HeaderPage'
 import ModalOrcamentoEnv from '../../components/perfil-assistencia/ModalOrcamentoEnv'
-import ServicosOferecidos from '../../components/perfil-assistencia/ServicosOferecidos'
 
 const perfilassistencia = ({ data, id }) => {
     const router = useRouter()

@@ -10,6 +10,7 @@ const DetalhesAlternado = ({pedido, setModalAvaliar}) => {
     const [estagio,setEstagio] = useState(0)
 
     useEffect(() => {
+        console.log(pedido);
         if(pedido != undefined){
             if(pedido.statusGeral == "aguardando resposta tecnico"){
                 setEstagio(1)

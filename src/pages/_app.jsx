@@ -10,6 +10,7 @@ import '../styles/nprogress.css'
 import '../styles/globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import Main from '../components/Main'
+import { ValidacoesProvider } from '../contexts/Validacoes'
 library.add(fab, faCoffee)
 
 const queryClient = new QueryClient()
@@ -46,9 +47,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-        <Main>
-          <Component {...pageProps} />
-        </Main>
+      <ValidacoesProvider>
+        <CarrinhoProvider>
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+        </CarrinhoProvider>
+      </ValidacoesProvider>
     </QueryClientProvider>
 
   )

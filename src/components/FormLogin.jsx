@@ -47,13 +47,14 @@ const FormLogin = ({isTecnico}) => {
                 }catch(e){
                     setErros(["algo inesperado ocorreu, tente novamente mais tarde"])
                 }
+                NProgress.done()
             })
             NProgress.start()
         }
     }
 
     return (
-        <form className="my-8" onSubmit={handleSubmit}>
+        <form className="my-8 w-3/4" onSubmit={handleSubmit}>
             <Erros erros={erros} />
             <Input value={email} onChange={e => { setEmail(e.target.value) }} label="Email" placeholder="seu@email.com" alternativo={true} size="w-full" />
             <Input value={senha} onChange={e => { setSenha(e.target.value) }} label="Senha" type="password" placeholder="**********" alternativo={true} size="w-full" />

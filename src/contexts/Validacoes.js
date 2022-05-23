@@ -168,6 +168,8 @@ export const ValidacoesProvider = ({ children }) => {
                     erros.push(`nova senha não pode estar em branco`)
                 }  else if (i == "telPrimario") {
                     erros.push(`telefone principal não pode estar em branco`)
+                }else if (i == "descricao") {
+                    erros.push(`Descrição do Problema não pode estar em branco`)
                 } else if (i == "telSecundario") {
 
                 } else if (i == "complemento") {

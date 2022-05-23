@@ -13,7 +13,7 @@ export let api = axios.create({
     }
 })
 
-export function setToken(token) {
+export function setToken(token = null) {
     api = axios.create({
         baseURL: url(),
         headers: { Authorization: `Bearer ${token}` }
@@ -21,6 +21,6 @@ export function setToken(token) {
 }
 
 export function url(){
-    return "https://api.ezfix.com.br"
-    // return "http://localhost:8080"
+    // return "https://api.ezfix.com.br"
+    return "http://localhost:8080"
 }

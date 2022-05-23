@@ -17,8 +17,6 @@ const DadosPessoaisUsuario = ({nome,telefonePrimario,telefoneSecundario,cpf}) =>
     const [msg, setMsg] = useState("")
     const router = useRouter();
 
-    const { erros, setErros, validaAttDadosPessoais } = useContext(ValidacoesContext)
-
     useEffect(() => {
             setNome(nome)
             setTelPrimario(mascaraTel(telefonePrimario))
@@ -71,7 +69,7 @@ const DadosPessoaisUsuario = ({nome,telefonePrimario,telefoneSecundario,cpf}) =>
                 <span className="text-3xl font-semibold">Dados Pessoais</span>
                 <form className="w-6/12 mt-5" onSubmit={handleChanges}>
                     <Sucesso msg={msg}/>
-                    <Erros erros={erros} />
+                    {/* <Erros erros={erros} /> */}
                     <Input value={nomeAtual} onChange={e => setNome(e.target.value)} label="Nome Completo" placeholder="seu@email.com" alternativo={true} size="w-full" />
                     <Input value={mascaraCpf(cpf)} disabled="true" label="CPF" onChange={e => { mascaraCpf(e.target.value, setCPF) }} placeholder="229.846.518-55" alternativo={true} size="w-full" />
                     <Input maxLength={15} value={telPrimario} label="Telefone Primário" onChange={e => { setTelPrimario(mascaraTel(e.target.value)) }} placeholder="(XX)XXXXX-XXXX" alternativo={true} size="w-full" />

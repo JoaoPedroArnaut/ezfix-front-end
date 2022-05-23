@@ -29,8 +29,9 @@ const ComboBox = ({ estilo, label, opicao, onChange }) => {
             return (
                 <div className="pt-2">
                     <Label value={label + ":"} />
-                    <select onChange={onChange} className="w-full bg-white px-1">
-                        {opicao.map((item, index) =>  <option value={item} key={index}>{item}</option> )}
+                    <select onChange={onChange} className="w-full bg-white px-1" >
+                    <option value="0" disabled selected >--Selecione--</option>
+                        {opicao.map((item) =>  <option value={item.id} key={item.id}>{item.nome}</option> )}
                     </select>
                 </div>
             )
