@@ -36,10 +36,6 @@ export const CadastroProvider = ({ children }) => {
         setFormPronto(f)
     }
 
-    useEffect(() => {
-        console.log(form);
-    }, [form])
-
     function limpaFormatacao(v) {
         v = v.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gi, '')
         return v;

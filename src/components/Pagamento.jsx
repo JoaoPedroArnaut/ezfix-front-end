@@ -14,11 +14,6 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(assistencia);
-        console.log(solicitante.enderecoEspecificos[0].enderecoGeral.logradouro);
-    }, [])
-
-    useEffect(() => {
         if (lalamove) {
             setFrete("121")
             setSubtotal(valorTotal + frete)
@@ -29,11 +24,10 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
     }, [lalamove])
 
     function envio() {
-        api.put(`/orcamentos`,{
-            "id":id,
+        api.put(`/orcamentos/atualizar-status/${id}`,{
             "status":"aguardando envio"
         }).then(res => {
-            router.push("/myorders")
+            router.push("/meus-pedidos")
         },err => {
 
         })
@@ -49,9 +43,9 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
                             <img src="./lalamoveLogo.png" alt="lalamoveLogo" className="mr-3" />
                             <p>Entrega e recebimento com a Lalamove</p>
                         </div> */}
-                        <div className="h-14 w-full bg-white flex justify-start items-center mt-8 p-2 rounded-2xl">
+                        <div className="h-14 w-full bg-white flex justify-start items-center p-2 rounded-2xl">
                             <input onClick={() => setSection(false)} type="radio" color="black" name="formPag" className="h-9 w-9 mr-3" />
-                            <img src="./Walking.png" alt="imgAnd" className="mr-3" />
+                            <img src="../Walking.png" alt="imgAnd" className="mr-3" />
                             <p>Levar e retirar com a assistência</p>
                         </div>
                         <div className={lalamove ? "block" : "hidden"}>
@@ -59,9 +53,9 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
                                 <span className="font-semibold text-xl">Confirme o seu endereço</span>
                                 <div className="h-14 w-full bg-white flex justify-between items-center px-4 rounded-2xl mt-2">
                                     <span className="text-gray-dark">
-                                        {solicitante.enderecoEspecificos[0].enderecoGeral.logradouro}, {solicitante.enderecoEspecificos[0].numero} - {solicitante.enderecoEspecificos[0].enderecoGeral.cep}
+                                        {/* {solicitante.enderecoEspecificos[0].enderecoGeral.logradouro}, {solicitante.enderecoEspecificos[0].numero} - {solicitante.enderecoEspecificos[0].enderecoGeral.cep} */}
                                     </span>
-                                    <img src="./Edit.png" alt="Editar" />
+                                    <img src="../Edit.png" alt="Editar" />
                                 </div>
                             </div>
                         </div>
@@ -80,8 +74,7 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
                             <div className="text-gray-dark">
                                 {itens.map((item, i) =>
                                 (<div key={i} className=" flex justify-between w-full">
-                                    <span>{item.produto.marca} {item.produto.modelo}</span>
-                                    <span>R${item.valorServico}</span>
+                                    <span>{item.marca} {item.modelo}</span>
                                 </div>))}
                                 <hr />
                                 <div className="flex justify-between mt-1 mb-1">
@@ -91,7 +84,7 @@ const Pagamento = ({ itens, valorTotal, solicitante, assistencia, id }) => {
                                 <hr />
                                 <div className="flex justify-between text-black font-semibold mt-2">
                                     <span>Total</span>
-                                    <span>R${subTotal}</span>
+                                    <span>R${valorTotal}</span>
                                 </div>
                             </div>
                         </div>

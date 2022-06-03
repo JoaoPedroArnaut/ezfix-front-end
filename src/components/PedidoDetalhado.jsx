@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Carregamento from './Carregamento';
 import Image from 'next/image'
 import { url } from '../api/api';
+import RenderIf from './RenderIf';
 
 
 const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistencia }) => {
@@ -16,9 +17,12 @@ const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistenc
         }
     }, [itens])
 
-    if (carregado) {
-        return (
-            <>
+
+
+
+    return (
+        <>
+            <RenderIf condition={carregado}>
                 <div className="w-full mb-10 flex justify-around">
                     <div className="sm:w-4/5 flex flex-col mt-8">
                         <div className="w-full bg-gray-light rounded-2xl p-10 font-semibold pb-96">
@@ -43,7 +47,7 @@ const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistenc
                                     (<li key={i}>
                                         <hr className="opacity-25" />
                                         <div className="my-10">
-                                            {item.produto.tipo} {item.produto.marca} {item.produto.modelo} - <b>{item.problema}</b>
+                                            {item.tipo} {item.marca} {item.modelo} 
                                             <p className="text-gray-dark">{item.descricao}</p>
                                         </div>
                                     </li>)
@@ -60,15 +64,13 @@ const PedidoDetalhado = ({ id, itens, nomeAssistencia, status, data, idAssistenc
                     </div>
 
                 </div>
-            </>
-        )
-    } else {
-        return (
-            <>
+            </RenderIf>
+            <RenderIf condition={!carregado}>
                 <Carregamento />
-            </>
-        )
-    }
+            </RenderIf>
+        </>
+    )
+
 }
 
 export default PedidoDetalhado

@@ -19,11 +19,6 @@ const InfosUsuario = ({ setNovoEndereco }) => {
 
     const { data } = useQuery('perfil', () => getPefil())
 
-    useEffect(() => {
-        console.log(data);
-    }, [data])
-
-
     function handlelUplod(e) {
 
         var formdata = new FormData();

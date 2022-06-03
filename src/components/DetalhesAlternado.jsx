@@ -10,26 +10,25 @@ const DetalhesAlternado = ({pedido, setModalAvaliar}) => {
     const [estagio,setEstagio] = useState(0)
 
     useEffect(() => {
-        console.log(pedido);
         if(pedido != undefined){
-            if(pedido.statusGeral == "aguardando resposta tecnico"){
+            if(pedido.status == "aguardando resposta tecnico"){
                 setEstagio(1)
-            }else if(pedido.statusGeral == "aguardando sua resposta"){
+            }else if(pedido.status == "aguardando sua resposta"){
                 setEstagio(2)
-            }else if(pedido.statusGeral  != "aguardando sua resposta"){
+            }else if(pedido.status  != "aguardando sua resposta"){
                 setEstagio(4)
             }
         }
     },[pedido])
 
     switch (estagio) {
-        case 1: return <PedidoDetalhado nomeAssistencia={pedido.assistencia.nomeFantasia} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>;
+        case 1: return <PedidoDetalhado nomeAssistencia={pedido.nomeAssistencia} data={pedido.dataSolicitacao} status={pedido.status} itens={pedido.itemOrcamentoList} id={pedido.idOrcamento} idAssistencia={pedido.idAssistencia}/>;
 
-        case 2: return <PedidoDetalhadoConfirmar nomeAssistencia={pedido.assistencia.nomeFantasia} setEstagio={setEstagio} valorTotal={pedido.valorTotal} data={pedido.dataSolicitacao} status={pedido.statusGeral} itens={pedido.itens} id={pedido.id} idAssistencia={pedido.assistencia.id}/>
+        case 2: return <PedidoDetalhadoConfirmar nomeAssistencia={pedido.nomeAssistencia} setEstagio={setEstagio} valorTotal={pedido.valorTotal} data={pedido.dataSolicitacao} status={pedido.status} itens={pedido.itemOrcamentoList} id={pedido.idOrcamento} idAssistencia={pedido.idAssistencia}/>
 
-        case 3: return <Pagamento id={pedido.id} solicitante={pedido.solicitante} assistencia={pedido.assistencia} itens={pedido.itens} valorTotal={pedido.valorTotal}/>
+        case 3: return <Pagamento id={pedido.idOrcamento} solicitante={pedido.solicitante} assistencia={pedido.assistencia} itens={pedido.itemOrcamentoList} valorTotal={pedido.valorTotal}/>
 
-        case 4: return <StatusPedido id={pedido.id} status={pedido.statusGeral} setModalAvaliar={setModalAvaliar} />
+        case 4: return <StatusPedido id={pedido.idOrcamento} status={pedido.status} setModalAvaliar={setModalAvaliar} />
 
         default: return <Carregamento/>;
     }

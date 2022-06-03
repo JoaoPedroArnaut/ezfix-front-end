@@ -27,7 +27,6 @@ const relatorioproblema = () => {
 
     function handleSubimt(e) {
         e.preventDefault();
-        console.log("a");
         let idAssistencia = router.query.id
 
         if (itens.length > 0) {

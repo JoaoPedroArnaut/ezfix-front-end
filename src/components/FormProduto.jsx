@@ -49,10 +49,6 @@ const FormProduto = ({ final }) => {
         })
     }, [marca])
 
-    useEffect(() => {
-        console.log(produtos);
-    }, [produtos])
-
     const { addItem } = useContext(CarrinhoContext)
     const { isBlank } = useContext(ValidacoesContext)
 

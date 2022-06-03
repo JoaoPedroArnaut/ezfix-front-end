@@ -11,10 +11,6 @@ const pedidos = () => {
 
     const { data, isLoading, isError } = useQuery('meusPedidos', () => getMeusPedidos())
 
-    useEffect(() => {
-        console.log(data);
-    }, [data])
-
     if (!!data) {
         return (
             <>

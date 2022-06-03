@@ -40,7 +40,7 @@ const PedidoDetalhadoConfirmar = ({ nomeAssistencia, setEstagio, id, itens, stat
                                 (<li key={i}>
                                     <hr className="opacity-25" />
                                     <div className="my-10">
-                                        {item.produto.tipo} {item.produto.marca} {item.produto.modelo} - <b>{item.problema}</b>
+                                        {item.tipo} {item.marca} {item.modelo}
                                         <p className="text-gray-dark">{item.descricao}</p>
                                     </div>
                                     {i == (itens.length - 1) ? <hr className="opacity-25" /> : <div />}
@@ -48,14 +48,6 @@ const PedidoDetalhadoConfirmar = ({ nomeAssistencia, setEstagio, id, itens, stat
                                 )}
                             </ul>
                         </div>
-                        <div className="pt-4 pb-8 text-gray-dark">
-                            {itens.map((item, i) =>
-                            (<div key={i} className=" flex justify-between w-full">
-                                <span>{item.produto.marca} {item.produto.modelo}</span>
-                                <span>R${item.valorServico}</span>
-                            </div>))}
-                        </div>
-                        <hr className="opacity-25" />
                         <div className="pt-6 pb-6 text-gray-dark">
                             <div className=" flex justify-between w-full">
                                 <span>Frete</span>

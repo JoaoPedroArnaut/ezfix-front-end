@@ -29,21 +29,21 @@ const detalhespedido = () => {
     useEffect(() => {
         alternaTitulo(estagio)
         let idPedido = router.query.id
-        console.log(router);
-
-        api.get(`/orcamentos/${idPedido}`).then(res => {
-            setCarregado(true)
-            setPedido(res.data)
-            console.log(res.data);
-        }, err => {
-
-        })
-    }, []);
+        if(idPedido != undefined){
+            api.get(`/orcamentos/${idPedido}`).then(res => {
+                setCarregado(true)
+                setPedido(res.data)
+                console.log(res.data);
+            }, err => {
+                router.push("/404")
+            })
+        }
+        
+    }, [router.query.id]);
 
     return (
         <>
             <RenderIf condition={carregado}>
-
                 <ValidacoesProvider>
                     {modalAvaliar && <ModalAvaliacao pedido={pedido} />}
                 </ValidacoesProvider>

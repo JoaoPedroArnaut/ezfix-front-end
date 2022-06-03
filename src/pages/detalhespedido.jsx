@@ -33,7 +33,6 @@ const detalhespedido = () => {
         api.get(`/orcamentos/${router.asPath.replace("/detalhespedido?", "")}`).then(res => {
             setCarregado(true)
             setPedido(res.data)
-            console.log(res.data);
         }, err => {
 
         })

@@ -18,20 +18,16 @@ const ModalAvaliacao = ({pedido}) => {
     function envia() {
 
         let tmpErros = isBlank({avaliacao,comentario})
-        console.log();
-        console.log();
-        console.log();
+        
         setErros([...tmpErros])
         if (tmpErros.length == 0) {
             api.post("/comentario",{
                 "comentario":comentario,
                 "avaliacao": avaliacao,
-                "assistencia":{"id":pedido.assistencia.id},
-                "solicitante":{"cpf":pedido.solicitante.cpf},
-                "orcamento":{"id":pedido.id}
+                "assistencia":{"id":pedido.idAssistencia},
+                "orcamento":{"id":pedido.idOrcamento}
             }).then(res => {
-                api.put(`/orcamentos`, {
-                    "id": pedido.id,
+                api.put(`/orcamentos/atualizar-status/${pedido.idOrcamento}`, {
                     "status": "concluido"
                 }).then(res => {
                     router.reload()

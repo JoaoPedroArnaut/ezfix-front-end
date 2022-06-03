@@ -14,8 +14,6 @@ const FormUsuario = () => {
     const { enviar, trocaPg, form } = useContext(CadastroContext)
     const { validaUsuario, erros } = useContext(ValidacoesContext)
 
-    useEffect(() => { console.log(erros); }, [erros])
-
     useEffect(() => {
         for (let i in form) {
             if (i == "email") {
