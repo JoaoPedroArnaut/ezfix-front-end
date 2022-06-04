@@ -15,7 +15,6 @@ const StatusPedido = ({ id, status, setModalAvaliar }) => {
 
     useEffect(() => {
         if (status == "reparo em andamento") {
-            setTBotao("Concluir Reparo")
             setEtapas([true])
         } else if (status == "reparo conluido") {
             setEtapas([true, true])
