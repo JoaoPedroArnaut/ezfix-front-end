@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="bg-blue-dark flex items-center flex-col text-white text-center">
             <Image src='/ezfix_logo.png' alt="logo ezfix" height="150" width="150" />
             <p className="sm:w-6/12">Maquina: {maquina}</p>
-            <Link href="/tecnico/home" passHref>
+            <Link href="https://assistencia.ezfix.com.br/" passHref>
                 <a className="mt-4 cursor-pointer" >seja uma assistência parceira</a>
             </Link>
             <div className="w-full sm:w-6/12 lg:w-3/12 flex justify-evenly mt-8">
